@@ -1,15 +1,22 @@
-.buttons {
+.buttongroup1 {
     margin-top: 50px;
     padding-bottom: 50px;
     text-align: center;
     display:flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    max-width: 100%;
+    justify-content: space-around;  
+    width:100%;
 }
-
-.normal  {
-    position:absolute;
+.buttongroup2 {
+    margin-top: 50px;
+    padding-bottom: 75px;
+    text-align: center;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;  
+    width:100%;
+}
+.button  {
     width: 140px;
     height:80px;
     font-variant: normal;
@@ -19,22 +26,34 @@
     border: none;
     border-radius: 12px;
     background-color: Transparent;
-    background-repeat:no-repeat;
     transition-duration: 0.3s;
     padding:8px 20px;
     display:inline-block;
     border-radius: 1000px;
     
 }
-.onclick {
+.goover {
     font-size:0px;
 } 
 
-.normal:hover {
+.button:hover {
     background:rgb(91, 118, 175);
     color: rgb(0, 0, 0);
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
-.normal:hover .onclick{
+.button:hover .goover{
     font-size:21px;
+}
+.titlu
+{
+    font-size:35px;
+    text-align:center;
+    margin-top:50px;
+}
+
+@media only screen and (max-width: 600px) {
+    .buttongroup1
+    {
+        padding-bottom: 0px;
+    }
 }
