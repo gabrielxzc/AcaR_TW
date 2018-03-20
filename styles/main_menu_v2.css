@@ -1,7 +1,11 @@
+main article {
+    margin-bottom: 75px;
+}
+
 main article h2 {
     width: 100%;
     text-align: center;
-    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
+    font-family: "Blender", "Helvetica Neue", Helvetica, Arial, sans-serif; 
     font-size: 55px;
     font-weight: 700;
     color: #293742;
@@ -9,7 +13,7 @@ main article h2 {
 }
 
 main article p {
-    font-family: "DIN","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 18px;
     font-weight: 300;
     text-align: center;
@@ -17,28 +21,82 @@ main article p {
     padding-right: 30%;
 }
 
-.year-buttons {
+.year-selectors,
+.semester-selectors {
+    font-size: 0;
     text-align: center;
 }
 
-.year-buttons button {
-    width: 33%;
-    height: 100px;
-    background: transparent;
-    padding: 0;
+.year-selectors ul,
+.semester-selectors ul {
     margin: 0;
-    border: none;
+    padding: 0;
 }
 
-.semester-buttons {
+.year-selectors li,
+.semester-selectors li {
     text-align: center;
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    display: inline-block;
+    border: 1px solid black;
+    height: 75px;
+    padding-top: 30px;
+    background-color: #ebebeb;
+    color: black;
+    transition: background-color 0.5s, color 0.5s;
 }
 
-.semester-buttons button {
-    width: 49%;
-    height: 100px;
-    background: transparent;
+.year-selectors li:hover {
+    background-color: #52658f;
+    color: white;
+}
+
+.year-selectors li {
+    width: 30%;
+}
+
+.semester-selectors li {
+    width: 45%;
+}
+
+.course-selectors {
+    margin: auto;
     padding: 0;
-    margin: 0;
-    border: none;
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 90%;
+    background-color: #ebebeb;
+}
+
+.course-selectors th {
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    padding: 0;
+    border: 1px solid black;
+    width: 50%;
+}
+
+.compulsory-courses {
+    color: rgb(74, 64, 207);
+}
+
+.optional-courses {
+    color: rgb(65, 187, 209);
+}
+
+.facultative-courses {
+    color: grey;
+}
+
+.an1-row,
+.an2-row,
+.an3-row {
+    display: none;
+}
+
+.an1-row--visible,
+.an2-row--visible,
+.an3-row--visible {
+    display: table-row;
 }
