@@ -100,3 +100,16 @@ main article p {
 .an3-row--visible {
     display: table-row;
 }
+
+.color-map {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    padding-top: 30px;
+    text-align: center;
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+}
+
+.color-map li {
+    display: block;
+}
