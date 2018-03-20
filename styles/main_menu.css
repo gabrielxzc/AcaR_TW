@@ -77,16 +77,22 @@ main article p {
     width: 50%;
 }
 
-.compulsory-courses {
+.compulsory-courses a,
+.compulsory-courses p {
     color: rgb(74, 64, 207);
+    text-decoration: none;
 }
 
-.optional-courses {
+.optional-courses a,
+.optional-courses p {
     color: rgb(65, 187, 209);
+    text-decoration: none;
 }
 
-.facultative-courses {
+.facultative-courses a,
+.facultative-courses p {
     color: grey;
+    text-decoration: none;
 }
 
 .an1-row,
