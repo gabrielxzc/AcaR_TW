@@ -46,7 +46,10 @@
 }
 .titlu
 {
-    font-size:35px;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
+    font-size: 55px;
+    font-weight: 700;
+    color: #293742;
     text-align:center;
     margin-top:50px;
 }

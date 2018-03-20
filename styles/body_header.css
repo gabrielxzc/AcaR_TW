@@ -92,3 +92,9 @@ footer p {
     padding-top: 30px;
     color: #fff;
 }
+
+@media only screen and (max-width: 600px) {
+    footer p {
+        padding-top: 10px;
+    }
+}
