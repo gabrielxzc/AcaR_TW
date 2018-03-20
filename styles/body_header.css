@@ -1,10 +1,14 @@
 @font-face {
     font-family:"Blender";
-    src:url("../fonts/blenderpro/blenderpro-medium-webfont.eot");
-    src:url("../fonts/blenderpro/blenderpro-medium-webfont.eot#iefix") format("embedded-opentype"), 
-    url("../fonts/blenderpro/blenderpro-medium-webfont.woff") format("woff"), 
-    url("../fonts/blenderpro/blenderpro-medium-webfont.ttf") format("truetype");
-    font-weight:400;
+    src: url("../fonts/blenderpro/blenderpro-medium-webfont.woff") format("woff");
+    font-weight: 100;
+    font-style:normal
+}
+
+@font-face {
+    font-family:"DIN";
+    src: url("../fonts/DIN/DINNextLTW04-Light.woff") format("woff");
+    font-weight: 100;
     font-style:normal
 }
 
@@ -25,6 +29,7 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-bottom: 100px;
 }
 
 header h1 {
@@ -65,4 +70,25 @@ nav a:hover {
 nav p {
     text-align: right;
     margin-right: 20px;
+}
+
+main {
+    margin-top: 0;
+}
+
+footer {
+    background-image: url("../img/background-image.jpg");
+    height: 75px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    margin-top: 100px;
+}
+
+footer p {
+    font-family: "Blender", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    padding-top: 30px;
+    color: #fff;
 }
