@@ -49,32 +49,40 @@ body {
     margin-left: 4px;
     border-radius: 20px;
 }
+
 .form button:hover {
     background:#D2691E ;
 }
+
 .form h2{
     color:white;
-    font-family: "DIN";
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 .form p{
     margin: 3px;
     font-weight: bold;
     padding-left: 3px;
     color:#fff;
     text-align: left;
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 .form .Message {
     text-align: center;
     color: #fff;
 }
+
 .form .Message a{
     color:aqua;
     font-size: 16px;
     text-decoration: none;
 }
+
 .form .Register-Form{
     display: none;
 }
+
 .photo {
     position: relative;
     height: 70px;
