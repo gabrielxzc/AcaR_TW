@@ -7,7 +7,6 @@
     justify-content: space-around;  
     width:100%;
 }
-
 .buttongroup2 {
     margin-top: 50px;
     padding-bottom: 75px;
@@ -17,13 +16,12 @@
     justify-content: space-around;  
     width:100%;
 }
-
-.button  {
+.button{
     width: 140px;
     height:80px;
     font-variant: normal;
     position: relative;
-    font-family:"DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family:"Monospace";
     font-size:0px;
     border: none;
     border-radius: 12px;
@@ -44,6 +42,7 @@
     color: rgb(0, 0, 0);
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
+
 .button:hover .goover{
     font-size:21px;
 }
@@ -52,24 +51,38 @@
     font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
     color: #52658F;
     box-sizing: border-box;
-    padding: 75px;
+    padding: 50px;
     font-size: 25px;
     position: fixed;
     background-color: #E8E8E8;
     border: 10px solid #333A56;
     border-radius: 1%;
     align: justify;
+    left:2.3%;
     width:95.5%;
     height: 77.5%;
-    -webkit-transform: translate(-150%, -400%);
-    -ms-transform: translate(-150%,-400%);
-    transform: translate(-150%,-400%);
+    transform: translate(-150%, -400%);
     overflow: scroll;
     overflow-x: hidden;
-    -webkit-transition: -webkit-transform 250ms ease-out;
+    transition: 250ms ease-out;
 }
 .lightbox-container::-webkit-scrollbar{
     display:none;
+}
+
+.button.close-button{
+    position: fixed;
+    transform: translate(-200%,-100%);
+    transition: width;
+    background-color: rgba(244, 244, 252, 0.4);
+    left:2.3%;
+}
+
+.lightbox .button.close-button{
+    top:10px;
+}
+.lightbox .lightbox-container{
+    top:95px;
 }
 
 .lightbox:before{
@@ -87,35 +100,19 @@
     display: block;
 }
 
-.button.close-button{
-    position: fixed;
-    -webkit-transform: translate(-200%, -100%);
-    -ms-transform: translate(-200%,-100%);
-    transform: translate(-200%,-100%);
-    -webkit-transition: -webkit-transform width;
-}
 
-/*
-.button.close-button:hover {
-    background:rgb(198, 202, 212);
+.button.close-button:hover{
+    background:rgb(91, 118, 175);
     color: rgb(0, 0, 0);
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}*/
+}
 
 .lightbox:target .lightbox-container{
-    -webkit-transform: translate(0%,0%);
-    -ms-transform: translate(0%,0%);
     transform: translate(0%,0%);
-    top:110px;
-    left:2.3%;
 }
 
 .lightbox:target .button.close-button{
-    -webkit-transform: translate(0%,0%);
-    -ms-transform: translate(0%,0%);
     transform: translate(0%,0%);
-    top:10px;
-    left:2.5%;
     outline:0;
     border: none;
 }
@@ -157,7 +154,7 @@ a:link {
     display:inline-block;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) and (min-width:301px){
     .buttongroup1
     {
         padding-bottom: 0px;
@@ -165,5 +162,22 @@ a:link {
     .buttongroup2
     {
         margin-top:0px;
+    }
+    .button{
+        width: 280px;
+        height:160px;
+    }
+    .button.close-button{
+        width:140px;
+        height:80px;
+    }
+    .lightbox-container{
+        font-size:40px;
+    }
+}
+
+@media only screen and (max-height:450px){
+    .lightbox-container{
+        height:70%;
     }
 }
