@@ -154,7 +154,6 @@ a:link {
     display:inline-block;
 }
 
-<<<<<<< HEAD
 .mostaccessed {
     position:relative;
     text-align:center;
@@ -181,8 +180,6 @@ a:link {
     opacity:0.8;
 }
 
-=======
->>>>>>> c0b2be25aa774e24ba69f606977aa7cdcb3a66d6
 @media only screen and (max-width: 1000px) and (min-width:301px){
     .buttongroup1
     {
@@ -195,10 +192,7 @@ a:link {
     .button{
         width: 280px;
         height:160px;
-<<<<<<< HEAD
         margin-bottom: 40px;
-=======
->>>>>>> c0b2be25aa774e24ba69f606977aa7cdcb3a66d6
     }
     .button.close-button{
         width:140px;
