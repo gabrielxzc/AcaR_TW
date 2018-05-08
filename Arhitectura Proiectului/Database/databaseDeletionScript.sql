@@ -1,0 +1,15 @@
+DROP TABLE proiecte_studenti;
+DROP TABLE ponturi;
+DROP TABLE conturi;
+DROP TABLE studenti;
+DROP TABLE proiecte;
+DROP TABLE depozite_cod_sursa;
+DROP TABLE persoane_importante;
+DROP TABLE instrumente_software;
+DROP TABLE documentatii_online;
+DROP TABLE autori_carti;
+DROP TABLE materii_profesori;
+DROP TABLE carti;
+DROP TABLE materii;
+DROP TABLE profesori;
+DROP TABLE autori;
