@@ -25,14 +25,15 @@ exports.controller = (req, res) => {
                 return;
             }
 
-            let isAccountValid = checkAccount.checkAccount(account.username, account.password);
-            res.writeHead(200, {
-                'Content-Type': 'application/json'
+            checkAccount.checkAccount(account.username, account.password, (isAccountValid) => {
+                res.writeHead(200, {
+                    'Content-Type': 'application/json'
+                });
+                res.end(JSON.stringify({
+                    'status': 'valid',
+                    'isAccountValid': isAccountValid
+                }));
             });
-            res.end(JSON.stringify({
-                'status': 'valid',
-                'isAccountValid': isAccountValid
-            }));
         });
     } else {
         res.writeHead(404, {
