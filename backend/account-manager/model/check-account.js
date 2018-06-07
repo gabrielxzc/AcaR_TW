@@ -5,6 +5,7 @@ const crypto = require('crypto');
 let checkAccount = exports.model = (username, password, callback) => {
     let isAccountValid = false;
     let hashedPassword = crypto.createHash('sha256').update(password).digest('hex');
+    console.log(hashedPassword);
 
     oracledb.getConnection(databaseConfig, (error, connection) => {
         if (error) {

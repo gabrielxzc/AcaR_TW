@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Academic Recommender </title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/body_header.css">
+    <link rel="stylesheet" href="styles/register_page.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+        <header>
+            <h1> Welcome to the Academic Recommender </h1>
+            </header>
+        <h2>Creare cont</h2>
+        <form id="container" method="post" action="#">
+             
+                
+                    <label for="email"><b>Cod-Inregistrare</b></label>
+                    <input type="text" id="code" placeholder="Introdu codul primit prin mail" name="registerkey" required>
+                    
+                    <label for="username"><b>Nume utilizator</b></label>
+                    <input type="text" id="name" placeholder="Introdu un nume de utilizator" name="user" required>
+
+                    <label for="psw"><b>Parola</b></label>
+                    <input type="password" id="password" placeholder="Introdu Parola" name="psw" required>
+                
+                    <label for="psw-repeat"><b>Confirmare Parola</b></label>
+                    <input type="password" id="repass" width="50%" placeholder="Repeta parola" name="psw-repeat" required>
+                
+                
+                
+                
+                    <div class="clearfix">
+                      <button type="submit" name="submit" id="signupbtn">Inregistrare</button>
+                    </div>
+        </form>  
+            <footer>
+                        <p> © 2018 Cojocaru Gabriel-Codrin, Pintilei Serban, Marincean Ioan, Stanciu Sebastian Terms of Use Privacy and Security
+                            Statement </p>
+             </footer> 
+             <script src="./scriptz/register_page.js"></script>
+</body>
+</html>
