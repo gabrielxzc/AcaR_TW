@@ -1,0 +1,7 @@
+/new-session
+    POST
+        input:
+            JSON - {"username": "actual-username"} - generates new session token for user
+        ouput:
+            JSON - {"status": "valid", "sessionId": "actaul-sessionId"}
+            JSON - {"status": "error", "message": "error-message"}

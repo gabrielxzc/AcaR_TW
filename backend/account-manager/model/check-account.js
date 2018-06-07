@@ -20,9 +20,14 @@ let checkAccount = exports.checkAccount = (username, password, callback) => {
                 password: hashedPassword
             }, (error, result) => {
                 if (error) {
-                    console.error(err);
+                    console.error(error);
                     callback(isAccountValid);
 
+                    connection.release((error) => {
+                        if (error) {
+                            console.error(error.message);
+                        }
+                    });
                     return;
                 }
 
@@ -31,6 +36,12 @@ let checkAccount = exports.checkAccount = (username, password, callback) => {
                 }
 
                 callback(isAccountValid);
+
+                connection.release((error) => {
+                    if (error) {
+                        console.error(error.message);
+                    }
+                });
             });
     });
 };

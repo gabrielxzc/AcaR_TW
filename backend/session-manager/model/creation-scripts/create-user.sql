@@ -1,0 +1,11 @@
+CONN / AS SYSDBA	
+CREATE USER session_manager IDENTIFIED BY session_manager DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
+ALTER USER session_manager QUOTA 100M ON USERS;
+GRANT CONNECT TO session_manager;
+GRANT CREATE TABLE TO session_manager;
+GRANT CREATE VIEW TO session_manager;
+GRANT CREATE SEQUENCE TO session_manager;
+GRANT CREATE TRIGGER TO session_manager;
+GRANT CREATE SYNONYM TO session_manager;
+GRANT CREATE PROCEDURE TO session_manager;
+disconnect;

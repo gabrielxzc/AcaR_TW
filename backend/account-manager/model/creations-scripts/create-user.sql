@@ -8,3 +8,4 @@ GRANT CREATE SEQUENCE TO account_manager;
 GRANT CREATE TRIGGER TO account_manager;
 GRANT CREATE SYNONYM TO account_manager;
 GRANT CREATE PROCEDURE TO account_manager;
+disconnect;

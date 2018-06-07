@@ -2,10 +2,6 @@ const request = require('request');
 
 exports.controller = (req, res) => {
     if (req.method === 'POST') {
-        let err = {
-            'status': 0,
-            'message': ''
-        };
         let account;
         let body = [];
 
@@ -58,16 +54,7 @@ exports.controller = (req, res) => {
 
                     return;
                 }
-                
-                res.writeHead(response.statusCode, {
-                    'Content-Type': 'application/json'
-                });
-                res.end(JSON.stringify({
-                    'status': 'success',
-                    'message': 'Valid credentials!'
-                }));
 
-                /*
                 let options = {
                     uri: 'http://localhost:8084/new-session',
                     method: 'POST',
@@ -77,9 +64,23 @@ exports.controller = (req, res) => {
                 };
 
                 request(options, (error, response, body) => {
-                    
+                    if (error) {
+                        res.writeHead(500, {
+                            'Content-Type': 'application/json'
+                        });
+                        res.end(JSON.stringify({
+                            'status': 'error',
+                            'message': 'Could not contact sessions manager service!'
+                        }));
+
+                        return;
+                    }
+
+                    res.writeHead(response.statusCode, {
+                        'Content-Type': 'application/json'
+                    });
+                    res.end(JSON.stringify(body));
                 });
-                */
             });
         });
     } else {

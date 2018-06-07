@@ -7,6 +7,12 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Start session manager",
+            "program": "${workspaceFolder}/session-manager\\app.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Start account manager",
             "program": "${workspaceFolder}/account-manager\\app.js"
         },
@@ -29,7 +35,8 @@
             "configurations": [
                 "Start main-hub", 
                 "Start auth service",
-                "Start account manager"
+                "Start account manager",
+                "Start session manager"
             ]
         }
     ]

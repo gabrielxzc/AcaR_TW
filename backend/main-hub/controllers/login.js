@@ -12,6 +12,10 @@ exports.controller = (req, res) => {
 
             try {
                 account = JSON.parse(body);
+
+                if (account.username == null || account.password == null) {
+                    throw 'Necessary parameters not found';
+                }
             } catch (e) {
                 res.writeHead(400, {
                     'Content-Type': 'application/json'
