@@ -1,0 +1,6 @@
+/login
+    POST
+        input:
+            JSON - {"username": username, "password": "password}
+        output:
+            JSON - 

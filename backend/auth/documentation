@@ -3,5 +3,5 @@
         input:
             JSON - {"username": "actual-username", "password": "actual-password"}
         output:
-            JSON - {"status": "valid", "sessionId": "actual-session-id}
+            JSON - {"status": "valid", "sessionId": "actual-session-id"}
             JSON - {"status": "error", "message": "error-message"}

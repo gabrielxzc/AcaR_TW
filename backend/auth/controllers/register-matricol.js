@@ -12,10 +12,6 @@ exports.controller = (req, res) => {
 
             try {
                 matricol = JSON.parse(body);
-
-                if (matricol.nrMatricol == null) {
-                    throw 'Necessary parameters not found';
-                }
             } catch (e) {
                 res.writeHead(400, {
                     'Content-Type': 'application/json'
@@ -29,7 +25,7 @@ exports.controller = (req, res) => {
             }
 
             let options = {
-                uri: 'http://localhost:8082/register-matricol',
+                uri: 'http://localhost:8085/register-matricol',
                 method: 'POST',
                 json: matricol
             };
@@ -41,7 +37,7 @@ exports.controller = (req, res) => {
                     });
                     res.end(JSON.stringify({
                         'status': 'error',
-                        'message': 'Could not contact auth service!'
+                        'message': 'Could not contact register manager service!'
                     }));
                 } else {
                     res.writeHead(response.statusCode, {

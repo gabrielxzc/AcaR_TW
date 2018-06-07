@@ -1,11 +1,13 @@
 const http = require('http');
 const router = require('routes')();
 const login = require('./controllers/login');
+const registerMatricol = require('./controllers/register-matricol');
 
 const host = '127.0.0.1';
 const port = 8082;
 
 router.addRoute('/login', login.controller);
+router.addRoute('/register-matricol', registerMatricol.controller);
 
 let server = http.createServer((req, res) => {
     let m = router.match(req.url);
