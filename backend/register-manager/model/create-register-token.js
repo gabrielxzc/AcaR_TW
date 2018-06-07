@@ -6,7 +6,7 @@ let generateUniqueRegisterToken = (connection, nrMatricol, callback) => {
     let token = randomstring.generate(64);
 
     connection.execute(
-        'INSERT INTO register_tokens VALUES (:token, :nrMatricol)', {
+        'INSERT INTO register_tokens VALUES (:token, :nrMatricol, sysdate)', {
             nrMatricol: nrMatricol,
             token: token
         }, {

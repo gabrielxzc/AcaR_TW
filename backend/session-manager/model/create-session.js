@@ -6,7 +6,7 @@ let generateUniqueSession = (connection, username, callback) => {
     let token = randomstring.generate(64);
 
     connection.execute(
-        'INSERT INTO sessions VALUES (:token, :username)', {
+        'INSERT INTO sessions VALUES (:token, :username, sysdate)', {
             username: username,
             token: token
         }, {
