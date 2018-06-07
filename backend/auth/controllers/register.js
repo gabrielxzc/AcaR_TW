@@ -12,10 +12,6 @@ exports.controller = (req, res) => {
 
             try {
                 register = JSON.parse(body);
-
-                if (register.registerToken == null || register.username == null || register.password == null) {
-                    throw 'Necessary parameters not found';
-                }
             } catch (e) {
                 res.writeHead(400, {
                     'Content-Type': 'application/json'
@@ -29,7 +25,7 @@ exports.controller = (req, res) => {
             }
 
             let options = {
-                uri: 'http://localhost:8082/register',
+                uri: 'http://localhost:8085/register',
                 method: 'POST',
                 json: register
             };
@@ -41,7 +37,7 @@ exports.controller = (req, res) => {
                     });
                     res.end(JSON.stringify({
                         'status': 'error',
-                        'message': 'Nu s-a putut contacta serviciul de autentificare!'
+                        'message': 'Nu s-a putut contacta serviciul de administrare a inregistrarilor!'
                     }));
                 } else {
                     res.writeHead(response.statusCode, {

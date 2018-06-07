@@ -1,10 +1,7 @@
 const databaseConfig = require('./database-config.json');
 const oracledb = require('oracledb');
-const crypto = require('crypto');
 
-let newAccount = exports.model = (username, password, email, callback) => {
-    let hashedPassword = crypto.createHash('sha256').update(password).digest('hex');
-
+let deleteRegisterToken = exports.model = (registerToken, callback) => {
     oracledb.getConnection(databaseConfig, (error, connection) => {
         if (error) {
             callback(error);
@@ -12,10 +9,8 @@ let newAccount = exports.model = (username, password, email, callback) => {
         }
 
         connection.execute(
-            'INSERT INTO users VALUES (NVL((SELECT max(id) + 1 FROM users), 1), :username, :password, :email)', {
-                username: username,
-                password: hashedPassword,
-                email: email
+            'DELETE FROM register_tokens WHERE token like :registerToken', {
+                registerToken: registerToken
             }, {
                 autoCommit: true
             }, (error, result) => {
@@ -27,10 +22,17 @@ let newAccount = exports.model = (username, password, email, callback) => {
                             console.error(error.message);
                         }
                     });
+
                     return;
                 }
 
                 callback(null);
+                
+                connection.release((error) => {
+                    if (error) {
+                        console.error(error.message);
+                    }
+                });
             });
     });
 };

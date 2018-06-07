@@ -1,8 +1,9 @@
 const request = require('request');
+const createAccount = require('../model/create-account');
 
 exports.controller = (req, res) => {
     if (req.method === 'POST') {
-        let register;
+        let account;
         let body = [];
 
         req.on('data', (chunk) => {
@@ -11,11 +12,7 @@ exports.controller = (req, res) => {
             body = Buffer.concat(body).toString();
 
             try {
-                register = JSON.parse(body);
-
-                if (register.registerToken == null || register.username == null || register.password == null) {
-                    throw 'Necessary parameters not found';
-                }
+                account = JSON.parse(body);
             } catch (e) {
                 res.writeHead(400, {
                     'Content-Type': 'application/json'
@@ -28,27 +25,28 @@ exports.controller = (req, res) => {
                 return;
             }
 
-            let options = {
-                uri: 'http://localhost:8082/register',
-                method: 'POST',
-                json: register
-            };
-
-            request(options, (error, response, body) => {
+            createAccount.model(account.username, account.password, account.email, (error) => {
                 if (error) {
+                    console.error(error.message);
+
                     res.writeHead(500, {
                         'Content-Type': 'application/json'
                     });
                     res.end(JSON.stringify({
                         'status': 'error',
-                        'message': 'Nu s-a putut contacta serviciul de autentificare!'
+                        'message': 'A aparut o eroare interna, incercati mai tarziu iar daca eroarea persista contactati un admnistrator!'
                     }));
-                } else {
-                    res.writeHead(response.statusCode, {
-                        'Content-Type': 'application/json'
-                    });
-                    res.end(JSON.stringify(body));
+
+                    return;
                 }
+
+                res.writeHead(200, {
+                    'Content-Type': 'application/json'
+                });
+                res.end(JSON.stringify({
+                    'status': 'valid',
+                    'message': 'Contul a fost creat cu succes!'
+                }));
             });
         });
     } else {
@@ -57,7 +55,7 @@ exports.controller = (req, res) => {
         });
         res.end(JSON.stringify({
             'status': 'error',
-            'message': 'Doar metoda POST este accepta pe aceasta ruta!'
+            'message': 'Doar metodele POST si PUT sunt acceptate pe aceasta ruta!'
         }));
     }
 };
