@@ -18,7 +18,7 @@ let server = http.createServer((req, res) => {
         });
         res.end(JSON.stringify({
             'status': 'error',
-            'message': 'Route not found!'
+            'message': '[Account Manager] Ruta nu a fost gasita!'
         }));
     }
 }).listen(port, host, () => {

@@ -7,6 +7,12 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Start register manager",
+            "program": "${workspaceFolder}/register-manager\\app.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Start session manager",
             "program": "${workspaceFolder}/session-manager\\app.js"
         },
@@ -36,7 +42,8 @@
                 "Start main-hub", 
                 "Start auth service",
                 "Start account manager",
-                "Start session manager"
+                "Start session manager",
+                "Start register manager"
             ]
         }
     ]

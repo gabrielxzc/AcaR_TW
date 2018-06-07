@@ -22,7 +22,7 @@ exports.controller = (req, res) => {
                 });
                 res.end(JSON.stringify({
                     'status': 'error',
-                    'message': 'Invalid body, check documentation for details!'
+                    'message': 'Body-ul cererii este invalid, verifica documentatia pentru detalii!'
                 }));
 
                 return;
@@ -41,7 +41,7 @@ exports.controller = (req, res) => {
                     });
                     res.end(JSON.stringify({
                         'status': 'error',
-                        'message': 'Could not contact auth service!'
+                        'message': 'Nu s-a putut contacta serviciul de autentificare!'
                     }));
                 } else {
                     res.writeHead(response.statusCode, {
@@ -57,7 +57,7 @@ exports.controller = (req, res) => {
         });
         res.end(JSON.stringify({
             'status': 'error',
-            'message': 'Only POST is supported on this route!'
+            'message': 'Doar metoda POST este accepta pe aceasta ruta!'
         }));
     }
 };

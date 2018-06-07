@@ -1,8 +1,0 @@
-/account
-    POST
-        input:
-            JSON - {"username": "actual-username", "password": "actual-password"}
-        output:
-            JSON - {"status": "valid", "isAccoutValid": x} where x is boolean, true if the username matches the password, false otherwise
-            JSON - {"status": "error", "message": "error-message"}
-            

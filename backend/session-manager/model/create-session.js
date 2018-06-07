@@ -23,7 +23,7 @@ let generateUniqueSession = (connection, username, callback) => {
         });
 };
 
-let newSession = exports.newSession = (username, callback) => {
+let newSession = exports.model = (username, callback) => {
     oracledb.getConnection(databaseConfig, (error, connection) => {
         if (error) {
             console.log(error);

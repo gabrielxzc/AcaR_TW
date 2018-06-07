@@ -22,7 +22,7 @@ let server = http.createServer((req, res) => {
         });
         res.end(JSON.stringify({
             'status': 'error',
-            'message': 'Route not found!'
+            'message': '[Main Hub] Ruta nu a fost gasita!'
         }));
     }
 }).listen(port, host, () => {

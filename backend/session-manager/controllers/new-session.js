@@ -19,18 +19,19 @@ exports.controller = (req, res) => {
                 });
                 res.end(JSON.stringify({
                     'status': 'error',
-                    'message': 'Invalid body, check documentation for details!'
+                    'message': 'Body-ul cererii este invalid, verifica documentatia pentru detalii!'
                 }));
 
                 return;
             }
 
-            newSession.newSession(account.username, (sessionId) => {
+            newSession.model(account.username, (sessionId) => {
                 res.writeHead(200, {
                     'Content-Type': 'application/json'
                 });
                 res.end(JSON.stringify({
                     'status': 'valid',
+                    'message': 'Tokenul sesiunii a fost generat cu succes!',
                     'sessionId': sessionId
                 }));
             });
@@ -41,7 +42,7 @@ exports.controller = (req, res) => {
         });
         res.end(JSON.stringify({
             'status': 'error',
-            'message': 'Only POST is supported on this route!'
+            'message': 'Doar metoda POST este acceptata pe aceasta ruta!'
         }));
     }
 };

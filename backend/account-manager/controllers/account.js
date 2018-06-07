@@ -19,18 +19,19 @@ exports.controller = (req, res) => {
                 });
                 res.end(JSON.stringify({
                     'status': 'error',
-                    'message': 'Invalid body, check documentation for details!'
+                    'message': 'Body-ul cererii este invalid, verifica documentatia pentru detalii!'
                 }));
 
                 return;
             }
 
-            checkAccount.checkAccount(account.username, account.password, (isAccountValid) => {
+            checkAccount.model(account.username, account.password, (isAccountValid) => {
                 res.writeHead(200, {
                     'Content-Type': 'application/json'
                 });
                 res.end(JSON.stringify({
                     'status': 'valid',
+                    'message': 'Verificarea validitatii contului s-a facut cu succes!',
                     'isAccountValid': isAccountValid
                 }));
             });
@@ -41,7 +42,7 @@ exports.controller = (req, res) => {
         });
         res.end(JSON.stringify({
             'status': 'error',
-            'message': 'Only POST and PUT are supported on this route!'
+            'message': 'Doar metodele POST si PUT sunt acceptate pe aceasta ruta!'
         }));
     }
 };
