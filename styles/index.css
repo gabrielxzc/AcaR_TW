@@ -1,95 +1,188 @@
-body {
-    background:  url('../img/background-image.jpg');
-    height: 100vh;
-    background-size: cover;
-    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
-    background-position: center;
+main article {
+    margin-bottom: 75px;
 }
 
-.login {
-    margin: auto;
-    padding: 10% 0 0;
-    width: 360px;
-}
-
-.login .form {
-    position: relative;
-    text-align: center;
-    background: rgba(0,0,0,0.3);
-    max-width: 360px;
-    z-index: 1;
-    padding: 45px;
-    margin: 0 auto 100px;
-    margin-top: 10px;
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
-}
-
-.form input {
+main article h2 {
     width: 100%;
-    padding: 8px;
-    background: transparent;
-    box-sizing: border-box;
-    font-size: 12px;
-    margin:3px;
-    border: none;
-    border-bottom: 1px solid white;
-    color:white;
+    text-align: center;
+    font-family: "Blender", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 55px;
+    font-weight: 700;
+    color: #293742;
+    margin-bottom: 20px;
+}
+
+main article p {
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-repeat: no-repeat;
+    background-size: 120px 120px;
+}
+
+main article h1 {
+    width: 100%;
+    text-align: center;
+    font-family: "Blender", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 70px;
+    font-weight: 400;
+    color: #293742;
+    margin-bottom: 40px;
+
+}
+
+.codrin-about {
+    background-image: url(../img/codrin.png);
+    background-position: center right;
+    padding-right: 140px;
+}
+
+.sebi-about {
+    background-image: url(../img/sebi.png);
+    background-position: center left;
+    padding-left: 140px;
+}
+
+.ioan-about {
+    background-image: url(../img/ioan.png);
+    background-position: center right;
+    padding-right: 140px;
+}
+
+.serban-about {
+    background-image: url(../img/serban.png);
+    background-position: center left;
+    padding-left: 140px;
+}
+
+.social-media {
+    text-align: center;
+}
+
+.social-media img {
+    margin-right: 10px;
+}
+
+.social-media a {
+    text-decoration: none;
+}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+
+.modal-content,
+.model-content2 {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    /* Could be more or less, depending on screen size */
+    text-align: center;
+}
+
+
+
+.form {
+    margin: auto;
+    color: black;
+    align-content: center;
+
 }
 
 .form button {
     padding: 8px;
     text-transform: uppercase;
     background: #CD5C5C;
-    width: 100%;
+    width: 80%;
     color: white;
     font-size: 12px;
     cursor: pointer;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 19px;
     margin-top: 5px;
     margin-left: 4px;
     border-radius: 20px;
 }
 
-.form button:hover {
-    background:#D2691E ;
-}
-
-.form h2{
-    color:white;
+.form h2 {
+    margin: 30px;
+    color: black;
     font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
 }
 
-.form p{
-    margin: 3px;
+.form p {
+    margin: 8px;
     font-weight: bold;
     padding-left: 3px;
-    color:#fff;
-    text-align: left;
+    color: black;
+    text-align: center;
     font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .form .Message {
     text-align: center;
-    color: #fff;
+    color: black;
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 }
 
-.form .Message a{
-    color:aqua;
+#myBtn,
+#myBtn2 {
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 200;
+    cursor: pointer;
+    padding: 12px 32px;
+    margin: 1%;
+}
+
+.form .Message a {
+    color: aqua;
     font-size: 16px;
     text-decoration: none;
+    text-align: center;
 }
 
-.form .Register-Form{
-    display: none;
+/* The Close Button */
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
-.photo {
-    position: relative;
-    height: 70px;
-    width: 140px;
-    transform: translate(80%, 100%);
-    z-index: 2;
-    padding-bottom: 10px;
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
-
