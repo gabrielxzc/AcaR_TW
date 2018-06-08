@@ -34,26 +34,26 @@ submitBtn.onclick = function (form) {
   else {
     //console.log(password);
     var collectedData = {
-      "email_code": code,
-      "name": name,
+      "registerToken": code,
+      "username": name,
       "password": password
     };
 
     //sending data to server
-    xhr = new XMLHttpRequest();
-    var url = "localhost:8081";
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader("Content-type", "application/json");
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        var json = JSON.parse(xhr.responseText);
-        console.log(json.email_code + ", " + json.name + ", " + json.password);
-      }
-    }
-    var data = JSON.stringify(collectedData);
-    xhr.send(data);
-    console.log(data);
-    return true;
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("POST", "http://localhost:8081/register");
+    
+    xhr.addEventListener("load", function loadCallback() {
+        console.log(xhr.response);
+        });
+    
+    xhr.addEventListener("error", function errorCallback() {
+        console.log("Network error");
+    });
+    
+    xhr.send(JSON.stringify(collectedData));
+    return false;
   }
 
 }

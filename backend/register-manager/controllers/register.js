@@ -30,7 +30,7 @@ exports.controller = (req, res) => {
             try {
                 register = JSON.parse(body);
             } catch (e) {
-                res.writeHead(400, {
+                res.writeHead(200, {
                     'Content-Type': 'application/json'
                 });
                 res.end(JSON.stringify({
@@ -43,7 +43,7 @@ exports.controller = (req, res) => {
 
             checkRegisterToken.model(register.registerToken, (isRegisterTokenValid, email, nrMatricol, error) => {
                 if (!isRegisterTokenValid) {
-                    res.writeHead(400, {
+                    res.writeHead(200, {
                         'Content-Type': 'application/json'
                     });
                     res.end(JSON.stringify({
@@ -71,7 +71,7 @@ exports.controller = (req, res) => {
                         if (error) {
                             console.error(error.message);
 
-                            res.writeHead(500, {
+                            res.writeHead(200, {
                                 'Content-Type': 'application/json'
                             });
                             res.end(JSON.stringify({
@@ -95,7 +95,7 @@ exports.controller = (req, res) => {
         
                         request(options, (error, response, body) => {
                             if (error) {
-                                res.writeHead(500, {
+                                res.writeHead(200, {
                                     'Content-Type': 'application/json'
                                 });
                                 res.end(JSON.stringify({
@@ -122,7 +122,7 @@ exports.controller = (req, res) => {
             });
         });
     } else {
-        res.writeHead(404, {
+        res.writeHead(200, {
             'Content-Type': 'application/json'
         });
         res.end(JSON.stringify({

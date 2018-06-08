@@ -6,6 +6,9 @@ const nodemailer = require('nodemailer');
 let sendRegisterEmail = (email, token, callback) => {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
+        tls: {
+            rejectUnauthorized: false
+        },    
         auth: {
             user: 'uaic.contact.elearning@gmail.com',
             pass: 'ContactElearning123'
@@ -44,7 +47,7 @@ exports.controller = (req, res) => {
             try {
                 matricol = JSON.parse(body);
             } catch (e) {
-                res.writeHead(400, {
+                res.writeHead(200, {
                     'Content-Type': 'application/json'
                 });
                 res.end(JSON.stringify({
@@ -70,7 +73,7 @@ exports.controller = (req, res) => {
 
                 createRegisterToken.model(matricol.nrMatricol, (token, error) => {
                     if (error) {
-                        res.writeHead(500, {
+                        res.writeHead(200, {
                             'Content-Type': 'application/json'
                         });
                         res.end(JSON.stringify({
@@ -84,7 +87,7 @@ exports.controller = (req, res) => {
 
                     sendRegisterEmail(email, token, (error) => {
                         if (error) {
-                            res.writeHead(500, {
+                            res.writeHead(200, {
                                 'Content-Type': 'application/json'
                             });
                             res.end(JSON.stringify({
@@ -109,7 +112,7 @@ exports.controller = (req, res) => {
             });
         });
     } else {
-        res.writeHead(404, {
+        res.writeHead(200, {
             'Content-Type': 'application/json'
         });
         res.end(JSON.stringify({
