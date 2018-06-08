@@ -22,7 +22,9 @@ main article p {
     background-repeat: no-repeat;
     background-size: 120px 120px;
 }
-
+#spnName,#parola,#numarulmat{
+    color:red;
+}
 main article h1 {
     width: 100%;
     text-align: center;
@@ -162,6 +164,8 @@ main article h1 {
     cursor: pointer;
     padding: 12px 32px;
     margin: 1%;
+    border-radius: 12px;
+    width: 150px;
 }
 
 .form .Message a {

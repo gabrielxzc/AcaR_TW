@@ -4,6 +4,7 @@
 <head>
     <title> Academic Recommender </title>
     <meta charset="UTF-8">
+    <script src="scriptz/login_page.js"></script>
     <link rel="stylesheet" href="styles/body_header.css">
     <link rel="stylesheet" href="styles/index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,12 +23,16 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <div class="form">
-                    <form class="Login-form">
+                    <form class="Login-form" action="inainte.html" method="post" onSubmit="return validateLoginBoxes();">
                         <h2>Autentificare </h2>
                         <p>Nume de utilizator</p>
-                        <input type=text placeholder="Nume de utilizator">
+                        <input type=text id="name" placeholder="Nume de utilizator">
+                        <br>
+                        <span id="spnName" ></span>
                         <p>Parola</p>
-                        <input type=password placeholder="Parola">
+                        <input type=password id="pass" placeholder="Parola">
+                        <br>
+                        <span id="parola" ></span>
                         <a href="main_menu.html">
                     <button>Autentifica-te!</button>
                 </a>
@@ -49,10 +54,12 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <div class="form">
-                    <form class="Register-form">
+                    <form class="Register-form" action="inainte.html" method="post" onSubmit="return validateRegisterBox();">
                         <h2>Inregistrare </h2>
                         <p>Numar matricol</p>
-                        <input type=text placeholder="Introdu numar matricol">
+                        <input type=text id="numar_matricol" placeholder="Introdu numar matricol">
+                        <br>
+                        <span id="numarulmat" ></span>
 
                         <a href="main_menu.html">
                     <button>Inregistreaza-te</button></a>
