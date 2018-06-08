@@ -13,6 +13,10 @@ exports.controller = (req, res) => {
 
             try {
                 account = JSON.parse(body);
+
+                if (account.username == null || account.password == null || account.email == null) {
+                    throw 'Lipsesc argumentele necesare!';
+                }
             } catch (e) {
                 res.writeHead(200, {
                     'Content-Type': 'application/json'

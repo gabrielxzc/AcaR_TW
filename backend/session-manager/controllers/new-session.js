@@ -13,6 +13,10 @@ exports.controller = (req, res) => {
 
             try {
                 account = JSON.parse(body);
+
+                if (account.username == null) {
+                    throw 'Lipsesc argumentele necesare!';
+                }
             } catch (e) {
                 res.writeHead(200, {
                     'Content-Type': 'application/json'
@@ -25,7 +29,21 @@ exports.controller = (req, res) => {
                 return;
             }
 
-            newSession.model(account.username, (sessionId) => {
+            newSession.model(account.username, (sessionId, error) => {
+                if (error) {
+                    console.error(error);
+
+                    res.writeHead(200, {
+                        'Content-Type': 'application/json'
+                    });
+                    res.end(JSON.stringify({
+                        'status': 'error',
+                        'message': 'A aparut o eroare interna, va rugam reincercati mai tarziu iar daca eroarea persista contactati un administrator!'
+                    }));
+
+                    return;
+                }
+                
                 res.writeHead(200, {
                     'Content-Type': 'application/json'
                 });

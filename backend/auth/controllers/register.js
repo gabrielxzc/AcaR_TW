@@ -12,6 +12,10 @@ exports.controller = (req, res) => {
 
             try {
                 register = JSON.parse(body);
+
+                if (register.registerToken == null || register.username == null || register.password == null) {
+                    throw 'Lipsesc argumentele necesare!';
+                }
             } catch (e) {
                 res.writeHead(200, {
                     'Content-Type': 'application/json'
@@ -30,8 +34,10 @@ exports.controller = (req, res) => {
                 json: register
             };
 
-            request(options, (error, response, body) => {
+            request(options, (error, response, body) => {                
                 if (error) {
+                    console.log(error);
+                    
                     res.writeHead(200, {
                         'Content-Type': 'application/json'
                     });
