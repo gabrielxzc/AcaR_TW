@@ -1,0 +1,60 @@
+main article {
+    margin-bottom: 75px;
+}
+
+main article h2 {
+    width: 100%;
+    text-align: center;
+    font-family: "Blender", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    font-size: 55px;
+    font-weight: 700;
+    color: #293742;
+    margin-bottom: 20px;
+}
+
+main article p {
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-repeat: no-repeat;
+    background-size: 120px 120px;
+}
+
+.codrin-about {
+    background-image: url(../img/codrin.png);
+    background-position: center right;
+    padding-right: 140px;
+}
+
+.sebi-about {
+    background-image: url(../img/sebi.png);
+    background-position: center left;
+    padding-left: 140px;
+}
+
+.ioan-about {
+    background-image: url(../img/ioan.png);
+    background-position: center right;
+    padding-right: 140px;
+}
+
+.serban-about {
+    background-image: url(../img/serban.png);
+    background-position: center left;
+    padding-left: 140px;
+}
+
+.social-media {
+    text-align: center;
+}
+
+.social-media img {
+    margin-right: 10px;
+}
+
+.social-media a {
+    text-decoration: none;
+}

@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <title> Academic Recommender </title>
+    <link rel="stylesheet" href="styles/body_header.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="login">
+        <img src="img\logoulpoate_v2.png" class="photo">
+
+        <div class="form">
+            <form class="Register-form">
+                <h2>Creaza cont</h2>
+                <p>Nume de utilizator</p>
+                <input type=text placeholder="Nume de utilizator">
+                <p>Email</p>
+                <input type=email placeholder="Email">
+                <p>Parola</p>
+                <input type=password placeholder="Parola">
+                <button>Creaza cont</button>
+                <p class="Message">Deja inregistrat?
+                    <a href="#">Apasa aici!</a>
+                </p>
+            </form>
+            <form class="Login-form">
+                <h2>Autentificare </h2>
+                <p>Nume de utilizator</p>
+                <input type=text placeholder="Nume de utilizator">
+                <p>Parola</p>
+                <input type=password placeholder="Parola">
+                <a href="main_menu.html">
+                    <button>Autentifica-te!</button>
+                </a>
+                <p class="Message">Nu ai cont?
+                    <a href='#'>Inregistreaza-te!</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+    <script>
+        $('.Message a').click(function () {
+            $('form').animate({
+                height: "toggle",
+                opacity: "toggle"
+            }, "slow");
+        })
+
+    </script>
+</body>
+
+</html>

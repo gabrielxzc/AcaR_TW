@@ -1,0 +1,121 @@
+main article {
+    margin-bottom: 75px;
+}
+
+main article h2 {
+    width: 100%;
+    text-align: center;
+    font-family: "Blender", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    font-size: 55px;
+    font-weight: 700;
+    color: #293742;
+    margin-bottom: 20px;
+}
+
+main article p {
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    padding-left: 30%;
+    padding-right: 30%;
+}
+
+.year-selectors,
+.semester-selectors {
+    font-size: 0;
+    text-align: center;
+}
+
+.year-selectors ul,
+.semester-selectors ul {
+    margin: 0;
+    padding: 0;
+}
+
+.year-selectors li,
+.semester-selectors li {
+    text-align: center;
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    display: inline-block;
+    border: 1px solid black;
+    height: 75px;
+    padding-top: 30px;
+    background-color: #ebebeb;
+    color: black;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.year-selectors li:hover {
+    background-color: #52658f;
+    color: white;
+}
+
+.year-selectors li {
+    width: 30%;
+}
+
+.semester-selectors li {
+    width: 45%;
+}
+
+.course-selectors {
+    margin: auto;
+    padding: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 90%;
+    background-color: #ebebeb;
+}
+
+.course-selectors th {
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    padding: 0;
+    border: 1px solid black;
+    width: 50%;
+}
+
+.compulsory-courses a,
+.compulsory-courses p {
+    color: rgb(74, 64, 207);
+    text-decoration: none;
+}
+
+.optional-courses a,
+.optional-courses p {
+    color: rgb(65, 187, 209);
+    text-decoration: none;
+}
+
+.facultative-courses a,
+.facultative-courses p {
+    color: grey;
+    text-decoration: none;
+}
+
+.an1-row,
+.an2-row,
+.an3-row {
+    display: none;
+}
+
+.an1-row--visible,
+.an2-row--visible,
+.an3-row--visible {
+    display: table-row;
+}
+
+.color-map {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    padding-top: 30px;
+    text-align: center;
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+}
+
+.color-map li {
+    display: block;
+}

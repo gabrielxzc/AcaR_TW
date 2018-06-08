@@ -1,0 +1,105 @@
+button {
+    background: #f7f5e6;
+    border-radius: 10px;
+    font-family: Arial;
+    color: #3c3c3c;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    border: solid #3c3c3c 2px;
+}
+
+.year-buttons {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.semester-buttons {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s linear;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.semester-buttons--visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.year-buttons button:hover,
+.semester-buttons button:hover {
+    background: #3c3c3c;
+    color: #f7f5e6;
+}
+
+.an1-sem1-buttons,
+.an1-sem2-buttons,
+.an2-sem1-buttons,
+.an2-sem2-buttons,
+.an3-sem1-buttons,
+.an3-sem2-buttons {
+    width: 100%;
+    display: none;
+    transition: left 0.5s linear;
+    margin-top: 10px;
+}
+
+.an1-sem1-buttons--visible,
+.an1-sem2-buttons--visible,
+.an2-sem1-buttons--visible,
+.an2-sem2-buttons--visible,
+.an3-sem1-buttons--visible,
+.an3-sem2-buttons--visible {
+    display: block;
+}
+
+.an1-sem1-buttons button,
+.an1-sem2-buttons button,
+.an2-sem1-buttons button,
+.an2-sem2-buttons button,
+.an3-sem1-buttons button,
+.an3-sem2-buttons button {
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+.compulsory-classes-buttons,
+.facultative-classes-buttons,
+.optional-classes-option1-buttons,
+.optional-classes-option2-buttons,
+.optional-classes-option3-buttons {
+    text-align: center;
+}
+
+.compulsory-classes-buttons button {
+    background: #333a56;
+    color: #ffffff;
+    font-size: 17px;
+    border: solid #333a56 2px;
+}
+
+.facultative-classes-buttons button {
+    background: #e8e8e8;
+    font-size: 17px;
+}
+
+.optional-classes-option1-buttons button {
+    background: #52658f;
+    color: #ffffff;
+    font-size: 17px;
+    border: solid #52658f 2px;
+}
+
+.optional-classes-option2-buttons button {
+    background: #52658f;
+    color: #ffffff;
+    font-size: 17px;
+    border: solid #52658f 2px;
+}
+
+.optional-classes-option3-buttons button {
+    background: #52658f;
+    color: #ffffff;
+    font-size: 17px;
+    border: solid #52658f 2px;
+}
