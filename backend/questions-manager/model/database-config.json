@@ -1,0 +1,5 @@
+{
+    "user": "questions_manager",
+    "password": "questions_manager",
+    "connectString": "localhost/XE"
+}
