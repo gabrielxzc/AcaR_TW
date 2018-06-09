@@ -39,7 +39,7 @@
         {
             "name": "Start ACAR",
             "configurations": [
-                "Start main-hub", 
+                "Start main-hub",
                 "Start auth service",
                 "Start account manager",
                 "Start session manager",
