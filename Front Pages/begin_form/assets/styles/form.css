@@ -13,11 +13,6 @@
 }
 
 
-.radio-button{
-    background: #333A56;
-    color: #333A56;
-}
-
 #form-container {
     width:70%;
     max-width: 600px;
@@ -25,20 +20,14 @@
     font-size: 20px;
     margin: 50px auto;
     padding: 1.3em;
-    background: rgb(68, 124, 161);
-    color:white;
-    border-radius: .75em;
-    -webkit-filter: drop-shadow(1px 2px 5px rgba(0,0,   0,.7));
-    filter: drop-shadow(1px 2px 5px rgba(0,0,0,.7));
+    background: #E8E8E8;
+    color:#333A56;
+    border-radius: .25em;
+    border: 1px solid #52658F;
+    /*-webkit-filter: drop-shadow(1px 2px 5px rgba(0,0,   0,.7));
+    filter: drop-shadow(1px 2px 5px rgba(0,0,0,.7));*/
 }
-/*
-.form-label{
-    -webkit-appearance: none;
-    content:'';
-    width:16px;
-    height:16px;
 
-}*/
 .form-line{
     margin: 10px;
 }
@@ -51,6 +40,7 @@
     border-radius:0.25em;
     background:white;
     margin-right: 5px;
+    border: 1px solid #52658F;
 }
   
 .radio-button:checked{
@@ -61,7 +51,7 @@
     margin-right: 5%;
 }
 
-.submit-button{
+#submit-button{
     font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
     font-size: 20px;
     background: #333A56;
@@ -72,48 +62,28 @@
     border: none;
     -webkit-filter: drop-shadow(1px 2px 5px rgba(0,0,0,.7));
     filter: drop-shadow(1px 2px 5px rgba(0,0,0,.7));
+    margin-bottom:20px;
 }
 
-/*
-.radio-button{
-    opacity: 0;
-    position: absolute;   
-}
+@media screen and (max-width: 450px) {
+    .radio-button{
+        width:17px;
+        height:17px;
+    }
+    #form-container{
+        font-size: 17px;
+    }
+  
+  }
 
-.radio-button, .line-label span {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 5px;
-    cursor: pointer;
-}
-
-.line-label span {
-    position: relative;
-}
-
-.radio-button + .line-label span:before {
-    content: '';
-    background: #fff;
-    border: 2px solid #ddd;
-    display: inline-block;
-    vertical-align: middle;
-    width: 20px;
-    height: 20px;
-    padding: 2px;
-    margin-right: 10px;
-    text-align: center;
-}
-
-.radio-button + .line-label span:before {
-    border-radius: 50%;
-}
-
-.radio-button:checked + .line-label span:before {
-    content: "\f00c";
-    font-family: 'FontAwesome';
-    color: #bbb;
-}
-
-.radio-button:focus + .line-label span:before {
-    outline: 1px solid #ddd;
-  }*/
+  @media screen and (max-width: 420px) {
+    .radio-button{
+        width:15px;
+        height:15px;
+        margin-right:1%;
+    }
+    #form-container{
+        font-size: 15px;
+    }
+  
+  }
