@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/body_header.css">
     <link rel="stylesheet" href="styles/main_menu.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../scriptz/meniu_principal.js"></script>
 </head>
 
 <body>
@@ -14,34 +15,49 @@
         <nav>
             <a href="main_menu.html"> Acasa </a>
             <a href="#"> Noutati </a>
-            <a href="../contact/contact.html"> Contact </a>
-            <a href="../contact/contact.html"> Despre </a>
+            <a href="contact.html"> Contact </a>
+            <a href="contact.html"> Despre </a>
             <p> Autentificat ca Gabriel-Codrin </p>
         </nav>
-        <h1> Welcome to the Academic Recommender </h1>
+        <h1> AcaR </h1>
     </header>
 
     <main>
         <article>
-            <h2> Despre noi </h2>
-            <p> O aplicatie facuta
-                <strong> de studenti pentru studenti </strong>. O echipa tanara si dornica de lucru a strans informatii pentru fiecare
-                dintre materiile Facultatii de Informatica din cadrul Universitatii "Alexandru Ioan Cuza" din Iasi si le-a
-                pus la dispozitie tuturor studentilor acesteia.</p>
+            <h2> Welcome!! </h2>
+            <p> Din acest moment
+                <strong> esti mai aproape de a trece examenele</strong>. Echipa noastra a creat aceasta aplicatie care va ofera cele mai bune
+                informatii despre toate materiile din cadrul <strong>Facultatii de Informatica Iasi</strong>.</p>
+                <h1> Selecteaza anul materiei despre care vrei informatii, iar in <br>coloana semestrului o vei gasi.</h1>
+                
+            
+            </p><p><strong>Consulta aceasta harta pentru a-ti usura gasirea<br>materiilor despre care esti interesat:</strong></p>
         </article>
+        <ul class="color-map">
+            <li>
+                <div style="color: rgb(74, 64, 207); display: inline-block;"> ■ </div> Materie Obligatorie </li>
+            <li>
+                <div style="color: rgb(65, 187, 209); display: inline-block;"> •■ </div> Materie Optionala pachet 1 </li>
+            <li>
+                <div style="color: rgb(65, 187, 209); display: inline-block;"> ••■ </div> Materie Optionala pachet 2 </li>
+            <li>
+                <div style="color: rgb(65, 187, 209); display: inline-block;"> •••■ </div> Materie Optionala pachet 3 </li>
+            <li>
+                <div style="color: grey; display: inline-block;"> ■ </div> Materie Facultativa </li>
+        </ul>
 
         <div class="year-selectors">
             <ul>
-                <li>Anul I</li>
-                <li>Anul II</li>
-                <li>Anul III</li>
+                <li id="anu1" onclick="anul1()">Anul I</li>
+                <li id="anu2" onclick="anul2()">Anul II</li>
+                <li id="anu3" onclick="anul3()">Anul III</li>
             </ul>
         </div>
 
         <div class="semester-selectors">
             <ul>
-                <li> Semestrul I </li>
-                <li> Semestrul II </li>
+                <li id="sem1"> Semestrul I </li>
+                <li id="sem2"> Semestrul II </li>
             </ul>
         </div>
 
@@ -65,7 +81,7 @@
                 </th>
                 <th>
                     <div class="compulsory-courses">
-                        <p> Programare orientată-obiect </p>
+                        <p id="curs"> Programare orientată-obiect </p>
                         <p> Sisteme de operare </p>
                         <p> Fundamente algebrice ale informaticii </p>
                         <p> Probabilităţi şi statistică </p>
@@ -81,8 +97,8 @@
                 </th>
             </tr>
 
-            <tr class="an2-row an2-row--visible">
-                <th>
+            <tr class="an2-row">
+                <th id="cursuri">
                     <div class="compulsory-courses">
                         <p> Reţele de calculatoare </p>
                         <p> Baze de date </p>
@@ -197,18 +213,6 @@
 
         </table>
 
-        <ul class="color-map">
-            <li>
-                <div style="color: rgb(74, 64, 207); display: inline-block;"> ■ </div> Materie Obligatorie </li>
-            <li>
-                <div style="color: rgb(65, 187, 209); display: inline-block;"> •■ </div> Materie Optionala pachet 1 </li>
-            <li>
-                <div style="color: rgb(65, 187, 209); display: inline-block;"> ••■ </div> Materie optionala pachet 2 </li>
-            <li>
-                <div style="color: rgb(65, 187, 209); display: inline-block;"> •••■ </div> Materie optionala pachet 3 </li>
-            <li>
-                <div style="color: grey; display: inline-block;"> ■ </div> Materie facultativa </li>
-        </ul>
     </main>
 
     <footer>
