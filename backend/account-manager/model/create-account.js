@@ -12,7 +12,7 @@ let newAccount = exports.model = (username, password, email, callback) => {
         }
 
         connection.execute(
-            'INSERT INTO users VALUES (NVL((SELECT max(id) + 1 FROM users), 1), :username, :password, :email)', {
+            'INSERT INTO users VALUES (NVL((SELECT max(id) + 1 FROM users), 1), :username, :password, :email, 0)', {
                 username: username,
                 password: hashedPassword,
                 email: email

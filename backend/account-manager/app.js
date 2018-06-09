@@ -1,16 +1,19 @@
 const http = require('http');
 const router = require('routes')();
+const url = require('url');
 const account = require('./controllers/account');
 const createAccount = require('./controllers/create-account');
+const checkAccountQuestions = require('./controllers/check-account-questions');
 
 const host = '127.0.0.1';
 const port = 8083;
 
 router.addRoute('/account', account.controller);
 router.addRoute('/create-account', createAccount.controller);
+router.addRoute('/check-account-questions', checkAccountQuestions.controller);
 
 let server = http.createServer((req, res) => {
-    let m = router.match(req.url);
+    let m = router.match(url.parse(req.url).pathname);
 
     if (m) {
         m.fn(req, res);
