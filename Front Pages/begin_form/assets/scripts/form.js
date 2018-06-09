@@ -1,23 +1,44 @@
 $('document').ready(function () {
 
-    var questions = [
-        "On a scale from 1 to 5 how do you rate the universe?",
-        "On a scale from 1 to 5 how dumb do you think you are?",
-        "On a scale from 1 to 5 what's your opinion about this site?",
-        "On a scale from 1 to 5 what do you think of books?",
-        "On a scale from 1 to 5 how much do you hate government?",
-        "On a scale from 1 to 5 how smart do you think you are?",
-        "On a scale from 1 to 5 how much do you know about Pluto?",
-        "On a scale from 1 to 5 how is life for you?"
-    ];
+    //get the questions from server
+    /*let xhr = new XMLHttpRequest();
+            
+    xhr.open("GET", "http://localhost:8081/questions");
+
+    xhr.addEventListener("load", function loadCallback() {
+        let response = JSON.parse(xhr.response);
+        console.log(response);
+    });
+
+    xhr.addEventListener("error", function errorCallback() {
+        console.log("Network error");
+    });
+    document.cookie='user=4WUiHnqWXBmP2Q64L49fvMiTAJMMtS2LkRgF0wrFVzGe0sJSkG9yPxitT3mBtGwB; path=/';
+    alert(document.cookie);
+    xhr.setDisableHeaderCheck(true);
+    xhr.send();*/
+    var questions = {
+    "status": "valid",
+    "message": "Intrebarile au fost preluate cu succes din baza de date!",
+    "questions": [
+        "Cat de mult iti place sa te documentezi folosind cartile?",
+        "Cat de des citesti articole online?",
+        "Cat de mult iti manifesti interesul in legatura cu instrumentele software?",
+        "Cat de usor iti este sa intelegi problemele uitandu-te pe codul sursa scris de alte persoane?",
+        "Cat de sociabil, deschis te consideri?",
+        "Cat de mult obisnuiesti sa te increzi in zvonurile lansate de colegii tai?"
+    ]};
+
+
     var textNodeAux;
-    var noOfQuestionsAsked = 7;
+    var noOfQuestionsAsked = questions.questions.length;
+    console.log(noOfQuestionsAsked);
     var newLine = document.createElement("br");
     var formContainer = document.createElement("div"); formContainer.setAttribute("align", "center"); formContainer.id = "form-container";
     var line;
     function createForm(formContainer) {
         for (var i = 1; i <= noOfQuestionsAsked; ++i) {
-            textNodeAux = document.createTextNode(questions[i - 1]);
+            textNodeAux = document.createTextNode(questions.questions[i - 1]);
             line = document.createElement("label"); line.className = "form-line";
             line.appendChild(textNodeAux);
             newLine = document.createElement("br");
@@ -61,7 +82,7 @@ $('document').ready(function () {
         document.getElementById("err1").innerHTML = "";
         var checkedButtons=document.querySelectorAll("input[type=radio]:checked");
         var noOfCheckedButtons = checkedButtons.length;
-        console.log(document.querySelectorAll("input[type=radio]:checked"));
+        //console.log(document.querySelectorAll("input[type=radio]:checked"));
         if (noOfCheckedButtons == noOfQuestionsAsked) {
             document.getElementById("err1").innerHTML = "Felicitari, ai completat cu succes! Vei fi in continuare redirectionat pe pagina recomandarilor!";
             document.getElementById("err1").style.color = "Green";

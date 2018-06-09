@@ -85,7 +85,7 @@ submitBtn.onclick = function (form) {
 
   xhr.addEventListener("load", function loadCallback() {
     let response=JSON.parse(xhr.response);
-    if (!response.status=="error") 
+    if (response.status=="error") 
     {
       document.getElementById("div5").innerHTML=response.message;
       document.getElementById("div5").style.color = "Red";
