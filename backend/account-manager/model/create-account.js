@@ -24,7 +24,7 @@ let newAccount = exports.model = (username, password, email, callback) => {
 
                     connection.release((error) => {
                         if (error) {
-                            console.error(error.message);
+                            console.error(error);
                         }
                     });
                     return;

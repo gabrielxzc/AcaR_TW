@@ -12,6 +12,10 @@ exports.controller = (req, res) => {
 
             try {
                 matricol = JSON.parse(body);
+
+                if (matricol.nrMatricol == null) {
+                    throw 'Lipsesc argumentele necesare!';
+                }
             } catch (e) {
                 res.writeHead(200, {
                     'Content-Type': 'application/json'
@@ -32,6 +36,8 @@ exports.controller = (req, res) => {
 
             request(options, (error, response, body) => {
                 if (error) {
+                    console.error(error);
+                    
                     res.writeHead(200, {
                         'Content-Type': 'application/json'
                     });

@@ -13,12 +13,11 @@ let generateUniqueSession = (connection, username, callback) => {
             autoCommit: true
         }, (error, result) => {
             if (error) {
-                callback('-');
-                console.log(error.message);
+                callback(null, error);
                 return;
             }
 
-            callback(token);
+            callback(token, null);
             return;
         });
 };
@@ -26,9 +25,7 @@ let generateUniqueSession = (connection, username, callback) => {
 let newSession = exports.model = (username, callback) => {
     oracledb.getConnection(databaseConfig, (error, connection) => {
         if (error) {
-            console.log(error);
-            callback('-');
-
+            callback(null, error);
             return;
         }
 
@@ -39,22 +36,27 @@ let newSession = exports.model = (username, callback) => {
                 autoCommit: true
             }, (error, result) => {
                 if (error) {
-                    console.error(error);
-                    callback('-');
+                    callback(null, error);
 
                     connection.release((error) => {
                         if (error) {
-                            console.error(error.message);
+                            console.error(error);
                         }
                     });
+
                     return;
                 }
 
-                generateUniqueSession(connection, username, (sessionId) => {
-                    callback(sessionId);
+                generateUniqueSession(connection, username, (sessionId, error) => {
+                    if (error) {
+                        callback(null, error);
+                    } else {
+                        callback(sessionId, null);
+                    }
+
                     connection.release((error) => {
                         if (error) {
-                            console.error(error.message);
+                            console.error(error);
                         }
                     });
                 });

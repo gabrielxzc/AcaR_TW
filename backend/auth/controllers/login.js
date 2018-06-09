@@ -12,6 +12,10 @@ exports.controller = (req, res) => {
 
             try {
                 account = JSON.parse(body);
+
+                if (account.username == null || account.password == null) {
+                    throw 'Lipsesc argumentele necesare!';
+                }
             } catch (e) {
                 res.writeHead(200, {
                     'Content-Type': 'application/json'
@@ -32,6 +36,8 @@ exports.controller = (req, res) => {
 
             request(options, (error, response, body) => {
                 if (error) {
+                    console.error(error);
+
                     res.writeHead(200, {
                         'Content-Type': 'application/json'
                     });
@@ -41,6 +47,13 @@ exports.controller = (req, res) => {
                     }));
 
                     return;
+                }
+
+                if (body.isAccountValid == null) {
+                    res.writeHead(response.statusCode, {
+                        'Content-Type': 'application/json'
+                    });
+                    res.end(JSON.stringify(body));
                 }
 
                 if (!body.isAccountValid) {
@@ -65,6 +78,8 @@ exports.controller = (req, res) => {
 
                 request(options, (error, response, body) => {
                     if (error) {
+                        console.log(error);
+                        
                         res.writeHead(200, {
                             'Content-Type': 'application/json'
                         });

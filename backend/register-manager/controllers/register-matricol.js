@@ -8,7 +8,7 @@ let sendRegisterEmail = (email, token, callback) => {
         service: 'gmail',
         tls: {
             rejectUnauthorized: false
-        },    
+        },
         auth: {
             user: 'uaic.contact.elearning@gmail.com',
             pass: 'ContactElearning123'
@@ -46,6 +46,10 @@ exports.controller = (req, res) => {
 
             try {
                 matricol = JSON.parse(body);
+
+                if (matricol.nrMatricol == null) {
+                    throw 'Lipsesc argumentele necesare!';
+                }
             } catch (e) {
                 res.writeHead(200, {
                     'Content-Type': 'application/json'
@@ -58,7 +62,21 @@ exports.controller = (req, res) => {
                 return;
             }
 
-            checkNrMatricol.model(matricol.nrMatricol, (isNrMatricolValid, email) => {
+            checkNrMatricol.model(matricol.nrMatricol, (isNrMatricolValid, email, error) => {
+                if (error) {
+                    console.error(error);
+
+                    res.writeHead(200, {
+                        'Content-Type': 'application/json'
+                    });
+                    res.end(JSON.stringify({
+                        'status': 'error',
+                        'message': 'A aparut o eroare interna, va rugam reincercati mai tarziu iar daca eroarea persista contactati un administrator!'
+                    }));
+
+                    return;
+                }
+
                 if (!isNrMatricolValid) {
                     res.writeHead(200, {
                         'Content-Type': 'application/json'
@@ -73,13 +91,14 @@ exports.controller = (req, res) => {
 
                 createRegisterToken.model(matricol.nrMatricol, (token, error) => {
                     if (error) {
+                        console.error(error);
+
                         res.writeHead(200, {
                             'Content-Type': 'application/json'
                         });
                         res.end(JSON.stringify({
                             'status': 'error',
-                            'message': 'A avut loc o eroare interna! Va rugam reincercati mai tarziu iar daca eroarea persista ' +
-                                'contactati un admnistrator!'
+                            'message': 'A aparut o eroare interna, va rugam reincercati mai tarziu iar daca eroarea persista contactati un administrator!'
                         }));
 
                         return;
@@ -87,6 +106,8 @@ exports.controller = (req, res) => {
 
                     sendRegisterEmail(email, token, (error) => {
                         if (error) {
+                            console.error(error);
+                            
                             res.writeHead(200, {
                                 'Content-Type': 'application/json'
                             });
@@ -105,7 +126,7 @@ exports.controller = (req, res) => {
                         res.end(JSON.stringify({
                             'status': 'valid',
                             'message': 'Numarul matricol este valid, vei primi in scurt timp un mesaj pe emailul asociat acestui numar matricol ' +
-                                'cu detalii despre pasii urmatori ai inregistrarii!'
+                                'ce contine detalii despre pasii urmatori ai inregistrarii!'
                         }));
                     });
                 });

@@ -13,9 +13,7 @@ let generateUniqueRegisterToken = (connection, nrMatricol, callback) => {
             autoCommit: true
         }, (error, result) => {
             if (error) {
-                callback('-', error);
-                console.log(error.message);
-
+                callback(null, error);
                 return;
             }
 
@@ -26,9 +24,7 @@ let generateUniqueRegisterToken = (connection, nrMatricol, callback) => {
 let newRegisterToken = exports.model = (nrMatricol, callback) => {
     oracledb.getConnection(databaseConfig, (error, connection) => {
         if (error) {
-            console.log(error);
-            callback('-', error);
-
+            callback(null, error);
             return;
         }
 
@@ -39,27 +35,27 @@ let newRegisterToken = exports.model = (nrMatricol, callback) => {
                 autoCommit: true
             }, (error, result) => {
                 if (error) {
-                    console.error(error);
-                    callback('-', error);
+                    callback(null, error);
 
                     connection.release((error) => {
                         if (error) {
-                            console.error(error.message);
+                            console.error(error);
                         }
                     });
+
                     return;
                 }
 
                 generateUniqueRegisterToken(connection, nrMatricol, (registerToken, error) => {
                     if (error) {
-                        callback('-', error);
+                        callback(null, error);
                     } else {
                         callback(registerToken, null);
                     }
 
                     connection.release((error) => {
                         if (error) {
-                            console.error(error.message);
+                            console.error(error);
                         }
                     });
                 });

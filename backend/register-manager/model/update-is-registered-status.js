@@ -19,7 +19,7 @@ let deleteRegisterToken = exports.model = (nrMatricol, callback) => {
 
                     connection.release((error) => {
                         if (error) {
-                            console.error(error.message);
+                            console.error(error);
                         }
                     });
 
@@ -27,10 +27,10 @@ let deleteRegisterToken = exports.model = (nrMatricol, callback) => {
                 }
 
                 callback(null);
-                
+
                 connection.release((error) => {
                     if (error) {
-                        console.error(error.message);
+                        console.error(error);
                     }
                 });
             });

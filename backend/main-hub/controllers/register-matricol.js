@@ -14,7 +14,7 @@ exports.controller = (req, res) => {
                 matricol = JSON.parse(body);
 
                 if (matricol.nrMatricol == null) {
-                    throw 'Necessary parameters not found';
+                    throw 'Lipsesc argumentele necesare!';
                 }
             } catch (e) {
                 res.writeHead(200, {
@@ -36,6 +36,8 @@ exports.controller = (req, res) => {
 
             request(options, (error, response, body) => {
                 if (error) {
+                    console.error(error);
+                    
                     res.writeHead(200, {
                         'Content-Type': 'application/json'
                     });

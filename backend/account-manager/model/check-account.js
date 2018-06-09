@@ -5,13 +5,10 @@ const crypto = require('crypto');
 let checkAccount = exports.model = (username, password, callback) => {
     let isAccountValid = false;
     let hashedPassword = crypto.createHash('sha256').update(password).digest('hex');
-    console.log(hashedPassword);
 
     oracledb.getConnection(databaseConfig, (error, connection) => {
         if (error) {
-            console.log(error);
-            callback(isAccountValid);
-
+            callback(null, error);
             return;
         }
 
@@ -21,14 +18,14 @@ let checkAccount = exports.model = (username, password, callback) => {
                 password: hashedPassword
             }, (error, result) => {
                 if (error) {
-                    console.error(error);
-                    callback(isAccountValid);
+                    callback(null, error);
 
                     connection.release((error) => {
                         if (error) {
-                            console.error(error.message);
+                            console.error(error);
                         }
                     });
+
                     return;
                 }
 
@@ -36,11 +33,11 @@ let checkAccount = exports.model = (username, password, callback) => {
                     isAccountValid = true;
                 }
 
-                callback(isAccountValid);
+                callback(isAccountValid, null);
 
                 connection.release((error) => {
                     if (error) {
-                        console.error(error.message);
+                        console.error(error);
                     }
                 });
             });

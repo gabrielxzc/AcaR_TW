@@ -19,7 +19,7 @@ let deleteRegisterToken = exports.model = (registerToken, callback) => {
 
                     connection.release((error) => {
                         if (error) {
-                            console.error(error.message);
+                            console.error(error);
                         }
                     });
 
@@ -30,7 +30,7 @@ let deleteRegisterToken = exports.model = (registerToken, callback) => {
                 
                 connection.release((error) => {
                     if (error) {
-                        console.error(error.message);
+                        console.error(error);
                     }
                 });
             });

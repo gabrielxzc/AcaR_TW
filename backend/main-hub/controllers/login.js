@@ -14,7 +14,7 @@ exports.controller = (req, res) => {
                 account = JSON.parse(body);
 
                 if (account.username == null || account.password == null) {
-                    throw 'Necessary parameters not found';
+                    throw 'Lipsesc argumentele necesare!';
                 }
             } catch (e) {
                 res.writeHead(200, {
@@ -36,6 +36,8 @@ exports.controller = (req, res) => {
 
             request(options, (error, response, body) => {
                 if (error) {
+                    console.error(error);
+                    
                     res.writeHead(200, {
                         'Content-Type': 'application/json'
                     });

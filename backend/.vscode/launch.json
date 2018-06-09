@@ -7,6 +7,12 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Start questions manager",
+            "program": "${workspaceFolder}/questions-manager\\app.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Start register manager",
             "program": "${workspaceFolder}/register-manager\\app.js"
         },
@@ -43,7 +49,8 @@
                 "Start auth service",
                 "Start account manager",
                 "Start session manager",
-                "Start register manager"
+                "Start register manager",
+                "Start questions manager"
             ]
         }
     ]

@@ -3,12 +3,12 @@ const oracledb = require('oracledb');
 
 let checkRegisterToken = exports.model = (registerToken, callback) => {
     let isRegisterTokenValid = false;
-    let email = '-';
-    let nrMatricol = '-';
+    let email = null;
+    let nrMatricol = null;
     
     oracledb.getConnection(databaseConfig, (error, connection) => {
         if (error) {
-            callback(isRegisterTokenValid, email, nrMatricol, error);
+            callback(null, null, null, error);
             return;
         }
 
@@ -17,11 +17,11 @@ let checkRegisterToken = exports.model = (registerToken, callback) => {
                 token: registerToken
             }, (error, result) => {
                 if (error) {
-                    callback(isRegisterTokenValid, email, nrMatricol, error);
+                    callback(null, null, null, error);
 
                     connection.release((error) => {
                         if (error) {
-                            console.error(error.message);
+                            console.error(error);
                         }
                     });
 
@@ -38,7 +38,7 @@ let checkRegisterToken = exports.model = (registerToken, callback) => {
 
                 connection.release((error) => {
                     if (error) {
-                        console.error(error.message);
+                        console.error(error);
                     }
                 });
             });

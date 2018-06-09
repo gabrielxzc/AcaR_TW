@@ -3,13 +3,11 @@ const oracledb = require('oracledb');
 
 let checkNrMatricol = exports.model = (nrMatricol, callback) => {
     let isNrMatricolValid = false;
-    let email = '-';
+    let email = null;
     
     oracledb.getConnection(databaseConfig, (error, connection) => {
         if (error) {
-            console.log(error);
-            callback(isNrMatricolValid, email);
-
+            callback(null, null, error);
             return;
         }
 
@@ -18,12 +16,11 @@ let checkNrMatricol = exports.model = (nrMatricol, callback) => {
                 nrMatricol: nrMatricol
             }, (error, result) => {
                 if (error) {
-                    console.error(error);
-                    callback(isNrMatricolValid, email);
+                    callback(null, null, error);
 
                     connection.release((error) => {
                         if (error) {
-                            console.error(error.message);
+                            console.error(error);
                         }
                     });
 
@@ -35,11 +32,11 @@ let checkNrMatricol = exports.model = (nrMatricol, callback) => {
                     isNrMatricolValid = true;
                 }
 
-                callback(isNrMatricolValid, email);
+                callback(isNrMatricolValid, email, null);
 
                 connection.release((error) => {
                     if (error) {
-                        console.error(error.message);
+                        console.error(error);
                     }
                 });
             });
