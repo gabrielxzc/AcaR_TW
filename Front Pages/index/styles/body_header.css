@@ -41,6 +41,7 @@ header h1 {
     top: 150px;
     left: 50%;
     transform: translateX(-50%);
+    font-family: "Blender", "Helvetica Neue", Helvetica, Arial, sans-serif; 
 }
 
 nav {
