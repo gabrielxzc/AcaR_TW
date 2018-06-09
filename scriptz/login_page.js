@@ -5,20 +5,20 @@ function validateLoginBoxes() {
     var parolaCont = document.getElementById("pass");
     var regex = /^[a-zA-Z]+[0-9]*[a-zA-Z]*$/;
     if (regex.test(numeCont.value) == false) {
-        document.getElementById("spnName").innerHTML = "Numele contului este format numai din caractere alfanumerice!";
+        document.getElementById("spnName").innerHTML = "<p>Numele contului este format numai din caractere alfanumerice!</p>";
         return false;
     }
     if (numeCont.value.length < 4) {
-        document.getElementById("spnName").innerHTML = "Numele contului trebuie sa contina cel putin patru caractere!";
+        document.getElementById("spnName").innerHTML = "<p>Numele contului trebuie sa contina cel putin patru caractere!</p>";
         return false;
     }
     if (parolaCont.value.length < 6) {
-        document.getElementById("parola").innerHTML = "Parola introdusa este prea scurta, trebuie sa contina cel putin 6 litere!";
+        document.getElementById("parola").innerHTML = "<p>Parola trebuie sa contina cel putin 6 litere!</p>";
         return false;
     }
     var regexpass = /^[a-z0-9]*[A-Z]+[a-zA-Z0-9]*$/;
     if (regexpass.test(parolaCont.value) == false) {
-        document.getElementById("parola").innerHTML = "Parola trebuie sa contina numai caractere alfanumerice si cel putin o litera mare!";
+        document.getElementById("parola").innerHTML = "<p>Parola trebuie sa contina numai caractere alfanumerice si cel putin o litera mare!</p>";
         return false;
     }
     let xhr = new XMLHttpRequest();
@@ -54,11 +54,11 @@ function validateRegisterBox() {
     var numarmatricol = document.getElementById("numar_matricol");
     var regex = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9]$/;
     if (regex.test(numarmatricol.value) == false) {
-        document.getElementById("numarulmat").innerHTML = "Numarul matricol introdus nu respecta formatul!";
+        document.getElementById("numarulmat").innerHTML = "<p>Numarul matricol introdus nu respecta formatul!</p>";
         return false;
     }
     if (numarmatricol.value == "") {
-        alert("Ce numar e asta oconasule?");
+        alert("<p>Ce numar e asta oconasule?</p>");
         return false;
     }
 

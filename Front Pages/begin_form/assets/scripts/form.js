@@ -110,7 +110,7 @@ $('document').ready(function () {
             return false;
         }
         else {
-            document.getElementById("err1").innerHTML = "Formular incomplet! Selectati o optiune pentru fiecare intrebare!";
+            document.getElementById("err1").innerHTML = "Formular incomplet! Selecteaza o optiune pentru fiecare intrebare!";
             document.getElementById("err1").style.color = "Red";
             return;
         }

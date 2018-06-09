@@ -97,21 +97,28 @@ main article h1 {
 
 .modal-content,
 .model-content2 {
-    background-color: #fefefe;
+    /*background-color: #fefefe;*/
     margin: 15% auto;
-    /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
     width: 50%;
-    /* Could be more or less, depending on screen size */
     text-align: center;
+    width:70%;
+    max-width: 600px;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
+    padding: 1.3em;
+    background: #E8E8E8;
+    color:#333A56;
+    border-radius:0.25em;
 }
 
 
 
 .form {
     margin: auto;
-    color: black;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
+    font-size: 20px;
+    padding: 1.3em;
+    color:#333A56;
     align-content: center;
 
 }
@@ -119,21 +126,21 @@ main article h1 {
 .form button {
     padding: 8px;
     text-transform: uppercase;
-    background: #CD5C5C;
-    width: 80%;
+    width: 70%;
     color: white;
-    font-size: 12px;
     cursor: pointer;
-    text-align: center;
     margin-bottom: 19px;
-    margin-top: 5px;
-    margin-left: 4px;
-    border-radius: 20px;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
+    font-size: 20px;
+    background: #333A56;
+    border-radius:0.25em;
+    color: white;
+    border: none;
+    margin-top:20px;
 }
 
 .form h2 {
     margin: 30px;
-    color: black;
     font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align: center;
 }
@@ -142,14 +149,12 @@ main article h1 {
     margin: 8px;
     font-weight: bold;
     padding-left: 3px;
-    color: black;
     text-align: center;
     font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .form .Message {
     text-align: center;
-    color: black;
     font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
@@ -166,6 +171,18 @@ main article h1 {
     margin: 1%;
     border-radius: 12px;
     width: 150px;
+}
+
+#myBtn, #myBtn2{
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
+    font-size: 20px;
+    background: #333A56;
+    border-radius:0.25em;
+    color: white;
+    border: none;
+    -webkit-filter: drop-shadow(1px 2px 5px rgba(0,0,0,.7));
+    filter: drop-shadow(1px 2px 5px rgba(0,0,0,.7));
+    margin-bottom:20px;
 }
 
 .form .Message a {
@@ -189,4 +206,10 @@ main article h1 {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+#name, #pass,#numar_matricol{
+    height:40px;
+    width:60%;
+    border-color: #333A56;
 }
