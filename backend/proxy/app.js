@@ -3,11 +3,13 @@ const router = require('routes')();
 const url = require('url');
 const fs = require('fs');
 const root = require('./controllers/root');
+const register = require('./controllers/register');
 
 const host = '127.0.0.1';
 const port = 8079;
 
 router.addRoute('/', root.controller);
+reouter.addRote('/register', register.controller);
 
 let server = http.createServer((req, res) => {
     let m = router.match(url.parse(req.url).pathname);
