@@ -20,7 +20,7 @@ let sendRegisterEmail = (email, token, callback) => {
         to: email,
         subject: 'Inregistrare Academic Recommender',
         text: 'Salut Studentule, \n\nIti multumim ca te-ai inregistrat pe platforma noastra!\nCodul tau de inregistrare este: ' + token +
-            '\n\nEchipa Academic Recommender\nFacultatea de Informatica, UAIC'
+            '\nIntra pe http://localhost:8079/register si urmeaza pasii de acolo pentru a continua inregistrarea!\n\nEchipa Academic Recommender\nFacultatea de Informatica, UAIC'
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
