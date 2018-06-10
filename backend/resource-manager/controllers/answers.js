@@ -131,13 +131,47 @@ exports.controller = (req, res) => {
                         return;
                     }
 
-                    res.writeHead(response.statusCode, {
-                        'Content-Type': 'application/json'
+                    let options = {
+                        uri: 'http://localhost:8092/init-user-rating',
+                        method: 'POST',
+                        json: {
+                            'username': answers.username,
+                            'rating': answers.array[3]
+                        }
+                    };
+
+                    request(options, (error, response, body) => {
+                        if (error) {
+                            console.log(error);
+
+                            res.writeHead(200, {
+                                'Content-Type': 'application/json'
+                            });
+                            res.end(JSON.stringify({
+                                'status': 'error',
+                                'message': 'Nu s-a putut contacta serviciul de administrare a codului sursa!'
+                            }));
+
+                            return;
+                        }
+
+                        if (body.status == 'error') {
+                            res.writeHead(response.statusCode, {
+                                'Content-Type': 'application/json'
+                            });
+                            res.end(JSON.stringify(body));
+
+                            return;
+                        }
+
+                        res.writeHead(response.statusCode, {
+                            'Content-Type': 'application/json'
+                        });
+                        res.end(JSON.stringify({
+                            'status': 'valid',
+                            'message': 'S-au actualizat raspunsurile cu succes!'
+                        }));
                     });
-                    res.end(JSON.stringify({
-                        'status': 'valid',
-                        'message': 'S-au actualizat raspunsurile cu succes!'
-                    }));      
                 });
             });
         });
