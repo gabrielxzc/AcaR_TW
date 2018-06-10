@@ -25,6 +25,9 @@ main article p {
 #spnName,#parola,#numarulmat{
     color:red;
 }
+#confirmareNrMatricol,#MesajConfirmare{
+    color:green;
+}
 main article h1 {
     width: 100%;
     text-align: center;

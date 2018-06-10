@@ -45,10 +45,10 @@ function validateLoginBoxes() {
         let response= JSON.parse(xhr.response);
         if(response.status=="error")
             {
-                document.getElementById("parola").innerHTML=response.message;        
+                document.getElementById("MesajConfirmare").innerHTML=response.message;        
             }
         else{
-            document.getElementById("parola").innerHTML="Te-ai logat cu succes";
+            document.getElementById("MesajConfirmare").innerHTML="Te-ai logat cu succes";
             sleep(100);
             window.location.replace("http://localhost:8087");
             
@@ -71,7 +71,7 @@ function validateRegisterBox() {
         return false;
     }
     if (numarmatricol.value == "") {
-        alert("Ce numar e asta oconasule?");
+        document.getElementById("numarulmat").innerHTML = "Numarul matricol nu poate fi null";
         return false;
     }
     
@@ -89,13 +89,10 @@ function validateRegisterBox() {
         let response= JSON.parse(xhr.response);
         if(response.status=="error")
             {
-                document.getElementById("numarulmat").innerHTML=response.message;        
+                document.getElementById("confirmareNrMatricol").innerHTML=response.message;        
             }
         else{
-            document.getElementById("numarulmat").innerHTML="Intra pe email pentru finaliza inregistrarea";
-            sleep(100);
-            window.location.replace("http://localhost:8081/register");
-            
+            document.getElementById("confirmareNrMatricol").innerHTML="Intra pe email pentru finaliza inregistrarea";
         }
     });
 
