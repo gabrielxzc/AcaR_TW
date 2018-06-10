@@ -86,7 +86,6 @@ $('document').ready(function () {
         if (noOfCheckedButtons == noOfQuestionsAsked) {
             document.getElementById("err1").innerHTML = "Felicitari, ai completat cu succes! Vei fi in continuare redirectionat pe pagina recomandarilor!";
             document.getElementById("err1").style.color = "Green";
-            window.location.replace("http://localhost:8079/");
         let collectedData=[];
             for(var i=0;i<noOfCheckedButtons;++i){
                 var str=checkedButtons[i].value;
