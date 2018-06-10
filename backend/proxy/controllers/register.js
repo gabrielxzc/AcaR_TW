@@ -6,7 +6,7 @@ exports.controller = (req, res) => {
     let cookies = cookieParser.parse(req);
     console.log(cookies);
 
-    let filepath = './proxy/views/index/index.html';
+    let filepath = './proxy/views/register/register.html';
     fs.readFile(filepath, (error, data) => {
         if (error) {
             res.writeHead(404);
