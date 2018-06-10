@@ -1,0 +1,215 @@
+main article {
+    margin-bottom: 75px;
+}
+
+main article h2 {
+    width: 100%;
+    text-align: center;
+    font-family: "Blender", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 55px;
+    font-weight: 700;
+    color: #293742;
+    margin-bottom: 20px;
+}
+
+main article p {
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-repeat: no-repeat;
+    background-size: 120px 120px;
+}
+#spnName,#parola,#numarulmat{
+    color:red;
+}
+main article h1 {
+    width: 100%;
+    text-align: center;
+    font-family: "Blender", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 70px;
+    font-weight: 400;
+    color: #293742;
+    margin-bottom: 40px;
+
+}
+
+.codrin-about {
+    background-image: url(../img/codrin.png);
+    background-position: center right;
+    padding-right: 140px;
+}
+
+.sebi-about {
+    background-image: url(../img/sebi.png);
+    background-position: center left;
+    padding-left: 140px;
+}
+
+.ioan-about {
+    background-image: url(../img/ioan.png);
+    background-position: center right;
+    padding-right: 140px;
+}
+
+.serban-about {
+    background-image: url(../img/serban.png);
+    background-position: center left;
+    padding-left: 140px;
+}
+
+.social-media {
+    text-align: center;
+}
+
+.social-media img {
+    margin-right: 10px;
+}
+
+.social-media a {
+    text-decoration: none;
+}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+
+.modal-content,
+.model-content2 {
+    /*background-color: #fefefe;*/
+    margin: 15% auto;
+    padding: 20px;
+    width: 50%;
+    text-align: center;
+    width:70%;
+    max-width: 600px;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
+    padding: 1.3em;
+    background: #E8E8E8;
+    color:#333A56;
+    border-radius:0.25em;
+}
+
+
+
+.form {
+    margin: auto;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
+    font-size: 20px;
+    padding: 1.3em;
+    color:#333A56;
+    align-content: center;
+
+}
+
+.form button {
+    padding: 8px;
+    text-transform: uppercase;
+    width: 70%;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 19px;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
+    font-size: 20px;
+    background: #333A56;
+    border-radius:0.25em;
+    color: white;
+    border: none;
+    margin-top:20px;
+}
+
+.form h2 {
+    margin: 30px;
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+.form p {
+    margin: 8px;
+    font-weight: bold;
+    padding-left: 3px;
+    text-align: center;
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.form .Message {
+    text-align: center;
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+#myBtn,
+#myBtn2 {
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 200;
+    cursor: pointer;
+    padding: 12px 32px;
+    margin: 1%;
+    border-radius: 12px;
+    width: 150px;
+}
+
+#myBtn, #myBtn2{
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
+    font-size: 20px;
+    background: #333A56;
+    border-radius:0.25em;
+    color: white;
+    border: none;
+    -webkit-filter: drop-shadow(1px 2px 5px rgba(0,0,0,.7));
+    filter: drop-shadow(1px 2px 5px rgba(0,0,0,.7));
+    margin-bottom:20px;
+}
+
+.form .Message a {
+    color: aqua;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* The Close Button */
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#name, #pass,#numar_matricol{
+    height:40px;
+    width:60%;
+    padding-left: 8px;
+}

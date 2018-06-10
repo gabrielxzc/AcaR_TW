@@ -2,9 +2,12 @@ const http = require('http');
 const router = require('routes')();
 const url = require('url');
 const fs = require('fs');
+const root = require('./controllers/root');
 
 const host = '127.0.0.1';
 const port = 8079;
+
+router.addRoute('/', root.controller);
 
 let server = http.createServer((req, res) => {
     let m = router.match(url.parse(req.url).pathname);
@@ -28,6 +31,12 @@ let server = http.createServer((req, res) => {
                         break;
                     case 'css':
                         contentType = 'text/css';
+                        break;
+                    case 'svg':
+                        contentType = 'image/svg+xml';
+                        break;
+                    case 'png':
+                        contentType = 'image/png';
                         break;
                     default:
                         contentType = 'text/html';

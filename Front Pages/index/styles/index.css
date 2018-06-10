@@ -211,5 +211,5 @@ main article h1 {
 #name, #pass,#numar_matricol{
     height:40px;
     width:60%;
-    border-color: #333A56;
+    padding-left: 8px;
 }
