@@ -1,0 +1,11 @@
+CONN / AS SYSDBA	
+CREATE USER people_manager IDENTIFIED BY people_manager DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
+ALTER USER people_manager QUOTA 100M ON USERS;
+GRANT CONNECT TO people_manager;
+GRANT CREATE TABLE TO people_manager;
+GRANT CREATE VIEW TO people_manager;
+GRANT CREATE SEQUENCE TO people_manager;
+GRANT CREATE TRIGGER TO people_manager;
+GRANT CREATE SYNONYM TO people_manager;
+GRANT CREATE PROCEDURE TO people_manager;
+disconnect;

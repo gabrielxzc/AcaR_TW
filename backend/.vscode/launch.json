@@ -7,6 +7,18 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Start gossips manager",
+            "program": "${workspaceFolder}/gossips-manager\\app.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Start interest people manager",
+            "program": "${workspaceFolder}/people-manager\\app.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Start source code manager",
             "program": "${workspaceFolder}/code-manager\\app.js"
         },
@@ -99,7 +111,9 @@
                 "Start books manager",
                 "Start articles manager",
                 "Start software utilities manager",
-                "Start source code manager"
+                "Start source code manager",
+                "Start interest people manager",
+                "Start gossips manager"
             ]
         }
     ]

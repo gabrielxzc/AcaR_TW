@@ -164,13 +164,114 @@ exports.controller = (req, res) => {
                             return;
                         }
 
-                        res.writeHead(response.statusCode, {
-                            'Content-Type': 'application/json'
+                        let options = {
+                            uri: 'http://localhost:8093/init-user-rating',
+                            method: 'POST',
+                            json: {
+                                'username': answers.username,
+                                'rating': answers.array[4]
+                            }
+                        };
+
+                        request(options, (error, response, body) => {
+                            if (error) {
+                                console.log(error);
+
+                                res.writeHead(200, {
+                                    'Content-Type': 'application/json'
+                                });
+                                res.end(JSON.stringify({
+                                    'status': 'error',
+                                    'message': 'Nu s-a putut contacta serviciul de administrare a oamenilor de interes!'
+                                }));
+
+                                return;
+                            }
+
+                            if (body.status == 'error') {
+                                res.writeHead(response.statusCode, {
+                                    'Content-Type': 'application/json'
+                                });
+                                res.end(JSON.stringify(body));
+
+                                return;
+                            }
+
+                            let options = {
+                                uri: 'http://localhost:8094/init-user-rating',
+                                method: 'POST',
+                                json: {
+                                    'username': answers.username,
+                                    'rating': answers.array[5]
+                                }
+                            };
+
+                            request(options, (error, response, body) => {
+                                if (error) {
+                                    console.log(error);
+
+                                    res.writeHead(200, {
+                                        'Content-Type': 'application/json'
+                                    });
+                                    res.end(JSON.stringify({
+                                        'status': 'error',
+                                        'message': 'Nu s-a putut contacta serviciul de administrare a barfelor!'
+                                    }));
+
+                                    return;
+                                }
+
+                                if (body.status == 'error') {
+                                    res.writeHead(response.statusCode, {
+                                        'Content-Type': 'application/json'
+                                    });
+                                    res.end(JSON.stringify(body));
+
+                                    return;
+                                }
+
+                                let options = {
+                                    uri: 'http://localhost:8083/update-account-questions',
+                                    method: 'POST',
+                                    json: {
+                                        'username': answers.username
+                                    }
+                                };
+    
+                                request(options, (error, response, body) => {
+                                    if (error) {
+                                        console.log(error);
+    
+                                        res.writeHead(200, {
+                                            'Content-Type': 'application/json'
+                                        });
+                                        res.end(JSON.stringify({
+                                            'status': 'error',
+                                            'message': 'Nu s-a putut contacta serviciul de administrare a conturilor!'
+                                        }));
+    
+                                        return;
+                                    }
+    
+                                    if (body.status == 'error') {
+                                        res.writeHead(response.statusCode, {
+                                            'Content-Type': 'application/json'
+                                        });
+                                        res.end(JSON.stringify(body));
+    
+                                        return;
+                                    }
+    
+                                    res.writeHead(response.statusCode, {
+                                        'Content-Type': 'application/json'
+                                    });
+                                    res.end(JSON.stringify({
+                                        'status': 'valid',
+                                        'message': 'S-au actualizat raspunsurile cu succes!'
+                                    }));
+                                });
+                            });
                         });
-                        res.end(JSON.stringify({
-                            'status': 'valid',
-                            'message': 'S-au actualizat raspunsurile cu succes!'
-                        }));
                     });
                 });
             });

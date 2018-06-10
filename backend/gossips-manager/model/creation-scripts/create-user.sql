@@ -1,0 +1,11 @@
+CONN / AS SYSDBA	
+CREATE USER gossips_manager IDENTIFIED BY gossips_manager DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
+ALTER USER gossips_manager QUOTA 100M ON USERS;
+GRANT CONNECT TO gossips_manager;
+GRANT CREATE TABLE TO gossips_manager;
+GRANT CREATE VIEW TO gossips_manager;
+GRANT CREATE SEQUENCE TO gossips_manager;
+GRANT CREATE TRIGGER TO gossips_manager;
+GRANT CREATE SYNONYM TO gossips_manager;
+GRANT CREATE PROCEDURE TO gossips_manager;
+disconnect;

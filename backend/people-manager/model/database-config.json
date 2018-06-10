@@ -1,0 +1,5 @@
+{
+    "user": "people_manager",
+    "password": "people_manager",
+    "connectString": "localhost/XE"
+}

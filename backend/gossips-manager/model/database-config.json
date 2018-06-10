@@ -1,0 +1,5 @@
+{
+    "user": "gossips_manager",
+    "password": "gossips_manager",
+    "connectString": "localhost/XE"
+}
