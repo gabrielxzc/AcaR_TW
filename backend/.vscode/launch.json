@@ -7,6 +7,18 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Start resource manager",
+            "program": "${workspaceFolder}/resource-manager\\app.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Start proxy",
+            "program": "${workspaceFolder}/proxy\\app.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Start subjects manager",
             "program": "${workspaceFolder}/subjects-manager\\app.js"
         },
@@ -57,7 +69,9 @@
                 "Start session manager",
                 "Start register manager",
                 "Start questions manager",
-                "Start subjects manager"
+                "Start subjects manager",
+                "Start proxy",
+                "Start resource manager"
             ]
         }
     ]

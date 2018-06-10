@@ -5,6 +5,7 @@ const registerMatricol = require('./controllers/register-matricol');
 const register = require('./controllers/register');
 const questions = require('./controllers/questions');
 const subjects = require('./controllers/subjects');
+const answers = require('./controllers/answers');
 
 const host = '127.0.0.1';
 const port = 8081;
@@ -14,6 +15,7 @@ router.addRoute('/register-matricol', registerMatricol.controller);
 router.addRoute('/register', register.controller);
 router.addRoute('/questions', questions.controller);
 router.addRoute('/subjects', subjects.controller);
+router.addRoute('/answers', answers.controller);
 
 let server = http.createServer((req, res) => {
     let m = router.match(req.url);
