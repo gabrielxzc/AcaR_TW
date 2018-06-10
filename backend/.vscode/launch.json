@@ -7,6 +7,18 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Start articles manager",
+            "program": "${workspaceFolder}/articles-manager\\app.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Start books manager",
+            "program": "${workspaceFolder}/books-manager\\app.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Start resource manager",
             "program": "${workspaceFolder}/resource-manager\\app.js"
         },
@@ -71,7 +83,9 @@
                 "Start questions manager",
                 "Start subjects manager",
                 "Start proxy",
-                "Start resource manager"
+                "Start resource manager",
+                "Start books manager",
+                "Start articles manager"
             ]
         }
     ]

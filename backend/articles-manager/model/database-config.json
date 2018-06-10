@@ -1,0 +1,5 @@
+{
+    "user": "articles_manager",
+    "password": "articles_manager",
+    "connectString": "localhost/XE"
+}

@@ -34,18 +34,76 @@ exports.controller = (req, res) => {
             return;
         }
 
-        res.writeHead(200, {
-            'Content-Type': 'application/json'
+        let options = {
+            uri: 'http://localhost:8089/init-user-rating',
+            method: 'POST',
+            json: {
+                'username': answers.username,
+                'rating': answers.array[0]
+            }
+        };
+
+        request(options, (error, response, body) => {
+            if (error) {
+                console.log(error);
+
+                res.writeHead(200, {
+                    'Content-Type': 'application/json'
+                });
+                res.end(JSON.stringify({
+                    'status': 'error',
+                    'message': 'Nu s-a putut contacta serviciul de administrare a cartilor!'
+                }));
+
+                return;
+            }
+
+            if (body.status == 'error') {
+                res.writeHead(response.statusCode, {
+                    'Content-Type': 'application/json'
+                });
+                res.end(JSON.stringify(body));
+            }
+
+            let options = {
+                uri: 'http://localhost:8090/init-user-rating',
+                method: 'POST',
+                json: {
+                    'username': answers.username,
+                    'rating': answers.array[1]
+                }
+            };
+    
+            request(options, (error, response, body) => {
+                if (error) {
+                    console.log(error);
+    
+                    res.writeHead(200, {
+                        'Content-Type': 'application/json'
+                    });
+                    res.end(JSON.stringify({
+                        'status': 'error',
+                        'message': 'Nu s-a putut contacta serviciul de administrare a articolelor online!'
+                    }));
+    
+                    return;
+                }
+    
+                if (body.status == 'error') {
+                    res.writeHead(response.statusCode, {
+                        'Content-Type': 'application/json'
+                    });
+                    res.end(JSON.stringify(body));
+                }
+    
+                res.writeHead(response.statusCode, {
+                    'Content-Type': 'application/json'
+                });
+                res.end(JSON.stringify({
+                    'status': 'valid',
+                    'message': 'S-au actualizat raspunsurile cu succes!'
+                }));
+            });
         });
-        res.end(JSON.stringify({
-            'status': 'valid',
-            'message': 'Under construction!'
-        }));
-
-
-
-        /*
-            Send request to books, articles, software, code, people and gossips.
-        */
     });
 }

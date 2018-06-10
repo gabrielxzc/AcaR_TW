@@ -1,0 +1,5 @@
+{
+    "user": "books_manager",
+    "password": "books_manager",
+    "connectString": "localhost/XE"
+}
