@@ -1,4 +1,4 @@
-$('document').ready(function () {
+//$('document').ready(function () {
     /*
      <div class="timeline">
         <ol class="nav">
@@ -20,29 +20,15 @@ $('document').ready(function () {
     var jsonInstrumente=[
         {
             numeInstrument: "Carti",
-            informatiiInstrument: "Habarnuamce"
-        },
-        {
-            numeInstrument: "Instrumente software",
-            informatiiInstrument: "Habarnuamce"
-        },
-        {
-            numeInstrument: "Statistici anonime",
-            informatiiInstrument: "Habarnuamce"
-        },
-        {
-            numeInstrument: "Persoane de contact",
-            informatiiInstrument: "Habarnuamce"
-        },
-        {
-            numeInstrument: "Barfe",
-            informatiiInstrument: "Habarnuamce"
-        },
-        {
-            numeInstrument: "Chestionare",
-            informatiiInstrument: "Habarnuamce"
+            informatiiInstrument:[
+                {img:"./assets/img/witch.jpg", title:"Veteranul pulii", author:"Mihai Viteazu & Agatha Christie"},
+                {img:"./assets/img/witch.jpg", title:"Veteranul pulii", author:"Mihai Viteazu & Agatha Christie"},
+                {img:"./assets/img/witch.jpg", title:"Veteranul pulii", author:"Mihai Viteazu & Agatha Christie"},
+                {img:"./assets/img/witch.jpg", title:"Veteranul pulii", author:"Mihai Viteazu & Agatha Christie"},
+                {img:"./assets/img/witch.jpg", title:"Veteranul pulii", author:"Mihai Viteazu & Agatha Christie"}
+            ]
         }
-    ]
+    ];
 
     /*<div class="left-arrow"><button>Press button</button></div>*/
     function createTimeline(index){
@@ -61,10 +47,22 @@ $('document').ready(function () {
         buttonContent.appendChild(leftButton); timeline.appendChild(buttonContent);
 
         var listItems=document.createElement("ol"); listItems.className="nav";
-        for(var i=1;i<=5;++i){
+        for(var i=0;i<5;++i){
             var listItem=document.createElement("li");
-            var itemLink=document.createElement("a"); itemLink.href="/home";
+            var itemLink=document.createElement("a"); itemLink.href="#";
             var itemContent=document.createElement("div"); itemContent.className="timeline-item";
+
+        //creating content
+            var contentImg=document.createElement("img"); contentImg.className="content-img";
+            contentImg.src=jsonInstrumente[index].informatiiInstrument[i].img;
+            var contentTitle=document.createElement("p"); contentTitle.className="text-content";
+            var textNode=document.createTextNode(jsonInstrumente[index].informatiiInstrument[i].title); contentTitle.appendChild(textNode);
+            var contentAuthor=document.createElement("p"); contentAuthor.className="author-content";
+            textNode=document.createTextNode(jsonInstrumente[index].informatiiInstrument[i].author); contentAuthor.appendChild(textNode);
+            itemContent.appendChild(contentImg);
+            itemContent.appendChild(contentTitle);
+            itemContent.appendChild(contentAuthor);
+
             itemLink.appendChild(itemContent);
             listItem.appendChild(itemLink);
             listItems.appendChild(listItem);
@@ -77,7 +75,7 @@ $('document').ready(function () {
         buttonContent.appendChild(rightButton); timeline.appendChild(buttonContent);
         return timeline;
     }
-    for(var i=0;i<6;++i){
-        recommendationsContent.appendChild(createTimeline(i));
+    for(var i=0;i<5;++i){
+        recommendationsContent.appendChild(createTimeline(0));
     }
-});
+//});
