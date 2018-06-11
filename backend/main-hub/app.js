@@ -11,6 +11,7 @@ const checkQuestions = require('./controllers/check-questions');
 const url = require('url');
 const subject = require('./controllers/subject');
 const books = require('./controllers/books');
+const booksRecommendations = require('./controllers/books-recommendations');
 
 const host = '127.0.0.1';
 const port = 8081;
@@ -23,6 +24,7 @@ router.addRoute('/answers', answers.controller);
 router.addRoute('/subjects', subjects.controller);
 router.addRoute('/subjects/:subject', subject.controller);
 router.addRoute('/subjects/:subject/books/:page', books.controller);
+router.addRoute('/subjects/:subject/books/:page/recommendations', booksRecommendations.controller);
 
 router.addRoute('/is-auth', auth.controller);
 router.addRoute('/answered-questions', checkQuestions.controller);

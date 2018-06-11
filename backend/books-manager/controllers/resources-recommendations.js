@@ -1,25 +1,15 @@
 const url = require('url');
-const resources = require('../model/resources');
+const resourcesRecommendations = require('../model/resources-recommendations');
 
 exports.controller = (req, res) => {
     if (req.method === 'GET') {
         let tokens = req.url.split('/');
-        let page = tokens[tokens.length - 1];
-        let materie = tokens[tokens.length - 2];
 
-        if (page == null) {
-            res.writeHead(200, {
-                'Content-Type': 'application/json'
-            });
-            res.end(JSON.stringify({
-                'status': 'error',
-                'message': 'Nu a fost specificat o pagina!'
-            }));
+        let page = tokens[tokens.length - 2];
+        let materie = tokens[tokens.length - 3];
+        let username = tokens[tokens.length - 1];
 
-            return;
-        }
-
-        resources.model(materie, page, (resourcePage, error) => {
+        resourcesRecommendations.model(username, materie, page, (resourcePage, error) => {
             if (error) {
                 console.error(error);
 

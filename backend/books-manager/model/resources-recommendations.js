@@ -1,7 +1,7 @@
 const databaseConfig = require('./database-config.json');
 const oracledb = require('oracledb');
 
-exports.model = (materie, page, callback) => {
+exports.model = (username, materie, page, callback) => {
     oracledb.getConnection(databaseConfig, (error, connection) => {
         if (error) {
             callback(null, error);
