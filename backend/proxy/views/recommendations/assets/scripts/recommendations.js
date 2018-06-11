@@ -13,7 +13,7 @@ function main() {
         //title
         var titleContent = document.getElementById("titlu"); titleContent.innerHTML = jsonMaterie.subject.titlu;
         var introductionInfo = document.getElementById("introducere");
-        var list = document.createElement("ol"); list.id = "listam";
+        var list = document.createElement("ol"); list.style.padding = 0; list.id = "listam";
         var listItem = document.createElement("li");
         var listItemHref = document.createElement("a"); listItemHref.target = "_blank"; listItemHref.href = jsonMaterie.subject.paginaCursului; listItemHref.innerHTML = "Pagina cursului ";
         listItem.appendChild(listItemHref); list.appendChild(listItem);
@@ -63,7 +63,7 @@ function createTimeline(recommendationsContent, json) {
     var timeline = document.createElement("div"); timeline.className = "timeline";
     //Tool title
     var timelineTitle = document.createElement("h2"); timelineTitle.className = "titlu-materie";
-    var titleText = document.createTextNode('Carti');
+    var titleText = document.createTextNode('Carti'); titleText.style = 'text-align: center';
     timelineTitle.appendChild(titleText);
     timeline.appendChild(timelineTitle);
 
