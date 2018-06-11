@@ -91,13 +91,10 @@ button:hover {
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 450px) {
   #signupbtn {
-    width: 80%;
-    background-color: #F7F5E6;
+    width: 100%;
   }
   #register-form {
-    background-color:rgb(177, 185, 201) ;
-    border-radius:0.25em;
-    width: 80%;
+    width: 100%;
     margin: auto;
   }
 
