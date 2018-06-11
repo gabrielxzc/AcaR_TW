@@ -9,6 +9,7 @@ const answers = require('./controllers/answers');
 const auth = require('./controllers/auth');
 const checkQuestions = require('./controllers/check-questions');
 const url = require('url');
+const subject = require('./controllers/subject');
 
 const host = '127.0.0.1';
 const port = 8081;
@@ -21,6 +22,7 @@ router.addRoute('/subjects', subjects.controller);
 router.addRoute('/answers', answers.controller);
 router.addRoute('/is-auth', auth.controller);
 router.addRoute('/answered-questions', checkQuestions.controller);
+router.addRoute('/subjects/:subject', subject.controller);
 
 let server = http.createServer((req, res) => {
     let m = router.match(url.parse(req.url).pathname);

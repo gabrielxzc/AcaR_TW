@@ -6,6 +6,8 @@ const root = require('./controllers/root');
 const register = require('./controllers/register');
 const questions = require('./controllers/questions');
 const answers = require('./controllers/answers');
+const materie = require('./controllers/materie');
+const materiInfo = require('./controllers/materie-info');
 
 const host = '127.0.0.1';
 const port = 8079;
@@ -14,6 +16,8 @@ router.addRoute('/', root.controller);
 router.addRoute('/register', register.controller);
 router.addRoute('/questions', questions.controller);
 router.addRoute('/answers', answers.controller);
+router.addRoute('/materii/:materie', materie.controller);
+router.addRoute('/materii/:materie/info', materiInfo.controller);
 
 let server = http.createServer((req, res) => {
     let m = router.match(url.parse(req.url).pathname);
