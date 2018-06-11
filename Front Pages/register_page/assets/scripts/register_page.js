@@ -85,7 +85,7 @@ submitBtn.onclick = function (form) {
 
   xhr.addEventListener("load", function loadCallback() {
     let response=JSON.parse(xhr.response);
-    if (response.status=="error") 
+    if (!response.status=="error") 
     {
       document.getElementById("div5").innerHTML=response.message;
       document.getElementById("div5").style.color = "Red";
@@ -94,7 +94,9 @@ submitBtn.onclick = function (form) {
     {
       document.getElementById("div5").innerHTML="Te-ai inregistrat cu succes, vei fi redirectionat imediat spre pagina principala!";
       document.getElementById("div5").style.color = "Green";
-      sleep(1000);
+      document.getElementById("signupbtn").style.backgroundColor="#293742";
+      document.getElementById("signupbtn").innerHTML="Se proceseaza.."
+      sleep(2000);
       window.location.replace("http://localhost:8079/");
     }
 });
