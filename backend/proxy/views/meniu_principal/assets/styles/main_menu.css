@@ -1,0 +1,160 @@
+#btn1,#btn2,#btn3{
+    background-color: #4CAF50; /* Green */
+    border-left: 35px;
+    color: white;
+    width: 100px;
+    height: 100px;
+    padding: 32px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50%;
+}
+main article {
+    margin-bottom: 10px;
+}
+header h1{
+    font-size: 100px;
+    font-family: "Blender", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    
+}
+.container button{
+    display: inline-block;
+}
+main article h1{
+    text-align: center;
+    width: 100%;
+    color: #293742;
+    font-family: "Blender", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 35px;
+    font-weight: 500;
+    margin-top: 40px;
+    
+}
+main article h2 {
+    width: 100%;
+    text-align: center;
+    font-family: "Blender", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    font-size: 55px;
+    font-weight: 700;
+    color: #293742;
+    margin-bottom: 20px;
+}
+
+main article p {
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    padding-left: 30%;
+    padding-right: 30%;
+}
+
+.year-selectors,
+.semester-selectors {
+    font-size: 0;
+    text-align: center;
+}
+
+.year-selectors ul,
+.semester-selectors ul {
+    margin: 0;
+    padding: 0;
+}
+
+.year-selectors li {
+    text-align: center;
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    display: inline-block;
+    border: 1px solid black;
+    height: 75px;
+    padding-top: 30px;
+    background-color: #ebebeb;
+    color: black;
+    transition: background-color 0.5s, color 0.5s;
+}
+.semester-selectors li{
+    text-align: center;
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    display: none;
+    border: 1px solid black;
+    height: 75px;
+    padding-top: 30px;
+    background-color: #ebebeb;
+    color: black;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.year-selectors li:hover {
+    background-color: #52658f;
+    color: white;
+}
+
+.year-selectors li {
+    width: 30%;
+}
+
+.semester-selectors li {
+    width: 45%;
+}
+
+.course-selectors {
+    margin: auto;
+    padding: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 90%;
+    background-color: #ebebeb;
+}
+
+.course-selectors th {
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    padding: 0;
+    border: 1px solid black;
+    width: 50%;
+}
+
+.compulsory-courses a,
+.compulsory-courses p {
+    color: rgb(74, 64, 207);
+    text-decoration: none;
+}
+
+.optional-courses a,
+.optional-courses p {
+    color: rgb(65, 187, 209);
+    text-decoration: none;
+}
+
+.facultative-courses a,
+.facultative-courses p {
+    color: grey;
+    text-decoration: none;
+}
+
+.an1-row,
+.an2-row,
+.an3-row {
+    display: none;
+}
+
+
+/*.an2-row--visible,
+ {
+    display: table;
+}*/
+
+.color-map {
+    padding-bottom: 40px;
+    text-align: center;
+    font-family: "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+}
+
+.color-map li {
+    display: block;
+}

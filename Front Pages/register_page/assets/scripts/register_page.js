@@ -94,6 +94,8 @@ submitBtn.onclick = function (form) {
     {
       document.getElementById("div5").innerHTML="Te-ai inregistrat cu succes, vei fi redirectionat imediat spre pagina principala!";
       document.getElementById("div5").style.color = "Green";
+      document.getElementById("signupbtn").style.backgroundColor="#293742";
+      document.getElementById("signupbtn").innerHTML="Se proceseaza.."
       sleep(1000);
       window.location.replace("http://localhost:8079/");
     }

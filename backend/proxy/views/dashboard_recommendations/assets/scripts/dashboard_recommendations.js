@@ -43,7 +43,7 @@
 
         //Left button
         var buttonContent=document.createElement("div"); buttonContent.className="left-arrow";
-        var leftButton=document.createElement("button"); leftButton.innerHTML='<img src="./assets/img/left-arrow.png">';
+        var leftButton=document.createElement("a"); leftButton.innerHTML='<img class="arrow" src="./assets/img/left-arrow.png">';
         buttonContent.appendChild(leftButton); timeline.appendChild(buttonContent);
 
         var listItems=document.createElement("ol"); listItems.className="nav";
@@ -71,7 +71,7 @@
 
         //Right button
         var buttonContent=document.createElement("div"); buttonContent.className="right-arrow";
-        var rightButton=document.createElement("button"); rightButton.innerHTML='<img src="./assets/img/right-arrow.png">';
+        var rightButton=document.createElement("a"); rightButton.innerHTML='<img class="arrow" src="./assets/img/right-arrow.png">';
         buttonContent.appendChild(rightButton); timeline.appendChild(buttonContent);
         return timeline;
     }
