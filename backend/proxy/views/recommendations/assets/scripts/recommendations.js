@@ -63,7 +63,7 @@ function createTimeline(recommendationsContent, json) {
     var timeline = document.createElement("div"); timeline.className = "timeline";
     //Tool title
     var timelineTitle = document.createElement("h2"); timelineTitle.className = "titlu-materie";
-    var titleText = document.createTextNode(windows.href.split('/'));
+    var titleText = document.createTextNode('Carti');
     timelineTitle.appendChild(titleText);
     timeline.appendChild(timelineTitle);
 
@@ -80,11 +80,11 @@ function createTimeline(recommendationsContent, json) {
 
         //creating content
         var contentImg = document.createElement("img"); contentImg.className = "content-img";
-        contentImg.src = json.books[i].img;
+        contentImg.src = json.books[i].imagine;
         var contentTitle = document.createElement("p"); contentTitle.className = "text-content";
-        var textNode = document.createTextNode(json.books[i].title); contentTitle.appendChild(textNode);
+        var textNode = document.createTextNode(json.books[i].titlu); contentTitle.appendChild(textNode);
         var contentAuthor = document.createElement("p"); contentAuthor.className = "author-content";
-        textNode = document.createTextNode(json.books[i].author); contentAuthor.appendChild(textNode);
+        textNode = document.createTextNode(json.books[i].autor); contentAuthor.appendChild(textNode);
         itemContent.appendChild(contentImg);
         itemContent.appendChild(contentTitle);
         itemContent.appendChild(contentAuthor);

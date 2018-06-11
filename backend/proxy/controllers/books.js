@@ -11,8 +11,6 @@ exports.controller = (req, res) => {
         headers: req.headers
     };
 
-    console.log(options.url);
-
     request(options, (error, response, body) => {
         res.writeHead(response.statusCode, {
             'Content-Type': 'application/json'
