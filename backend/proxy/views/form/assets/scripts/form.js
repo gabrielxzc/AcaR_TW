@@ -1,4 +1,14 @@
 $('document').ready(function () {
+
+    function sleep(milliseconds) {
+        var start = new Date().getTime();
+        for (var i = 0; i < 1e7; i++) {
+          if ((new Date().getTime() - start) > milliseconds) {
+            break;
+          }
+        }
+      }
+
     let xhr = new XMLHttpRequest();
     xhr.open("GET", "http://localhost:8079/questions");
 
@@ -84,6 +94,8 @@ $('document').ready(function () {
                     } else {
                         document.getElementById("err1").innerHTML = "Felicitari, ai completat cu succes! Vei fi in continuare redirectionat pe pagina recomandarilor!";
                         document.getElementById("err1").style.color = "green";
+                        sleep(3000);
+                        window.location.replace("http://localhost:8079/");
                     }
                 });
 
@@ -96,12 +108,9 @@ $('document').ready(function () {
                 };
 
                 xhr.send(JSON.stringify(payload));
-                return false;
             } else {
                 document.getElementById("err1").innerHTML = "Formular incomplet! Selecteaza o optiune pentru fiecare intrebare!";
                 document.getElementById("err1").style.color = "Red";
-
-                return false;
             }
         }
     });
