@@ -30,7 +30,7 @@ exports.model = (titlu, callback) => {
                     subject = {
                         "titlu": result.rows[0][0],
                         "an": result.rows[0][1],
-                        "semstru": result.rows[0][2],
+                        "semestru": result.rows[0][2],
                         "paginaCursului": result.rows[0][3],
                         "titular": result.rows[0][4],
                         "paginaTitular": result.rows[0][5]

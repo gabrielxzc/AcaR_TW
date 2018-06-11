@@ -28,7 +28,7 @@ exports.model = (callback) => {
                     subjects.push({
                         "titlu": result.rows[i][0],
                         "an": result.rows[i][1],
-                        "semstru": result.rows[i][2],
+                        "semestru": result.rows[i][2],
                         "paginaCursului": result.rows[i][3],
                         "titular": result.rows[i][4],
                         "paginaTitular": result.rows[i][5]

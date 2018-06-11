@@ -6,18 +6,18 @@ xhr.addEventListener("load", function loadCallback() {
     let data = JSON.parse(xhr.response);
     let jsonMaterie = JSON.parse(data);
     //title
-    var titleContent = document.getElementById("titlu"); titleContent.innerHTML = jsonMaterie.titlu;
+    var titleContent = document.getElementById("titlu"); titleContent.innerHTML = jsonMaterie.subject.titlu;
     var introductionInfo = document.getElementById("introducere");
     var list = document.createElement("ol"); list.id = "listam";
     var listItem = document.createElement("li");
-    var listItemHref = document.createElement("a"); listItemHref.target = "_blank"; listItemHref.href = jsonMaterie.paginaCursului; listItemHref.innerHTML = "Pagina cursului ";
+    var listItemHref = document.createElement("a"); listItemHref.target = "_blank"; listItemHref.href = jsonMaterie.subject.paginaCursului; listItemHref.innerHTML = "Pagina cursului ";
     listItem.appendChild(listItemHref); list.appendChild(listItem);
     var listItem = document.createElement("li"); listItem.innerHTML = "&nbsp;|&nbsp;"; list.appendChild(listItem);
     var listItem = document.createElement("li");
-    var listItemHref = document.createElement("a"); listItemHref.target = "_blank"; listItemHref.href = jsonMaterie.paginaTitular; listItemHref.innerHTML = jsonMaterie.titular;
+    var listItemHref = document.createElement("a"); listItemHref.target = "_blank"; listItemHref.href = jsonMaterie.subject.paginaTitular; listItemHref.innerHTML = jsonMaterie.subject.titular;
     listItem.appendChild(listItemHref); list.appendChild(listItem);
-    var listItem = document.createElement("li"); listItem.innerHTML = "&nbsp;| Anul&nbsp;" + jsonMaterie.an + " "; list.appendChild(listItem);
-    var listItem = document.createElement("li"); listItem.innerHTML = "&nbsp;| Semestrul&nbsp;" + jsonMaterie.semestru; list.appendChild(listItem);
+    var listItem = document.createElement("li"); listItem.innerHTML = "&nbsp;| Anul&nbsp;" + jsonMaterie.subject.an + " "; list.appendChild(listItem);
+    var listItem = document.createElement("li"); listItem.innerHTML = "&nbsp;| Semestrul&nbsp;" + jsonMaterie.subject.semestru; list.appendChild(listItem);
     introductionInfo.appendChild(list);
     //recommendations
     var recommendationsContent = document.getElementById("recommendations");
