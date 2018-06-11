@@ -10,6 +10,7 @@ const auth = require('./controllers/auth');
 const checkQuestions = require('./controllers/check-questions');
 const url = require('url');
 const subject = require('./controllers/subject');
+const books = require('./controllers/books');
 
 const host = '127.0.0.1';
 const port = 8081;
@@ -18,11 +19,13 @@ router.addRoute('/login', login.controller);
 router.addRoute('/register-matricol', registerMatricol.controller);
 router.addRoute('/register', register.controller);
 router.addRoute('/questions', questions.controller);
-router.addRoute('/subjects', subjects.controller);
 router.addRoute('/answers', answers.controller);
+router.addRoute('/subjects', subjects.controller);
+router.addRoute('/subjects/:subject', subject.controller);
+router.addRoute('/subjects/:subject/books/:page', books.controller);
+
 router.addRoute('/is-auth', auth.controller);
 router.addRoute('/answered-questions', checkQuestions.controller);
-router.addRoute('/subjects/:subject', subject.controller);
 
 let server = http.createServer((req, res) => {
     let m = router.match(url.parse(req.url).pathname);

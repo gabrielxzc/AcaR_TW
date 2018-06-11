@@ -2,11 +2,13 @@ const http = require('http');
 const router = require('routes')();
 const url = require('url');
 const initUserRating = require('./controllers/init-user-rating');
+const resources = require('./controllers/resources');
 
 const host = '127.0.0.1';
 const port = 8089;
 
 router.addRoute('/init-user-rating', initUserRating.controller);
+router.addRoute('/:materie/:page', resources.controller);
 
 let server = http.createServer((req, res) => {
     let m = router.match(url.parse(req.url).pathname);
