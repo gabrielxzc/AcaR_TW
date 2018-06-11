@@ -50,13 +50,17 @@ function validateLoginBoxes() {
         if (response.status == "error") {
             document.getElementById("MesajConfirmare").style.color = "red";
             document.getElementById("MesajConfirmare").innerHTML = response.message;
+            document.getElementById("loginbtn").style.backgroundColor="#293742";
+            document.getElementById("loginbtn").innerHTML="Autentifica-te!"
         } else {
             document.getElementById("MesajConfirmare").style.color = "green";
             document.getElementById("MesajConfirmare").innerHTML = "Te-ai autentificat cu succes ...";
-
+            document.getElementById("loginbtn").style.backgroundColor="#293742";
+            document.getElementById("loginbtn").innerHTML="Autentifica-te";    
             document.cookie = 'user' + "=" + response.sessionId + "; path=/";
-
-            window.location.replace("http://localhost:8079/");
+            window.setTimeout(function() {
+                window.location.replace("http://localhost:8079/");  
+            },1500);    
         }
     });
 
@@ -64,7 +68,8 @@ function validateLoginBoxes() {
         document.getElementById("MesajConfirmare").style.color = "red";
         document.getElementById("MesajConfirmare").innerHTML = "A aparut o eroare de comunicare in retea!";
     });
-
+    document.getElementById("loginbtn").style.backgroundColor="#293742";
+    document.getElementById("loginbtn").innerHTML="Se proceseaza..";
     xhr.send(JSON.stringify(colectare));
 }
 
@@ -95,9 +100,13 @@ function validateRegisterBox() {
         if (response.status == "error") {
             document.getElementById("confirmareNrMatricol").style.color = "red";
             document.getElementById("confirmareNrMatricol").innerHTML = response.message;
+            document.getElementById("registerbtn").style.backgroundColor="#293742";
+            document.getElementById("registerbtn").innerHTML="Inregistreaza-te";
         } else {
             document.getElementById("confirmareNrMatricol").style.color = "green";
             document.getElementById("confirmareNrMatricol").innerHTML = response.message;
+            document.getElementById("registerbtn").style.backgroundColor="#293742";
+            document.getElementById("registerbtn").innerHTML="Inregistreaza-te";
         }
     });
 
@@ -105,6 +114,7 @@ function validateRegisterBox() {
         document.getElementById("confirmareNrMatricol").style.color = "red";
         document.getElementById("confirmareNrMatricol").innerHTML = "A aparut o eroare de comunicare in retea!";
     });
-
+    document.getElementById("registerbtn").style.backgroundColor="#293742";
+    document.getElementById("registerbtn").innerHTML="Se proceseaza..";
     xhr.send(JSON.stringify(colectare));
 }

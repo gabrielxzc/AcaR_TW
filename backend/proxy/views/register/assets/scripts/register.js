@@ -77,11 +77,16 @@ $('document').ready(function () {
       if (response.status == "error") {
         document.getElementById("div5").innerHTML = response.message;
         document.getElementById("div5").style.color = "Red";
+        document.getElementById("signupbtn").style.backgroundColor="Green";
+        document.getElementById("signupbtn").innerHTML="Inregistrare";
       } else {
+        document.getElementById("signupbtn").style.backgroundColor="Green";
+        document.getElementById("signupbtn").innerHTML="Inregistrare";
         document.getElementById("div5").innerHTML = "Te-ai inregistrat cu succes, vei fi redirectionat imediat spre pagina principala!";
         document.getElementById("div5").style.color = "Green";
-        sleep(3000);
-        window.location.replace("http://localhost:8079/");
+        setTimeout(function() {
+          window.location.replace("http://localhost:8079/");
+        },1500);
       }
     });
 
@@ -89,6 +94,8 @@ $('document').ready(function () {
       console.log("Network error");
     });
 
+    document.getElementById("signupbtn").style.backgroundColor="#293742";
+    document.getElementById("signupbtn").innerHTML="Se proceseaza.."
     xhr.send(JSON.stringify(collectedData));
     return;
   }
