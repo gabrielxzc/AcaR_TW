@@ -9,7 +9,7 @@ const host = '127.0.0.1';
 const port = 8079;
 
 router.addRoute('/', root.controller);
-reouter.addRote('/register', register.controller);
+router.addRoute('/register', register.controller);
 
 let server = http.createServer((req, res) => {
     let m = router.match(url.parse(req.url).pathname);
