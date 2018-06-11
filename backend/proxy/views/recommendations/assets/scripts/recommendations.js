@@ -26,7 +26,7 @@ function main() {
         introductionInfo.appendChild(list);
         //book recommendation
         let jsonBooks, jsonArticles; //...
-        booksRequest(jsonCarti);
+        booksRequest("/books/1");
 
         /*document.getElementsByClassName("left-arrow")[0].onclick()=function(){
             if(booksPageNumber==0){
@@ -44,9 +44,9 @@ function main() {
     xhr.send();
 }
 
-function booksRequest(json) {
+function booksRequest(url) {
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", window.location.href + "/books/1");
+    xhr.open("GET", window.location.href + url);
     xhr.addEventListener("load", function loadCallback() {
         let data = JSON.parse(xhr.response);
         let json = JSON.parse(data);
