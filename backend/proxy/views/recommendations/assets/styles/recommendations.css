@@ -112,3 +112,7 @@ a:link {
     border-top-left-radius:0.25em;
     border-top-right-radius: 0.25em;
 }
+
+.left-arrow-first{
+    opacity: 0.5px;
+}
