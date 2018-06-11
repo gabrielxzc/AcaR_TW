@@ -1,0 +1,119 @@
+@font-face {
+    font-family:"Blender";
+    src: url("../fonts/blenderpro/blenderpro-medium-webfont.woff") format("woff");
+    font-weight: 100;
+    font-style: normal
+}
+
+@font-face {
+    font-family:"DIN";
+    src: url("../fonts/DIN/DINNextLTW04-Light.woff") format("woff");
+    font-weight: 100;
+    font-style:normal
+}
+
+header p{
+    color:white;
+}
+
+#form-container {
+    width:70%;
+    max-width: 600px;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
+    font-size: 20px;
+    margin: 50px auto;
+    padding: 1.3em;
+    background: #E8E8E8;
+    color:#52658F;
+    border-radius: .25em;
+    border: 1px solid #52658F;
+    /*-webkit-filter: drop-shadow(1px 2px 5px rgba(0,0,   0,.7));
+    filter: drop-shadow(1px 2px 5px rgba(0,0,0,.7));*/
+}
+
+.form-line{
+    margin: 10px;
+}
+
+.radio-button{
+    height: 20px;
+    width:20px;
+    -webkit-appearance: initial;
+    -moz-appearance: none;
+    border-radius:0.25em;
+    background:white;
+    margin-right: 5px;
+    border: 1px solid #52658F;
+}
+  
+.radio-button:checked{
+    background: darkslategray;
+}
+
+.line-label{
+    margin-right: 5%;
+}
+
+header h1{
+    font-size: 100px;
+    font-family: "Blender", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body h2{
+    font-size: 50px;
+    font-family: "Blender", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+    color: #333A56;
+}
+
+p{
+    margin-left:2%;
+    margin-right: 2%;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
+    font-size: 25px;
+    text-align: center;
+    color: #333A56;
+}
+
+#submit-button{
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
+    font-size: 20px;
+    background: #333A56;
+    border-radius:0.25em;
+    height:30px;
+    color: white;
+    width:190px;
+    border: none;
+    -webkit-filter: drop-shadow(1px 2px 5px rgba(0,0,0,.7));
+    filter: drop-shadow(1px 2px 5px rgba(0,0,0,.7));
+    margin-bottom:20px;
+}
+
+@media screen and (max-width: 825px) {
+    p{
+        font-size:20px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .radio-button{
+        width:17px;
+        height:17px;
+    }
+    #form-container{
+        font-size: 17px;
+    }
+  
+  }
+
+  @media screen and (max-width: 420px) {
+    .radio-button{
+        width:15px;
+        height:15px;
+        margin-right:1%;
+    }
+    #form-container{
+        font-size: 15px;
+    }
+  
+  }
