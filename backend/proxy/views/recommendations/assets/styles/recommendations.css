@@ -1,6 +1,6 @@
 /*upper-body content*/
 
-.titlu
+#titlu
 {
     font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
     font-size: 55px;
@@ -10,7 +10,7 @@
     margin-bottom:20px;
 }
 
-.introducere{
+#introducere{
     font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
     font-size: 19px;
     font-weight: 700;
@@ -31,7 +31,7 @@ a:link {
 }
 
 
-.listam li{
+#listam li{
     display:inline-block;
 }
 
