@@ -10,6 +10,7 @@ function sleep(milliseconds) {
 function validateLoginBoxes() {
     document.getElementById("parola").innerHTML = "";
     document.getElementById("spnName").innerHTML = "";
+    document.getElementById("MesajConfirmare").innerHTML= "";
 
     var numeCont = document.getElementById("name");
     var parolaCont = document.getElementById("pass");
@@ -74,6 +75,8 @@ function validateLoginBoxes() {
 }
 
 function validateRegisterBox() {
+    document.getElementById("numarulmat").innerHTML = "";
+    document.getElementById("confirmareNrMatricol").innerHTML="";
     var numarmatricol = document.getElementById("numar_matricol");
 
     var regex = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9]$/;
