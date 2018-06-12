@@ -9,11 +9,11 @@ exports.model = (username, materie, page, callback) => {
             callback(null, error);
             return;
         }
-    
+
         connection.execute(
-            'SELECT titlu, autor, anul_publicarii, link, imagine FROM (SELECT rownum as page, titlu, autor, anul_publicarii, link, imagine FROM carti WHERE materie like :materie AND titlu in (SELECT titlu FROM trends)) WHERE page BETWEEN (:page - 1) * 5 + 1 AND :page * 5', {
-                page: page,
-                materie: materie
+            'select titlu, autor, anul_publicarii, link, imagine from (select titlu, autor, anul_publicarii, link, imagine, NVL(NVL(rating + rating_boost(titlu), rating) + user_preference(titlu, :username), NVL(rating + rating_boost(titlu), rating)) as pref from carti, user_rating where  username like :username and materie like :materie) where pref >= 4', {
+                materie: materie,
+                username: username
             },
             (error, result) => {
                 if (error) {

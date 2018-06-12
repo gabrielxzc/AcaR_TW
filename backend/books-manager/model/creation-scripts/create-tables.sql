@@ -65,3 +65,19 @@ INSERT INTO carti VALUES (
     'https://www.investigatii.md/uploads/resurse/Clean_Code.pdf',
     'http://ecx.images-amazon.com/images/I/512NzCU0wfL.jpg'
 );
+
+create or replace function rating_boost(p_titlu varchar2)
+return number as
+    v_rating_boost number(10, 2);
+begin
+    SELECT rating_boost INTO v_rating_boost FROM trends WHERE titlu like p_titlu;
+    return v_rating_boost;
+end;
+
+create or replace function user_preference(p_titlu varchar2, p_username varchar2)
+return number as
+    v_user_preference number;
+begin
+    SELECT action INTO v_user_preference FROM user_history WHERE username like p_username and titlu like p_titlu;
+    return v_user_preference - 3;
+end;
