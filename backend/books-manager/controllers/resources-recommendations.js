@@ -27,6 +27,7 @@ exports.controller = (req, res) => {
             res.writeHead(200, {
                 'Content-Type': 'application/json'
             });
+
             res.end(JSON.stringify({
                 'status': 'valid',
                 'message': 'S-au extras datele din baza de date cu succes!',

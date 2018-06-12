@@ -1,0 +1,148 @@
+/*upper-body content*/
+
+#titlu
+{
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
+    font-size: 55px;
+    font-weight: 700;
+    color: #333A56;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+#introducere{
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
+    font-size: 19px;
+    font-weight: 700;
+    color:#52658F;
+    text-align:center;
+    margin-top:50px;
+    margin:auto;
+    margin-bottom:20px;
+    position:relative;
+    height:100px;
+    text-decoration:none;
+}
+
+a:link {
+
+    background-color:transparent; 
+    text-decoration: none;
+}
+
+
+#listam li{
+    display:inline-block;
+}
+
+/*recommendations content*/
+
+.timeline{
+    width:100%;
+    margin:0px auto;
+    margin-bottom: 20px;
+    position: relative;
+    height:200px;
+    height:100%;
+    z-index: 0;
+}
+
+.nav{
+    list-style:none;
+    margin:0;
+    padding:0;
+    text-align:center;
+}
+.nav li{
+    display:inline;
+}
+.nav .timeline-item{
+    display:inline-block;
+}
+
+.timeline-item{
+    width: 200px;
+    background: #E8E8E8;
+    border-radius:0.25em;
+    border:1px transparent black;
+    -webkit-filter: drop-shadow(1px 2px 5px rgba(0,0,   0,.7));
+    filter: drop-shadow(1px 2px 5px rgba(0,0,0,.7));
+    margin-left:0.5%;
+    margin-right:0.5%;
+    z-index: 5;
+    margin-top:5px;
+    
+}
+
+.left-arrow, .right-arrow{
+    z-index: 10;
+    border:none;
+    opacity: 0.5;
+    position: absolute;
+    top:52.5%;
+    cursor: pointer;
+}
+
+.left-arrow{
+    transform: translate(-50%);
+    left:50px;
+}
+
+.right-arrow{
+    transform: translate(+50%);
+    right:50px;
+}
+
+.arrow{
+    width:75px;
+    height:75px;
+}
+
+.left-arrow:hover, .right-arrow:hover{
+    opacity: 0.95;
+}
+
+.titlu-materie{
+    font-size:50px;
+}
+
+.content-img{
+    width:100%;
+    border-top-left-radius:0.25em;
+    border-top-right-radius: 0.25em;
+}
+
+.left-arrow-first{
+    opacity: 0.5px;
+}
+
+.timeline h2{
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #333A56;
+    text-align:center;
+}
+
+.timeline-item p{
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #52658F;
+    font-size:20px;
+}
+
+#submit-button{
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
+    font-size: 20px;
+    position: fixed;
+    top:20px;
+    right:70px;
+    background: #52668F;
+    border-radius:0.25em;
+    height:40px;
+    color: white;
+    width:190px;
+    border: none;
+    -webkit-filter: drop-shadow(1px 2px 5px rgba(0,0,0,.7));
+    filter: drop-shadow(1px 2px 5px rgba(0,0,0,.7));
+    margin-bottom:20px;
+    z-index: 20;
+    cursor: pointer;
+}
