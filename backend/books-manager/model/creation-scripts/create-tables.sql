@@ -4,11 +4,18 @@ create table user_rating (
 );
 
 create table carti (
-    titlu varchar2(128),
+    titlu varchar2(128) primary key,
     autor varchar2(128),
     anul_publicarii int,
     link varchar2(512),
     imagine varchar2(512)
+);
+
+create table trends (
+    titlu varchar2(128), 
+    text varchar2(512), 
+    rating_boost number(10, 2),
+    CONSTRAINT titlu_carte FOREIGN KEY (titlu) REFERENCES carti(titlu)
 );
 
 INSERT INTO carti VALUES (

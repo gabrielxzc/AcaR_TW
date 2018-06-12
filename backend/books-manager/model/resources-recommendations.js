@@ -2,15 +2,16 @@ const databaseConfig = require('./database-config.json');
 const oracledb = require('oracledb');
 
 exports.model = (username, materie, page, callback) => {
+    materie = materie.replace('%20', ' ');
+
     oracledb.getConnection(databaseConfig, (error, connection) => {
         if (error) {
             callback(null, error);
             return;
         }
-        
-        materie = materie.replace('%20', ' ');
+    
         connection.execute(
-            'SELECT titlu, autor, anul_publicarii, link, imagine FROM (SELECT rownum as page, titlu, autor, anul_publicarii, link, imagine FROM carti WHERE materie like :materie) WHERE page BETWEEN (:page - 1) * 5 + 1 AND :page * 5', {
+            'SELECT titlu, autor, anul_publicarii, link, imagine FROM (SELECT rownum as page, titlu, autor, anul_publicarii, link, imagine FROM carti WHERE materie like :materie AND titlu in (SELECT titlu FROM trends)) WHERE page BETWEEN (:page - 1) * 5 + 1 AND :page * 5', {
                 page: page,
                 materie: materie
             },
