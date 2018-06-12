@@ -1,12 +1,11 @@
 //$('document').ready(function () {
 
-var resourcePageNumber = [0, 0, 0, 0, 0, 0];
-let maxPageAccessed = [0, 0, 0, 0, 0, 0];
+var resourcePageNumber = [1, 0, 0, 0, 0, 0];
+let maxPageAccessed = [1, 0, 0, 0, 0, 0];
 var resourcePages = [];
 for (let i = 0; i < 6; ++i) {
     resourcePages[i] = [];
 }
-var noOfElements = [5, 0, 0, 0, 0, 0];
 main();
 
 function main() {
@@ -66,6 +65,7 @@ function resourceRequest(resourceId, url) {
     xhr.addEventListener("load", function loadCallback() {
         let data = JSON.parse(xhr.response);
         let json = JSON.parse(data);
+        //console.log(json);
         var recommendationsContent = document.getElementById("recommendations");
         createTimeline(resourceId, json);
     });
@@ -75,7 +75,7 @@ function resourceRequest(resourceId, url) {
     xhr.send();
 }
 
-function createTimeline(resourceId, json, resourcePageNumber) {
+function createTimeline(resourceId, json) {
     var timeline = document.createElement("div");
     timeline.className = "timeline";
     //Tool title
@@ -90,13 +90,28 @@ function createTimeline(resourceId, json, resourcePageNumber) {
     buttonContent.className = "left-arrow";
     var leftButton = document.createElement("a");
     leftButton.innerHTML = '<img class="arrow" src="/views/recommendations/assets/img/left-arrow.png">';
-    leftButton.onclick = onClickResource();
+    leftButton.onclick = function () {
+        var resurse=document.getElementsByClassName("resurse"); var resIndex=0;
+        if (resourcePageNumber[resIndex] == 1) {
+            //disable left-button
+            leftButton.setAttribute("opacity","0.5");
+            return;
+        } else {
+            //console.log(resourcePageNumber[resIndex]);
+            resurse[0].innerHTML="";
+            /*while (document.getElementsByClassName("resurse").firstChild) {
+                resurse[0].removeChild(document.getElementsByClassName("resurse").firstChild);
+            }*/
+            document.getElementsByClassName("resurse")[0].appendChild(resourcePages[resIndex][resourcePageNumber[resIndex] - 2]);
+            resourcePageNumber[resIndex]--;
+        }
+    };
     buttonContent.appendChild(leftButton);
     timeline.appendChild(buttonContent);
 
     var listItems = document.createElement("ol");
     listItems.className = "nav";
-    for (var i = 0; i < 5; ++i) {
+    for (var i = 0; i < json.resources.length; ++i) {
         var listItem = document.createElement("li");
         var itemLink = document.createElement("a");
         itemLink.href = "#";
@@ -127,22 +142,49 @@ function createTimeline(resourceId, json, resourcePageNumber) {
     buttonContent.className = "right-arrow";
     var rightButton = document.createElement("a");
     rightButton.innerHTML = '<img class="arrow" src="/views/recommendations/assets/img/right-arrow.png">';
-    rightButton.onclick = onClickResource();
+    rightButton.onclick = function () {
+        var resurse=document.getElementsByClassName("resurse"); var resIndex=0;
+        var res=document.getElementsByClassName("timeline-item").length;
+        console.log(res);
+        if ( (resourcePageNumber[resIndex] == maxPageAccessed[resIndex])  && (res==5))  {
+            //console.log(resourcePageNumber[0])
+            url = "/books" +"/"+ (resourcePageNumber[0] + 1);
+            //console.log(url);
+            while (resurse[0].firstChild) {
+                resurse[0].removeChild(resurse[0].firstChild);
+            }
+            resourceRequest(resurse[0].id, url);
+            resourcePageNumber[resIndex] += 1;
+            maxPageAccessed[resIndex] += 1;
+            //make a new request
+            return;
+        } else  if ( (resourcePageNumber[resIndex] == maxPageAccessed[resIndex])  && (res==5)){
+            return;
+        }
+        else if (resourcePageNumber[resIndex] < maxPageAccessed[resIndex]) {
+            while (resurse[0].firstChild) {
+                resurse[0].removeChild(resurse[0].firstChild);
+            }
+            //console.log(resourcePageNumber[resIndex]);
+            resurse[0].appendChild(resourcePages[resIndex][resourcePageNumber[resIndex] + 0]);
+            resourcePageNumber[resIndex]++;
+        }
+    };
     buttonContent.appendChild(rightButton);
     timeline.appendChild(buttonContent);
 
     //display info on webpage
     var resourceContent = document.getElementById(resourceId);
-    resourceContent.appendChild(timeline); 
+    resourceContent.appendChild(timeline);
     var resIndex = resourceContent.getAttribute('value');
     resourcePages[resIndex].push(timeline);
+    //console.log(resourcePages);
 }
-
+/*
 function onClickResource() {
-    console.log('lalala');
     var resources = document.querySelectorAll(".resource");
     for (var i = 0; i < resources.length; ++i) {
-        var resIndex = resources[i].value;
+        var resIndex = resources[i].getAttribute('value');
         resources[i].getElementsByClassName("left-arrow").onclick = function (resIndex) {
             if (resourcePageNumber[resIndex] == 0) {
                 //disable left-button
@@ -195,4 +237,4 @@ function onClickResource() {
             }
         }
     }
-}
+}*/
