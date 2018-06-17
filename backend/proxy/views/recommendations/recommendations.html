@@ -24,13 +24,44 @@
     <div id="titlu"></div>
     <div id="introducere"></div>
     <div id="recommendations">
-        <div class="resurse" id="carti" value="0"></div>
+        <div id="carti" class="resurse" value="0"></div>
         <div id="articole" class="resurse" value="1"></div>
         <div id="cod" class="resurse" value="2"></div>
         <div id="persoane" class="resurse" value="3"></div>
         <div id="instrumente" class="resurse" value="4"></div>
         <div id="barfe" class="resurse" value="5"></div>
     </div>
+
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="form">
+            <form class="add-book">
+                <h2>Adauga o noua carte </h2>
+                <p>Titlu</p>
+                <input type=text id="name" placeholder="Titlu cartii" required>
+                <br>
+                <span id="spnName"></span>
+                <p>Autor</p>
+                <input type=text id="autor" placeholder="Autorul cartii" required>
+                <p>Anul publicarii</p>
+                <input type=text id="anu" placeholder="Anul publicarii" required>
+                <p>Link</p>
+                <input type=text id="Link" placeholder="Link-ul cartii" required>
+                <p>Imagine</p>
+                <input type=text id="Img" placeholder="Link-ul imaginii" required>
+                <p>Materie</p>
+                <input type=text id="Materie" placeholder="Materia" required>
+                <br>
+                <span id="parola"></span>
+                <span id="MesajConfirmare"></span>
+                
+            <button id="loginbtn" onclick="validateLoginBoxes()" type="button">Autentifica-te!</button>
+            </form>
+        </div>
+
+    </div>
+
+
     <footer>
         <p> © 2018 Cojocaru Gabriel-Codrin, Pintilei Serban, Marincean Ioan, Stanciu Sebastian Terms of Use Privacy and Security
             Statement </p>
