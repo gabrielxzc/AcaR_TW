@@ -2,6 +2,7 @@ const request = require('request');
 
 exports.controller = (req, res) => {
     if (req.method === 'POST') {
+        console.log("Adaugare carte");
         let informatii;
         let body = [];
 
@@ -13,7 +14,7 @@ exports.controller = (req, res) => {
             try {
                 informatii = JSON.parse(body);
 
-                if (informatii.titlu == null || informatii.autor == null || informatii.anul_publicarii || informatii.link || informatii.imagine || informatii.materie) {
+                if (informatii.titlu == null || informatii.autor == null || informatii.anul_publicarii == null || informatii.link == null || informatii.imagine == null || informatii.materie == null ) {
                     throw 'Lipsesc argumentele necesare!';
                 }
             } catch (e) {
@@ -43,7 +44,7 @@ exports.controller = (req, res) => {
                     });
                     res.end(JSON.stringify({
                         'status': 'error',
-                        'message': 'Nu s-a putut contacta serviciul de autentificare!'
+                        'message': 'Nu s-a putut realiza!'
                     }));
                 } else {
                     res.writeHead(response.statusCode, {
