@@ -25,9 +25,9 @@ function adaugare_carte(){
         let response = JSON.parse(xhr.response);
 
         if (response.status == "error") {
-            alert('invalid');
+            alert('A aparut o eroare');
         } else {
-           alert('pula');
+           alert('Adaugarea s-a realizat cu succes!');
         }
     });
 
