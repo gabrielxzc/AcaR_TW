@@ -8,7 +8,8 @@ create table carti (
     autor varchar2(128),
     anul_publicarii int,
     link varchar2(512),
-    imagine varchar2(512)
+    imagine varchar2(512),
+    materie VARCHAR2(128)
 );
 
 create table trends (
@@ -23,7 +24,8 @@ INSERT INTO carti VALUES (
     'Erich Gamma, Richard Helm, Ralph Johnson, John Vissides', 
     2004,
     'https://sophia.javeriana.edu.co/~cbustaca/docencia/DSBP-2018-01/recursos/Erich%20Gamma,%20Richard%20Helm,%20Ralph%20Johnson,%20John%20M.%20Vlissides-Design%20Patterns_%20Elements%20of%20Reusable%20Object-Oriented%20Software%20%20-Addison-Wesley%20Professional%20(1994).pdf',
-    'http://www.vincehuston.org/dp/gof_cover.jpg'
+    'http://www.vincehuston.org/dp/gof_cover.jpg',
+    'Ingineria Programarii'
 );
 
 INSERT INTO carti VALUES (
@@ -31,7 +33,8 @@ INSERT INTO carti VALUES (
     'Craig Larman', 
     2004,
     'https://aanimesh.files.wordpress.com/2013/09/applying-uml-and-patterns-3rd.pdf',
-    'http://images.pearsoned-ema.com/jpeg/large/9780131489066.jpg'
+    'http://images.pearsoned-ema.com/jpeg/large/9780131489066.jpg',
+    'Ingineria Programarii'
 );
 
 INSERT INTO carti VALUES (
@@ -39,7 +42,8 @@ INSERT INTO carti VALUES (
     'Ian Sommerville', 
     2004,
     'http://stst.elia.pub.ro/news/IS/IS_PPT/Software%20engineering%208th%20ed.pdf',
-    'https://pictures.abebooks.com/isbn/9780321210265-uk.jpg'
+    'https://pictures.abebooks.com/isbn/9780321210265-uk.jpg',
+    'Ingineria Programarii'
 );
 
 INSERT INTO carti VALUES (
@@ -47,7 +51,8 @@ INSERT INTO carti VALUES (
     'Donald Knuth',
     1968,
     'http://broiler.astrometry.net/~kilian/The_Art_of_Computer_Programming%20-%20Vl%201.pdf',
-    'https://upload.wikimedia.org/wikipedia/en/6/62/ArtOfComputerProgramming.jpg'
+    'https://upload.wikimedia.org/wikipedia/en/6/62/ArtOfComputerProgramming.jpg',
+    'Ingineria Programarii'
 );
 
 INSERT INTO carti VALUES (
@@ -55,7 +60,8 @@ INSERT INTO carti VALUES (
     'Charles Petzold',
     1999,
     'https://bobcarp.files.wordpress.com/2014/07/code-charles-petzold.pdf',
-    'https://www.expertlychosen.com/images/1327-code-the-hidden-language-of-computer-hardware-and-software.jpg'
+    'https://www.expertlychosen.com/images/1327-code-the-hidden-language-of-computer-hardware-and-software.jpg',
+    'Ingineria Programarii'
 );
 
 INSERT INTO carti VALUES (
@@ -63,7 +69,8 @@ INSERT INTO carti VALUES (
     'Robert Martin',
     2008,
     'https://www.investigatii.md/uploads/resurse/Clean_Code.pdf',
-    'http://ecx.images-amazon.com/images/I/512NzCU0wfL.jpg'
+    'http://ecx.images-amazon.com/images/I/512NzCU0wfL.jpg',
+    'Ingineria Programarii'
 );
 
 create or replace function rating_boost(p_titlu varchar2)
