@@ -13,6 +13,7 @@ const recommendationsPage = require('./controllers/recommendations-page');
 const recommendations = require('./controllers/recommendations');
 const adaugarebook = require('./controllers/book');
 const deconectare = require('./controllers/logout');
+const statistici = require('./controllers/statistici');
 
 const host = '127.0.0.1';
 const port = 8079;
@@ -28,6 +29,7 @@ router.addRoute('/materii/:materie/recommendations', recommendationsPage.control
 router.addRoute('/materii/:materie/books/:page/recommendations', recommendations.controller);
 router.addRoute('/book', adaugarebook.controller);
 router.addRoute('/logout', deconectare.controller);
+router.addRoute('/materii/:materie/statistici',statistici.controller);
 
 let server = http.createServer((req, res) => {
     let m = router.match(url.parse(req.url).pathname);

@@ -13,7 +13,8 @@ const subject = require('./controllers/subject');
 const books = require('./controllers/books');
 const booksRecommendations = require('./controllers/books-recommendations');
 const adaugareCarte = require('./controllers/add-books');
-const logOut = require('./controllers/logout')
+const logOut = require('./controllers/logout');
+const statistici = require('./controllers/statistics');
 
 const host = '127.0.0.1';
 const port = 8081;
@@ -32,6 +33,7 @@ router.addRoute('/is-auth', auth.controller);
 router.addRoute('/answered-questions', checkQuestions.controller);
 router.addRoute('/book',adaugareCarte.controller);
 router.addRoute('/logout',logOut.controller);
+router.addRoute('/materii/mat/:materie',statistici.controller);
 
 let server = http.createServer((req, res) => {
     let m = router.match(url.parse(req.url).pathname);

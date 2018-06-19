@@ -7,6 +7,12 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Start statistics manager",
+            "program": "${workspaceFolder}/statistics-manager\\app.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Start gossips manager",
             "program": "${workspaceFolder}/gossips-manager\\app.js"
         },
@@ -93,7 +99,7 @@
             "request": "launch",
             "name": "Start main-hub",
             "program": "${workspaceFolder}/main-hub\\app.js"
-        }
+        },
     ],
     "compounds": [
         {
@@ -113,7 +119,9 @@
                 "Start software utilities manager",
                 "Start source code manager",
                 "Start interest people manager",
-                "Start gossips manager"
+                "Start gossips manager",
+                "Start statistics manager"
+                
             ]
         }
     ]
