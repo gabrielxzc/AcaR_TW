@@ -2,7 +2,7 @@ const request = require('request');
 
 exports.controller = (req, res) => {
     if (req.method === 'POST') {
-        console.log("Adaugare carte");
+        console.log("Logout");
         let cont;
         let body = [];
 

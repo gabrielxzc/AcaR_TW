@@ -1,5 +1,6 @@
 const url = require('url');
 const fs = require('fs');
+const request = require('request');
 const cookieParser = require('../utils/cookie-parser');
 
 exports.controller = (req, res) => {
@@ -15,23 +16,9 @@ exports.controller = (req, res) => {
     };
 
     request(options, (error, response, body) => {
-        if (error) {
-            console.error(error);
-
-            res.writeHead(500);
-            res.end();
-
-            return;
-        }
-
-        body = JSON.parse(body);
-        if (body.status == 'error') {
-            console.error(body);
-
-            res.writeHead(500);
-            res.end();
-
-            return;
-        }
+        res.writeHead(response.statusCode, {
+            'Content-Type': 'application/json'
+        });
+        res.end(JSON.stringify(body));
     });
 }
