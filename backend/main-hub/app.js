@@ -15,6 +15,7 @@ const booksRecommendations = require('./controllers/books-recommendations');
 const adaugareCarte = require('./controllers/add-books');
 const logOut = require('./controllers/logout');
 const statistici = require('./controllers/statistics');
+const bookResourcePage=require('./controllers/book-resource-page');
 
 const host = '127.0.0.1';
 const port = 8081;
@@ -33,6 +34,7 @@ router.addRoute('/answered-questions', checkQuestions.controller);
 router.addRoute('/book',adaugareCarte.controller);
 router.addRoute('/logout',logOut.controller);
 router.addRoute('/materii/mat/:materie',statistici.controller);
+router.addRoute('/subjects/:subject/books/:titlu_resursa/info',bookResourcePage.controller);
 
 let server = http.createServer((req, res) => {
     let m = router.match(url.parse(req.url).pathname);
