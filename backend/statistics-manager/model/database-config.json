@@ -1,0 +1,5 @@
+{
+    "user": "statistics_manager",
+    "password": "statistics_manager",
+    "connectString": "localhost/XE"
+}
