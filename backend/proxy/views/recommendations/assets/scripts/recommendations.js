@@ -126,7 +126,8 @@ function createTimeline(resourceId, json) {
     for (var i = 0; i < json.resources.length; ++i) {
         var listItem = document.createElement("li");
         var itemLink = document.createElement("a");
-        itemLink.href = json.resources[i].link;
+        itemLink.href = "/materii/" + json.resources[i].materie + "/books/" + json.resources[i].titlu + "/resource";
+        console.log(itemLink.href);
         var itemContent = document.createElement("div");
         itemContent.className = "timeline-item";
 

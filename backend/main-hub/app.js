@@ -28,7 +28,6 @@ router.addRoute('/subjects', subjects.controller);
 router.addRoute('/subjects/:subject', subject.controller);
 router.addRoute('/subjects/:subject/books/:page', books.controller);
 router.addRoute('/subjects/:subject/books/:page/recommendations', booksRecommendations.controller);
-
 router.addRoute('/is-auth', auth.controller);
 router.addRoute('/answered-questions', checkQuestions.controller);
 router.addRoute('/book',adaugareCarte.controller);

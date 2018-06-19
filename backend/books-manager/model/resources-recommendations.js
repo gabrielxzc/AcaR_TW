@@ -9,8 +9,6 @@ exports.model = (username, materie, page, callback) => {
             callback(null, error);
             return;
         }
-
-        console.log(materie, username);
         connection.execute(
             'select titlu, autor, anul_publicarii, link, imagine from (select titlu, autor, anul_publicarii, link, imagine, NVL(NVL(rating + rating_boost(titlu), rating) + user_preference(titlu, :username), NVL(rating + rating_boost(titlu), rating)) as pref from carti, user_rating where  username like :username and materie like :materie) where pref >= 4', {
                 materie: materie,
