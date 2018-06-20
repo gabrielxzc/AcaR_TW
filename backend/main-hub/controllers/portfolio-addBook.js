@@ -37,7 +37,6 @@ exports.controller = (req, res) => {
 
                 return;
             }
-            console.log(body);
             if (body.status === 'error') {
                 res.writeHead(200, {
                     'Content-Type': 'application/json'
@@ -120,6 +119,7 @@ exports.controller = (req, res) => {
                         res.writeHead(response.statusCode, {
                             'Content-Type': 'application/json'
                         });
+                        console.log(JSON.stringify(body));
                         res.end(JSON.stringify(body));
                     }
                 });
@@ -127,9 +127,12 @@ exports.controller = (req, res) => {
         }
         
         req.on('data', (chunk) => {
+            console.log(body);
             body.push(chunk);
+            console.log(body);
         }).on('end', () => {
             body = Buffer.concat(body).toString();
+            console.log(body);
 
             try {
                 info = JSON.parse(body);

@@ -48,7 +48,7 @@ exports.controller = (req, res) =>{
                 });
                 res.end(JSON.stringify({
                     'status': 'valid',
-                    'message': 'S-a adaugat cu succes cartea'
+                    'message': 'Operatiunea realizata cu succes!'
                 }));
             });
         });

@@ -16,7 +16,10 @@ const deconectare = require('./controllers/logout');
 const statistici = require('./controllers/statistici');
 const bookResourcePage=require('./controllers/book-resource-page');
 const bookResourcePageInfo=require('./controllers/book-resource-page-info');
-
+const portfolioPage=require('./controllers/portfolio-page');
+const portfolioAddBook=require('./controllers/portfolio-add-book');
+const portfolioRemoveBook=require('./controllers/portfolio-remove-book');
+const portfolioExtractBooks=require('./controllers/portfolio-extract-books');
 const host = '127.0.0.1';
 const port = 8079;
 
@@ -34,6 +37,10 @@ router.addRoute('/logout', deconectare.controller);
 router.addRoute('/materii/:materie/statistici',statistici.controller);
 router.addRoute('/materii/:subject/books/:titlu_resursa/resource',bookResourcePage.controller);
 router.addRoute('/materii/:subject/books/:titlu_resursa/resource/info',bookResourcePageInfo.controller);
+router.addRoute('/portfolio/addBook',portfolioAddBook.controller);
+router.addRoute('/portfolio/removeBook',portfolioRemoveBook.controller);
+router.addRoute('/portfolio/extractBook/:page',portfolioExtractBooks.controller);
+router.addRoute('/portfolio',portfolioPage.controller);
 
 let server = http.createServer((req, res) => {
     let m = router.match(url.parse(req.url).pathname);

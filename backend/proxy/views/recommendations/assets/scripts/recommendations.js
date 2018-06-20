@@ -13,6 +13,10 @@ function main() {
         console.log(window.location.href);
         window.location.replace(window.location.href+"/recommendations");
     }
+    document.getElementById("acces-portofoliu-button").onclick=function(){
+        console.log(window.location.href);
+        window.location.replace('http://localhost:8079/portfolio');
+    }
 
     let xhr = new XMLHttpRequest();
     xhr.open("GET", window.location.href + "/info");

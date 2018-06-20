@@ -19,7 +19,7 @@ function adaugare_carte(){
     }
 
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:8079/book");
+    xhr.open("POST", "http://localhost:8079/portfolio/addBook");
 
     xhr.addEventListener("load", function loadCallback() {
         let response = JSON.parse(xhr.response);
