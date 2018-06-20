@@ -21,8 +21,8 @@ create table trends (
 
 create table user_history (
     action int,
-    username VARCHAR2(128) primary key,
-    titlu VARCHAR2(128)
+    username VARCHAR2(128),
+    titlu VARCHAR2(128) primary key
 );
 
 create or replace function rating_boost(p_titlu varchar2)
