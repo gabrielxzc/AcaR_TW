@@ -184,6 +184,24 @@ a:link {
     z-index: 20;
     cursor: pointer;
 }
+#acces-portofoliu-button {
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
+    font-size: 20px;
+    position: fixed;
+    top:80px;
+    right:70px;
+    background: rgb(192, 185, 130);
+    border-radius:0.25em;
+    height:40px;
+    color: white;
+    width:190px;
+    border: none;
+    -webkit-filter: drop-shadow(1px 2px 5px rgba(0,0,0,.7));
+    filter: drop-shadow(1px 2px 5px rgba(0,0,0,.7));
+    margin-bottom:20px;
+    z-index: 20;
+    cursor: pointer;
+}
 
 /* From */
 .modal {

@@ -9,8 +9,6 @@ exports.model = (materie, tip_resursa,titlu_resursa, callback) => {
         }
         materie = materie.replace(/%20/g, ' ');
         titlu_resursa=titlu_resursa.replace(/%20/g, ' ');
-        console.log(materie);
-        console.log(titlu_resursa);
 
         connection.execute(
             'SELECT titlu,autor,anul_publicarii,link,imagine,materie FROM carti where materie like :materie and titlu like :titlu_resursa' ,{

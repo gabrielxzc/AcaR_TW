@@ -22,7 +22,7 @@ exports.model = (sessionId, callback) => {
                             console.error(error);
                         }
                     });
-
+                    console.log(sessionId);
                     return;
                 }
 

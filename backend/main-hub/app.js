@@ -16,7 +16,9 @@ const adaugareCarte = require('./controllers/add-books');
 const logOut = require('./controllers/logout');
 const statistici = require('./controllers/statistics');
 const bookResourcePage=require('./controllers/book-resource-page');
-
+const portfolioAddBook=require('./controllers/portfolio-addBook');
+const portfolioRemoveBook=require('./controllers/portfolio-removeBook');
+const portfolioExtractBooks=require('./controllers/portfolio-extractBooks');
 const host = '127.0.0.1';
 const port = 8081;
 
@@ -35,7 +37,9 @@ router.addRoute('/book',adaugareCarte.controller);
 router.addRoute('/logout',logOut.controller);
 router.addRoute('/materii/mat/:materie',statistici.controller);
 router.addRoute('/subjects/:subject/books/:titlu_resursa/info',bookResourcePage.controller);
-
+router.addRoute('/portfolio/addBook',portfolioAddBook.controller);
+router.addRoute('/portfolio/removeBook',portfolioRemoveBook.controller);
+router.addRoute('/portfolio/extractBooks/:page',portfolioExtractBooks.controller);
 let server = http.createServer((req, res) => {
     let m = router.match(url.parse(req.url).pathname);
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8079');
