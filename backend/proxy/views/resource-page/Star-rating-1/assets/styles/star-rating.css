@@ -1,0 +1,35 @@
+x-stelute{
+  margin:auto;
+  text-align: center;
+  font-family: FontAwesome;
+  font-size:36px;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+x-stelute > .star::after{
+  content:'\f006';
+  color:#777;
+}
+
+x-stelute > .star.full::after{
+  content:'\f005';
+  color:#fd0;
+}
+
+#rate-button{
+  font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif; 
+  font-size: 20px;
+  background: #333A56;
+  border-radius:0.25em;
+  color: white;
+  border: none;
+  -webkit-filter: drop-shadow(1px 2px 5px rgba(0,0,0,.7));
+  filter: drop-shadow(1px 2px 5px rgba(0,0,0,.7));
+  width: 180px;
+  margin-left: 45%;
+  margin-bottom:20px;
+  height: 40px;
+  display: block;
+  cursor: pointer;
+}

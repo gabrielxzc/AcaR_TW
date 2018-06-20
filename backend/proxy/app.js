@@ -16,6 +16,7 @@ const deconectare = require('./controllers/logout');
 const statistici = require('./controllers/statistici');
 const bookResourcePage=require('./controllers/book-resource-page');
 const bookResourcePageInfo=require('./controllers/book-resource-page-info');
+const starRating=require('./controllers/star-rating');
 
 const host = '127.0.0.1';
 const port = 8079;
@@ -34,6 +35,7 @@ router.addRoute('/logout', deconectare.controller);
 router.addRoute('/materii/:materie/statistici',statistici.controller);
 router.addRoute('/materii/:subject/books/:titlu_resursa/resource',bookResourcePage.controller);
 router.addRoute('/materii/:subject/books/:titlu_resursa/resource/info',bookResourcePageInfo.controller);
+router.addRoute('/materii/:subject/books/:titlu_resursa/resource/rating',starRating.controller);
 
 let server = http.createServer((req, res) => {
     let m = router.match(url.parse(req.url).pathname);

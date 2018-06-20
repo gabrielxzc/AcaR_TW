@@ -2,6 +2,7 @@ const url = require('url');
 const resources = require('../model/resourcePage');
 
 exports.controller = (req, res) => {
+    console.log("PULA1");
     if (req.method === 'GET') {
         let tokens=req.url.split('/');
         let titlu_resursa=tokens[tokens.length-2];

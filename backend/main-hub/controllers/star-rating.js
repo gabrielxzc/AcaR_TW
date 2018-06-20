@@ -1,19 +1,24 @@
-const adaugarecarte = require('../model/adaugare-carte');
+const request=require('request');
 
 exports.controller = (req, res) => {
-    if (req.method === 'POST') {
-        let info;
-        let body = [];
+    if(req.method==="POST"){
+
+        let tokens = req.url.split('/');
+        let titlu_resursa=tokens[tokens.length-2];
+        let tip_resursa=tokens[tokens.length-3];
+        let materie=tokens[tokens.length-4];
+        let rating;
+        let body=[];
+
+        console.log("Am ajuns la main-hub");
 
         req.on('data', (chunk) => {
             body.push(chunk);
         }).on('end', () => {
             body = Buffer.concat(body).toString();
-
             try {
-                info = JSON.parse(body);
-
-                if (info.titlu == null || info.autor == null  || info.anul_publicarii == null || info.link == null || info.imagine == null || info.materie == null) {
+                rating = JSON.parse(body);
+                if (rating.rating == null) {
                     throw 'Lipsesc argumentele necesare!';
                 }
             } catch (e) {
@@ -28,27 +33,29 @@ exports.controller = (req, res) => {
                 return;
             }
 
-            adaugarecarte.model(info.titlu,info.autor,info.anul_publicarii,info.link,info.imagine,info.materie,(error) =>{
+            let options = {
+                uri: 'http://localhost:8089/'+materie+'/carti/'+titlu_resursa+'/rating',
+                method: 'POST',
+                headers:req.headers,
+                json: rating
+            };
+            console.log(options.uri);
+            request(options, (error, response, body) => {
                 if (error) {
                     console.error(error);
-
                     res.writeHead(200, {
                         'Content-Type': 'application/json'
                     });
                     res.end(JSON.stringify({
                         'status': 'error',
-                        'message': 'A aparut o eroare interna, va rugam reincercati mai tarziu iar daca eroarea persista contactati un administrator!'
+                        'message': 'Nu s-a putut contacta serviciul de autentificare!'
                     }));
-
-                    return;
+                } else {
+                    res.writeHead(response.statusCode, {
+                        'Content-Type': 'application/json'
+                    });
+                    res.end(JSON.stringify(body));
                 }
-                res.writeHead(200, {
-                    'Content-Type': 'application/json'
-                });
-                res.end(JSON.stringify({
-                    'status': 'valid',
-                    'message': 'S-a adaugat cu succes cartea'
-                }));
             });
         });
     } else {
