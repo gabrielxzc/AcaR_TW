@@ -6,6 +6,7 @@ const resources = require('./controllers/resources');
 const resourcesRecommendations = require('./controllers/resources-recommendations');
 const addBook = require('./controllers/add-book');
 const resourcePage=require('./controllers/resourcePage');
+const rating=require('./controllers/rating');
 
 const host = '127.0.0.1';
 const port = 8089;
@@ -15,7 +16,7 @@ router.addRoute('/:materie/:page', resources.controller);
 router.addRoute('/:materie/carti/:titlu_resursa/info',resourcePage.controller);
 router.addRoute('/:materie/:page/:username', resourcesRecommendations.controller);
 router.addRoute('/book',addBook.controller);
-
+router.addRoute('/:materie/carti/:titlu_resursa/rating',rating.controller);
 
 let server = http.createServer((req, res) => {
     let m = router.match(url.parse(req.url).pathname);

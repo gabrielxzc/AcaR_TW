@@ -20,6 +20,8 @@ const portfolioPage=require('./controllers/portfolio-page');
 const portfolioAddBook=require('./controllers/portfolio-add-book');
 const portfolioRemoveBook=require('./controllers/portfolio-remove-book');
 const portfolioExtractBooks=require('./controllers/portfolio-extract-books');
+const starRating=require('./controllers/star-rating');
+
 const host = '127.0.0.1';
 const port = 8079;
 
@@ -41,6 +43,7 @@ router.addRoute('/portfolio/addBook',portfolioAddBook.controller);
 router.addRoute('/portfolio/removeBook',portfolioRemoveBook.controller);
 router.addRoute('/portfolio/extractBook/:page',portfolioExtractBooks.controller);
 router.addRoute('/portfolio',portfolioPage.controller);
+router.addRoute('/materii/:subject/books/:titlu_resursa/resource/rating',starRating.controller);
 
 let server = http.createServer((req, res) => {
     let m = router.match(url.parse(req.url).pathname);

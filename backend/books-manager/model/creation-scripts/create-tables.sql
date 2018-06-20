@@ -19,6 +19,28 @@ create table trends (
     CONSTRAINT titlu_carte FOREIGN KEY (titlu) REFERENCES carti(titlu)
 );
 
+create table user_history (
+    action int,
+    username VARCHAR2(128),
+    titlu VARCHAR2(128) primary key
+);
+
+create or replace function rating_boost(p_titlu varchar2)
+return number as
+    v_rating_boost number(10, 2);
+begin
+    SELECT rating_boost INTO v_rating_boost FROM trends WHERE titlu like p_titlu;
+    return v_rating_boost;
+end;
+
+create or replace function user_preference(p_titlu varchar2, p_username varchar2)
+return number as
+    v_user_preference number;
+begin
+    SELECT action INTO v_user_preference FROM user_history WHERE username like p_username and titlu like p_titlu;
+    return v_user_preference - 3;
+end;
+
 INSERT INTO carti VALUES (
     'Design Patterns, Elements of Reusable Object-Oriented Software', 
     'Erich Gamma, Richard Helm, Ralph Johnson, John Vissides', 
@@ -73,18 +95,9 @@ INSERT INTO carti VALUES (
     'Ingineria Programarii'
 );
 
-create or replace function rating_boost(p_titlu varchar2)
-return number as
-    v_rating_boost number(10, 2);
-begin
-    SELECT rating_boost INTO v_rating_boost FROM trends WHERE titlu like p_titlu;
-    return v_rating_boost;
-end;
-
-create or replace function user_preference(p_titlu varchar2, p_username varchar2)
-return number as
-    v_user_preference number;
-begin
-    SELECT action INTO v_user_preference FROM user_history WHERE username like p_username and titlu like p_titlu;
-    return v_user_preference - 3;
-end;
+INSERT INTO carti values (
+    'Game of Thrones',
+    'George R.R.Martin',
+    '2016',
+    'https://en.wikipedia.org/wiki/A_Song_of_Ice_and_Fire',
+    'https://upload.wikimedia.org/wikipedia/en/d/dc/A_Song_of_Ice_and_Fire_book_collection_box_set_cover.jpg','Ingineria Programarii');

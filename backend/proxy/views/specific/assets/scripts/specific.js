@@ -97,7 +97,7 @@ function createTimeline(resourceId, json) {
     timeline.appendChild(timelineTitle);
 
     //Left button
-    var buttonContent = document.createElement("div");
+  /*  var buttonContent = document.createElement("div");
     buttonContent.className = "left-arrow";
     var leftButton = document.createElement("a");
     var url = "";
@@ -135,16 +135,16 @@ function createTimeline(resourceId, json) {
         } else {
             //console.log(resourcePageNumber[resIndex]);
             resurse[resIndex].innerHTML = "";
-            /*while (document.getElementsByClassName("resurse").firstChild) {
-                resurse[0].removeChild(document.getElementsByClassName("resurse").firstChild);
-            }*/
+            //while (document.getElementsByClassName("resurse").firstChild) {
+            //    resurse[0].removeChild(document.getElementsByClassName("resurse").firstChild);
+            //}
             document.getElementsByClassName("resurse")[0].appendChild(resourcePages[resIndex][resourcePageNumber[resIndex] - 2]);
             resourcePageNumber[resIndex]--;
         }
     };
     buttonContent.appendChild(leftButton);
     timeline.appendChild(buttonContent);
-
+*/
     var listItems = document.createElement("ol");
     listItems.className = "nav";
     for (var i = 0; i < json.resources.length; ++i) {
@@ -172,7 +172,7 @@ function createTimeline(resourceId, json) {
         listItems.appendChild(listItem);
     }
     timeline.appendChild(listItems);
-
+/*
     //Right button
     var buttonContent = document.createElement("div");
     buttonContent.className = "right-arrow";
@@ -206,7 +206,7 @@ function createTimeline(resourceId, json) {
     };
     buttonContent.appendChild(rightButton);
     timeline.appendChild(buttonContent);
-
+*/
     //display info on webpage
     var resourceContent = document.getElementById(resourceId);
     resourceContent.appendChild(timeline);

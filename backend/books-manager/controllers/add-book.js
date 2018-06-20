@@ -1,6 +1,6 @@
 const adaugarecarte = require('../model/adaugare-carte');
 
-exports.controller = (req, res) =>{
+exports.controller = (req, res) => {
     if (req.method === 'POST') {
         let info;
         let body = [];
