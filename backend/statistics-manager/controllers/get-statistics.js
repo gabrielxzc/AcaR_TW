@@ -5,7 +5,7 @@ exports.controller = (req, res) => {
     if (req.method === 'GET') {
         let tokens = req.url.split('/');
 
-        let materie = tokens[tokens.length - 2];
+        let materie = tokens[tokens.length - 1];
 
         statistics.model( materie, (statistici, error) => {
             if (error) {

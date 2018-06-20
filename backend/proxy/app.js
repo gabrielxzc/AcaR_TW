@@ -42,7 +42,6 @@ let server = http.createServer((req, res) => {
         m.fn(req, res);
     } else {
         let filepath = './proxy' + url.parse(req.url).pathname;
-        
         fs.readFile(filepath, (error, data) => {
             if (error) {
                 res.writeHead(404);

@@ -8,10 +8,10 @@ exports.controller = (req, res) => {
     if (req.method === 'GET') {
         let tokens = req.url.split('/');
         let materie = tokens[tokens.length -1];
-
         let cookies = cookieParser.parse(req);
-
+        console.log(req.headers.cookie);
         if (cookies.user == null) {
+            console.log('imibagpula');
             res.writeHead(200, {
                 'Content-Type': 'application/json'
             });
@@ -96,7 +96,7 @@ exports.controller = (req, res) => {
                 }
 
                 let options = {
-                    uri: 'http://localhost:8120/materie/?materie=' + materie,
+                    uri: 'http://localhost:8120/materii/' + materie,
                     method: 'GET'
                 };
 

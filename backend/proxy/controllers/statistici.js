@@ -5,9 +5,9 @@ const request = require('request');
 
 exports.controller = (req, res) => {
     let tokens = req.url.split('/');
-    let materie = tokens[tokens.length - 3];
+    let materie = tokens[tokens.length -2];
     let cookies = cookieParser.parse(req);
-
+    console.log("!!! " + cookies['user']);
     let options = {
         uri: 'http://localhost:8081/is-auth',
         method: 'POST',
@@ -50,7 +50,8 @@ exports.controller = (req, res) => {
 
         let options = {
             uri: 'http://localhost:8081/materii/mat/' + materie,
-            method: 'GET'
+            method: 'GET',
+            headers: req.headers
         };
         request(options, (error, response, body) => {
             res.writeHead(response.statusCode, {

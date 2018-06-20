@@ -19,45 +19,51 @@
     <div id="titlu"></div>
     <div id="introducere"></div>
     <div id="recommendations">
-    <div id="carti" class="resurse" value="0"></div>
+        <div id="carti" class="resurse" value="0"></div>
 
-    <button id="myBtn">Adaugare carte!</button>
+        <button id="myBtn">Adaugare carte!</button>
 
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="form">
-                <form class="add-book">
-                    <h2>Adauga o noua carte </h2>
-                    <p>Titlu</p>
-                    <input type=text id="Titlul" placeholder="Titlu cartii" required>
-                    <br>
-                    <span id="spnName"></span>
-                    <p>Autor</p>
-                    <input type=text id="Autor" placeholder="Autorul cartii" required>
-                    <p>Anul publicarii</p>
-                    <input type=text id="Anul" placeholder="Anul publicarii" required>
-                    <p>Link</p>
-                    <input type=text id="Link" placeholder="Link-ul cartii" required>
-                    <p>Imagine</p>
-                    <input type=text id="Img" placeholder="Link-ul imaginii" required>
-                    <p>Materie</p>
-                    <input type=text id="Materie" placeholder="Materia" required>
-                    <br>
-                    <span id="parola"></span>
-                    <span id="MesajConfirmare"></span>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="form">
+                    <form class="add-book">
+                        <h2>Adauga o noua carte </h2>
+                        <p>Titlu</p>
+                        <input type=text id="Titlul" placeholder="Titlu cartii" required>
+                        <br>
+                        <span id="spnName"></span>
+                        <p>Autor</p>
+                        <input type=text id="Autor" placeholder="Autorul cartii" required>
+                        <p>Anul publicarii</p>
+                        <input type=text id="Anul" placeholder="Anul publicarii" required>
+                        <p>Link</p>
+                        <input type=text id="Link" placeholder="Link-ul cartii" required>
+                        <p>Imagine</p>
+                        <input type=text id="Img" placeholder="Link-ul imaginii" required>
+                        <p>Materie</p>
+                        <input type=text id="Materie" placeholder="Materia" required>
+                        <br>
+                        <span id="parola"></span>
+                        <span id="MesajConfirmare"></span>
 
-                    <button id="loginbtn" onclick="adaugare_carte()" type="button">Adaugare carte!</button>
-                </form>
+                        <button id="loginbtn" onclick="adaugare_carte()" type="button">Adaugare carte!</button>
+                    </form>
+                </div>
             </div>
-        </div>
 
-    </div>
+        </div>
         <div id="articole" class="resurse" value="1"></div>
         <div id="cod" class="resurse" value="2"></div>
         <div id="persoane" class="resurse" value="3"></div>
         <div id="instrumente" class="resurse" value="4"></div>
         <div id="barfe" class="resurse" value="5"></div>
+        <h2 id="titlulstatistici">Statistici note</h2>
+        <section class="container">
+            <div id="nota" class="resurse" value="6"></div>
+            <div id="numberOfStudents" class="resurse" value="7"></div>
+        </section>
+        <div id="mesajAtentionare" class="resurse" value="7"></div>
     </div>
 
     </div>
@@ -72,6 +78,7 @@
     <script src="/views/recommendations/assets/scripts/recommendations.js"></script>
     <script src="/views/recommendations/assets/scripts/formular.js"></script>
     <script src="/views/recommendations/assets/scripts/delogare.js"></script>
+    <script src="/views/recommendations/assets/scripts/statistics.js"></script>
     <script>
         // Get the modal
         var modal = document.getElementById('myModal');
