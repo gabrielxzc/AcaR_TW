@@ -4,14 +4,14 @@
 <head>
     <title> Academic Recommender </title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/views/recommendations/assets/styles/body_header.css">
-    <link rel="stylesheet" href="/views/recommendations/assets/styles/recommendations.css">
+    <link rel="stylesheet" href="./assets/styles/body_header.css">
+    <link rel="stylesheet" href="./assets/styles/portfolio.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-    <button type="button" name="submit" id="submit-button">Vezi recomandari</button>
-    <button type="button" name="submit" id="acces-portofoliu-button">Portofoliul meu</button>
+    <button id="adauga-carte" onclick="adaugare_carte()" type="button">Adaugare carte!</button>
+    <button id="sterge-carte">Stergere carte!</button>
     <header>
         <button id="myBtn2" onclick="Logout()" type="button">Logout!</button>
         <h1> AcaR </h1>
@@ -20,40 +20,38 @@
     <div id="titlu"></div>
     <div id="introducere"></div>
     <div id="recommendations">
-    <div id="carti" class="resurse" value="0"></div>
+        <div id="carti" class="resurse" value="0"></div>
 
-    <button id="myBtn">Adaugare carte!</button>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="form">
+                    <form class="add-book">
+                        <h2>Adauga o noua carte </h2>
+                        <p>Titlu</p>
+                        <input type=text id="Titlul" placeholder="Titlu cartii" required>
+                        <br>
+                        <span id="spnName"></span>
+                        <p>Autor</p>
+                        <input type=text id="Autor" placeholder="Autorul cartii" required>
+                        <p>Anul publicarii</p>
+                        <input type=text id="Anul" placeholder="Anul publicarii" required>
+                        <p>Link</p>
+                        <input type=text id="Link" placeholder="Link-ul cartii" required>
+                        <p>Imagine</p>
+                        <input type=text id="Img" placeholder="Link-ul imaginii" required>
+                        <p>Materie</p>
+                        <input type=text id="Materie" placeholder="Materia" required>
+                        <br>
+                        <span id="parola"></span>
+                        <span id="MesajConfirmare"></span>
 
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="form">
-                <form class="add-book">
-                    <h2>Adauga o noua carte </h2>
-                    <p>Titlu</p>
-                    <input type=text id="Titlul" placeholder="Titlu cartii" required>
-                    <br>
-                    <span id="spnName"></span>
-                    <p>Autor</p>
-                    <input type=text id="Autor" placeholder="Autorul cartii" required>
-                    <p>Anul publicarii</p>
-                    <input type=text id="Anul" placeholder="Anul publicarii" required>
-                    <p>Link</p>
-                    <input type=text id="Link" placeholder="Link-ul cartii" required>
-                    <p>Imagine</p>
-                    <input type=text id="Img" placeholder="Link-ul imaginii" required>
-                    <p>Materie</p>
-                    <input type=text id="Materie" placeholder="Materia" required>
-                    <br>
-                    <span id="parola"></span>
-                    <span id="MesajConfirmare"></span>
-
-                    <button id="loginbtn" onclick="adaugare_carte()" type="button">Adaugare carte!</button>
-                </form>
+                        <button id="loginbtn">Adaugare carte!</button>
+                    </form>
+                </div>
             </div>
-        </div>
 
-    </div>
+        </div>
         <div id="articole" class="resurse" value="1"></div>
         <div id="cod" class="resurse" value="2"></div>
         <div id="persoane" class="resurse" value="3"></div>
@@ -68,16 +66,16 @@
         <p> © 2018 Cojocaru Gabriel-Codrin, Pintilei Serban, Marincean Ioan, Stanciu Sebastian Terms of Use Privacy and Security
             Statement </p>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="/views/recommendations/assets/scripts/recommendations.js"></script>
-    <script src="/views/recommendations/assets/scripts/formular.js"></script>
-    <script src="/views/recommendations/assets/scripts/delogare.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>-->
+    <script src="./assets/scripts/portfolio.js"></script>
+    <script src="./assets/scripts/formular.js"></script>
+    <script src="./assets/scripts/delogare.js"></script>
     <script>
         // Get the modal
         var modal = document.getElementById('myModal');
         // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
+        var btn = document.getElementById("adauga-carte");
 
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];

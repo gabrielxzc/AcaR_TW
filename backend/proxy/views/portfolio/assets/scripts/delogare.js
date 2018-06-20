@@ -11,7 +11,7 @@ function Logout() {
             alert('A aparut o eroare');
         } else {
            alert('cerea a fost trimisa!');
-           window.location.replace("http://localhost:8079/"); 
+           window.location.replace("http://localhost:8079/");
         }
     });
     xhr.addEventListener("error", function errorCallback() {
