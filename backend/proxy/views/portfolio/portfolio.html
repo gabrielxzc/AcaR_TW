@@ -4,15 +4,13 @@
 <head>
     <title> Academic Recommender </title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./assets/styles/body_header.css">
-    <link rel="stylesheet" href="./assets/styles/portfolio.css">
+    <link rel="stylesheet" href="/views/portfolio/assets/styles/body_header.css">
+    <link rel="stylesheet" href="/views/portfolio/assets/styles/portfolio.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-    <button type="button" name="submit" id="submit-button">Vezi recomandari</button>
-    <button id="adauga-carte" onclick="adaugare_carte()" type="button">Adaugare carte!</button>
-    <button id="sterge-carte">Stergere carte!</button>
+
     <header>
         <button id="myBtn2" onclick="Logout()" type="button">Logout!</button>
         <h1> AcaR </h1>
@@ -23,7 +21,7 @@
     <div id="recommendations">
         <div id="carti" class="resurse" value="0"></div>
 
-        <div id="myModal" class="modal">
+        <div class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <div class="form">
@@ -51,8 +49,32 @@
                     </form>
                 </div>
             </div>
-
         </div>
+        
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="form">
+                    <form class="add-book">
+                        <h2>Adauga o noua carte </h2>
+                        <p>Titlu</p>
+                        <input type=text id="Titlul" placeholder="Titlu cartii" required>
+                        <br>
+                        <span id="Parola"></span>
+                        <span id="mesajConfirmare"></span>
+
+                        <button id="loginbtn">Stergere carte!</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="buttons">
+        <button id="adauga-carte">Adaugare carte!</button>
+        <button id="sterge-carte">Sterge carte!</button>
+        </div>
+
         <div id="articole" class="resurse" value="1"></div>
         <div id="cod" class="resurse" value="2"></div>
         <div id="persoane" class="resurse" value="3"></div>
@@ -69,35 +91,47 @@
     </footer>
     <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>-->
-    <script src="./assets/scripts/portfolio.js"></script>
-    <script src="./assets/scripts/formular.js"></script>
-    <script src="./assets/scripts/delogare.js"></script>
+    <script src="/views/portfolio/assets/scripts/portfolio.js"></script>
+    <script src="/views/portfolio/assets/scripts/formular.js"></script>
+    <script src="/views/portfolio/assets/scripts/delogare.js"></script>
     <script>
         // Get the modal
-        var modal = document.getElementById('myModal');
-        // Get the button that opens the modal
+        var modalAdaugare = document.getElementsByClassName('modal')[0];
+        var modalStergere = document.getElementsByClassName('modal')[1];
+        // Get the button that opens the modalAdaugare
         var btn = document.getElementById("adauga-carte");
+        var btn1 = document.getElementById("sterge-carte");
 
-        // Get the <span> element that closes the modal
+        // Get the <span> element that closes the modalAdaugare
         var span = document.getElementsByClassName("close")[0];
-        // When the user clicks the button, open the modal 
+        var span1=document.getElementsByClassName("close")[1];
+        // When the user clicks the button, open the modalAdaugare 
         btn.onclick = function () {
-            modal.style.display = "block";
+            modalAdaugare.style.display = "block";
         }
 
-        // When the user clicks on <span> (x), close the modal
+        btn1.onclick=function () {
+            modalStergere.style.display = "block";
+        }
+        // When the user clicks on <span> (x), close the modalAdaugare
         span.onclick = function () {
-            modal.style.display = "none";
-
+            modalAdaugare.style.display = "none";
+        }
+        span1.onclick = function () {
+            modalStergere.style.display = "none";
         }
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-
+        // When the user clicks anywhere outside of the modalAdaugare, close it
+        /*window.onclick = function (event) {
+            if (event.target == modalAdaugare) {
+                modalAdaugare.style.display = "none";
             }
         }
+        window.onclick = function (event) {
+            if (event.target == modalStergere) {
+                modalStergere.style.display = "none";
+            }
+        }*/
 
     </script>
 </body>
