@@ -5,14 +5,88 @@ const cookieParser = require('../utils/cookie-parser');
 const url = require('url');
 
 exports.controller = (req, res) => {
-    if (req.method === 'POST') {
+    if (req.method === 'GET') {
+        console.log("Si pana la main-hub!!");
         let info = {};
         let cookies = cookieParser.parse(req);
         let body = [];
         let tokens = req.url.split('/');
         let page = tokens[tokens.length - 1];
-        
-        
+
+        if (cookies.user == null) {
+            res.writeHead(200, {
+                'Content-Type': 'application/json'
+            });
+            res.end(JSON.stringify({
+                'status': 'error',
+                'message': 'Nu ai specificat un token de logare in cerere!'
+            }));
+
+            return;
+        }
+        auth.check(cookies.user, function (body, error) {
+            if (error) {
+                console.error(error);
+
+                res.writeHead(200, {
+                    'Content-Type': 'application/json'
+                });
+                res.end(JSON.stringify({
+                    'status': 'error',
+                    'message': 'Nu s-a putut contacta serviciul de administrare a sesiunilor!'
+                }));
+
+                return;
+            }
+            if (body.status === 'error') {
+                res.writeHead(200, {
+                    'Content-Type': 'application/json'
+                });
+                res.end(JSON.stringify(body));
+
+                return;
+            }
+
+            if (body.username == null) {
+                res.writeHead(200, {
+                    'Content-Type': 'application/json'
+                });
+                res.end(JSON.stringify({
+                    'status': 'error',
+                    'message': 'A expirat tokenul!'
+                }));
+
+                return;
+            }
+            info=body;
+            let options = {
+                uri: 'http://localhost:8095/extractBooks/' + page,
+                method: 'GET' ,
+                json : info
+            };
+
+            //console.log(options);
+            request(options, (error, response, body) => {
+                if (error) {
+                    console.error(error);
+
+                    res.writeHead(200, {
+                        'Content-Type': 'application/json'
+                    });
+                    res.end(JSON.stringify({
+                        'status': 'error',
+                        'message': 'Nu s-a putut contacta serviciul de adaugare a cartilor!'
+                    }));
+                } else {
+                    res.writeHead(response.statusCode, {
+                        'Content-Type': 'application/json'
+                    });
+                    res.end(JSON.stringify(body));
+                }
+            });
+
+        });        
+/*        
         if (cookies.user == null) {
             res.writeHead(200, {
                 'Content-Type': 'application/json'
@@ -39,7 +113,7 @@ exports.controller = (req, res) => {
 
                 return;
             }
-            console.log(body);
+            //console.log(body);
             if (body.status === 'error') {
                 res.writeHead(200, {
                     'Content-Type': 'application/json'
@@ -100,33 +174,9 @@ exports.controller = (req, res) => {
                     return;
                 }
                 
-
-                let options = {
-                    uri: 'http://localhost:8095/extractBooks/' + page,
-                    method: 'POST' ,
-                    json : info
-                };
-
-                request(options, (error, response, body) => {
-                    if (error) {
-                        console.error(error);
-
-                        res.writeHead(200, {
-                            'Content-Type': 'application/json'
-                        });
-                        res.end(JSON.stringify({
-                            'status': 'error',
-                            'message': 'Nu s-a putut contacta serviciul de adaugare a cartilor!'
-                        }));
-                    } else {
-                        res.writeHead(response.statusCode, {
-                            'Content-Type': 'application/json'
-                        });
-                        res.end(JSON.stringify(body));
-                    }
-                });
+                //console.log("Inainte sa trimitem la serviciu!");
             });
-        }
+        };
         
         req.on('data', (chunk) => {
             body.push(chunk);
@@ -149,7 +199,7 @@ exports.controller = (req, res) => {
 
                 return;
             }
-        });
+        });*/
         
 
     } else {
@@ -158,7 +208,7 @@ exports.controller = (req, res) => {
         });
         res.end(JSON.stringify({
             'status': 'error',
-            'message': 'Doar metoda POST este accepta pe aceasta ruta!'
+            'message': 'Doar metoda GET este accepta pe aceasta ruta!'
         }));
     }
 };

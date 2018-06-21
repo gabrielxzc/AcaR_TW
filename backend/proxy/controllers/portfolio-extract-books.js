@@ -7,7 +7,7 @@ exports.controller = (req, res) => {
     let requestBody = [];
     var tokens = req.url.split('/');
     var page=tokens[tokens.length-1];
-    req.on('data', (chunk) => {
+    /*req.on('data', (chunk) => {
         requestBody.push(chunk);
     }).on('end', () => {
         requestBody = Buffer.concat(requestBody).toString();
@@ -17,19 +17,18 @@ exports.controller = (req, res) => {
         } catch(e) {
             console.error(e);
         }
-         
+    */     
         let options = {
             url: 'http://localhost:8081/portfolio/extractBooks/'+page,
             method: req.method,
-            headers: req.headers,
-            json: obj
+            headers: req.headers
         };
-
+        //console.log(options.url);
         request(options, (error, response, body) => {
             res.writeHead(response.statusCode, {
                 'Content-Type': 'application/json'
             });
             res.end(JSON.stringify(body));
         });
-    });
+    //});
 };

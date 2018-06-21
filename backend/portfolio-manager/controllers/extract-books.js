@@ -1,11 +1,12 @@
 const extractbooks = require('../model/extract-books');
 const cookieParser = require('../utils/cookie-parser');
 exports.controller = (req, res) =>{
-    if (req.method === 'POST') {
+    if (req.method === 'GET') {
+        console.log("Bravo! Aproape de finalul rutei!");
         let info;
         let body = [];
         let tokens=req.url.split('/');
-        let cookies = cookieParser.parse(req);
+        //let cookies = cookieParser.parse(req);
         let page=tokens[tokens.length-1];
         
         req.on('data', (chunk) => {
@@ -15,7 +16,7 @@ exports.controller = (req, res) =>{
 
             try {
                 info = JSON.parse(body);
-
+                console.log(info.username);
                 if (info.username==null) {
                     throw 'Lipsesc argumentele necesare!';
                 }
@@ -61,7 +62,7 @@ exports.controller = (req, res) =>{
         });
         res.end(JSON.stringify({
             'status': 'error',
-            'message': 'Doar metoda POST este accepta pe aceasta ruta!'
+            'message': 'Doar metoda GET este accepta pe aceasta ruta!'
         }));
     }
 };

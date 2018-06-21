@@ -17,11 +17,12 @@ function main() {
 
 function resourceRequest(resourceId, url) {
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "localhost:8079/portfolio" + url);
+    xhr.open("GET", "http://localhost:8079/portfolio" + url);
+    console.log("http://localhost:8079/portfolio" + url);
     xhr.addEventListener("load", function loadCallback() {
         let data = JSON.parse(xhr.response);
         let json = JSON.parse(data);
-        //console.log(json);
+        console.log(json);
         var recommendationsContent = document.getElementById("recommendations");
         createTimeline(resourceId, json);
     });
