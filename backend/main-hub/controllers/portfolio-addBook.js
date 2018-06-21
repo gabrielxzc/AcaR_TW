@@ -6,6 +6,7 @@ const url = require('url');
 
 exports.controller = (req, res) => {
     if (req.method === 'POST') {
+        console.log("macar aici am fost");
         let info = {};
         let cookies = cookieParser.parse(req);
         let body = [];
@@ -119,7 +120,6 @@ exports.controller = (req, res) => {
                         res.writeHead(response.statusCode, {
                             'Content-Type': 'application/json'
                         });
-                        console.log(JSON.stringify(body));
                         res.end(JSON.stringify(body));
                     }
                 });
@@ -127,12 +127,9 @@ exports.controller = (req, res) => {
         }
         
         req.on('data', (chunk) => {
-            console.log(body);
             body.push(chunk);
-            console.log(body);
         }).on('end', () => {
             body = Buffer.concat(body).toString();
-            console.log(body);
 
             try {
                 info = JSON.parse(body);

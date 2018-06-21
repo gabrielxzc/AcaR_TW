@@ -4,7 +4,7 @@ const url = require('url');
 exports.controller = (req, res) => {
     let obj;
     let requestBody = [];
-
+    console.log("am fost aici");
     req.on('data', (chunk) => {
         requestBody.push(chunk);
     }).on('end', () => {
@@ -15,9 +15,6 @@ exports.controller = (req, res) => {
         } catch(e) {
             console.error(e);
         }
-        console.log(obj);
-        console.log(req.headers);
-        console.log(req.method);
         let options = {
             url: 'http://localhost:8081/portfolio/addBook',
             method: req.method,

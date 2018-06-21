@@ -1,25 +1,15 @@
 
 
-function adaugare_carte(){
+function stergere_carte(){
 
     var titlu = document.getElementById("Titlul");
-    var autor = document.getElementById("Autor");
-    var anul = document.getElementById("Anul");
-    var link = document.getElementById("Link");
-    var imagine = document.getElementById("Img");
-    var materie = document.getElementById("Materie");
 
     var colectare = {
-        "titlu": titlu.value,
-        "autor": autor.value,
-        "anul_publicarii": anul.value,
-        "link": link.value,
-        "imagine": imagine.value,
-        "materie": materie.value
+        "titlu": titlu.value
     }
 
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:8079/book");
+    xhr.open("POST", "http://localhost:8079/portfolio/removeBook");
 
     xhr.addEventListener("load", function loadCallback() {
         let response = JSON.parse(xhr.response);
