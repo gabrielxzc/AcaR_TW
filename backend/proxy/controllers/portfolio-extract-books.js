@@ -2,6 +2,7 @@ const request = require('request');
 const url = require('url');
 
 exports.controller = (req, res) => {
+    console.log("am ajuns pe proxy extract");
     let obj;
     let requestBody = [];
     var tokens = req.url.split('/');

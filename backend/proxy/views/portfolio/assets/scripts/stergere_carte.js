@@ -2,12 +2,12 @@
 
 function stergere_carte(){
 
-    var titlu = document.getElementById("Titlul");
+    var titlu = document.getElementById("Titlul1");
 
     var colectare = {
         "titlu": titlu.value
     }
-
+    console.log(colectare.titlu);
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost:8079/portfolio/removeBook");
 
@@ -17,7 +17,7 @@ function stergere_carte(){
         if (response.status == "error") {
             alert('A aparut o eroare');
         } else {
-           alert('Adaugarea s-a realizat cu succes!');
+           alert('Stergerea s-a realizat cu succes!');
         }
     });
 

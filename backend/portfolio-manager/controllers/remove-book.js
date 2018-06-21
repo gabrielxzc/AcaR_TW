@@ -4,7 +4,7 @@ exports.controller = (req, res) =>{
     if (req.method === 'POST') {
         let info;
         let body = [];
-
+        console.log("si pe aici");
         req.on('data', (chunk) => {
             body.push(chunk);
         }).on('end', () => {
@@ -12,7 +12,8 @@ exports.controller = (req, res) =>{
 
             try {
                 info = JSON.parse(body);
-
+                console.log(info.username);
+                console.log(info.titlu);
                 if (info.username==null || info.titlu == null) {
                     throw 'Lipsesc argumentele necesare!';
                 }
@@ -45,6 +46,7 @@ exports.controller = (req, res) =>{
                 res.writeHead(200, {
                     'Content-Type': 'application/json'
                 });
+                console.log("totul bine");
                 res.end(JSON.stringify({
                     'status': 'valid',
                     'message': 'Operatiunea realizata cu succces!'

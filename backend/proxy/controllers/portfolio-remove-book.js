@@ -4,6 +4,7 @@ const url = require('url');
 exports.controller = (req, res) => {
     let obj;
     let requestBody = [];
+    console.log("am trecut sa sterg");
 
     req.on('data', (chunk) => {
         requestBody.push(chunk);

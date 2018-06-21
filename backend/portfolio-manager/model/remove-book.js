@@ -3,7 +3,8 @@ const oracledb = require('oracledb');
 
 
 exports.model = (username,titlu,callback) =>{
-
+    console.log(username);
+    console.log(titlu);
     oracledb.getConnection(databaseConfig, (error, connection) => {
         if (error) {
             callback(error);

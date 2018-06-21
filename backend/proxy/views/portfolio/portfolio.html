@@ -10,6 +10,7 @@
 </head>
 
 <body>
+
     <header>
         <button id="myBtn2" onclick="Logout()" type="button">Logout!</button>
         <h1> AcaR </h1>
@@ -44,7 +45,7 @@
                         <span id="parola"></span>
                         <span id="MesajConfirmare"></span>
 
-                        <button id="loginbtn" onclick="adaugare_carte()" type="button">Adaugare carte!</button>
+                        <button id="addbook" onclick="adaugare_carte()">Adaugare carte!</button>
                     </form>
                 </div>
             </div>
@@ -55,14 +56,14 @@
                 <span class="close">&times;</span>
                 <div class="form">
                     <form class="add-book">
-                        <h2>Adauga o noua carte </h2>
+                        <h2>Sterge o veche carte </h2>
                         <p>Titlu</p>
-                        <input type=text id="Titlul" placeholder="Titlu cartii" required>
+                        <input type=text id="Titlul1" placeholder="Titlu cartii" required>
                         <br>
                         <span id="Parola"></span>
                         <span id="mesajConfirmare"></span>
 
-                        <button id="loginbtn">Stergere carte!</button>
+                        <button id="rmvbook" onclick="stergere_carte()">Stergere carte!</button>
                     </form>
                 </div>
             </div>
@@ -91,7 +92,8 @@
     <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>-->
     <script src="/views/portfolio/assets/scripts/portfolio.js"></script>
-    <script src="/views/portfolio/assets/scripts/formular.js"></script>
+    <script src="/views/portfolio/assets/scripts/adaugare_carte.js"></script>
+    <script src="/views/portfolio/assets/scripts/stergere_carte.js"></script>
     <script src="/views/portfolio/assets/scripts/delogare.js"></script>
     <script>
         // Get the modal
